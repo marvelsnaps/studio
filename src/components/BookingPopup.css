@@ -1,0 +1,220 @@
+.booking-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+.booking-popup {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000000;
+    isolation: isolate;
+    backdrop-filter: none;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.booking-popup h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffd735;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 19px;
+    font-weight: bolder;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0c8f00;
+    color: white;
+}
+.selected-photo{
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .booking-popup-overlay {
+        z-index: 999999;
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+    
+    .booking-popup {
+        width: 95%;
+        padding: 20px;
+        z-index: 1000000;
+        position: relative;
+        background-color: white;
+        margin-top: 20px;
+        max-height: 85vh;
+    }
+   
+}  
+
+.photo-preview {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+} 
+
+.custom-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.selected-photo {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-options {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    z-index: 1000;
+    width: 100%;
+    margin-top: 10px;
+    max-width: 350px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-option {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.photo-option {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.dropdown-option:hover {
+    background-color: #f0f0f0;
+} 
+
+.dropdown-options.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 10px; /* Space between grid items */
+    max-width: 310px;
+}
+
+.photo-option {
+    width: 100%; /* Make the image take the full width of the grid cell */
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer; /* Change cursor to pointer for better UX */
+}
+
+.dropdown-option {
+    position: relative; /* Position relative for absolute positioning of the tick */
+    cursor: pointer; /* Change cursor to pointer for better UX */
+}
+
+.tick {
+    position: absolute;
+    top: 5px; /* Adjust as needed */
+    right: 5px; /* Adjust as needed */
+    color: white; /* Default color for the tick */
+    font-size: 20px; /* Adjust size as needed */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.tick.selected {
+    color: green; /* Change color to green when selected */
+} 
+
+.photo-selection-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999999;
+}
+
+.photo-selection-popup {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    min-height: 450px;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999999999;
+} 

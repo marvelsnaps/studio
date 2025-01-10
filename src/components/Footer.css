@@ -1,0 +1,97 @@
+.h4{
+    color: black;
+}
+
+
+.footer {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 2rem 2rem; /* Adjusted padding for left and right */
+    text-align: left; /* Align text to the left */
+}
+
+.footer-content {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    flex-wrap: wrap; /* Wrap items on smaller screens */
+    max-width: 1200px; /* Optional: limit the width of the footer content */
+    margin: 0 auto; /* Center the footer content */
+}
+
+.footer-logo {
+    flex: 1; /* Take up space */
+    margin-right: 2rem; /* Space between sections */
+}
+
+.footer-logo img {
+    width: 100px; /* Adjust logo size */
+}
+
+.footer-links {
+    flex: 1; /* Take up space */
+    margin: 0 1rem; /* Space between sections */
+}
+
+.footer-links h4 {
+    margin-bottom: 1rem; /* Space below heading */
+}
+
+.footer-links ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.footer-links li {
+    margin: 0.5rem 0; /* Space between links */
+}
+
+.footer-contact {
+    flex: 1; /* Take up space */
+    margin-left: 2rem; /* Space between sections */
+}
+
+.footer-bottom {
+    text-align: center; /* Center text */
+    margin-top: 2rem; /* Space above */
+}
+
+.footer-links a {
+    color: #ffd735;  /* White color for links */
+    text-decoration: none;  /* Remove default underline */
+    transition: color 0.3s ease;  /* Smooth color transition on hover */
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+
+.footer-links a:hover {
+    color: #FFD735;  /* Yellow color on hover */
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        
+    }
+
+    .footer-logo, .footer-links, .footer-contact {
+        margin: 1rem 0;
+    }
+
+    .footer-links ul {
+            
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        color: #ffd735;
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        text-decoration-thickness: 2px;
+    }
+
+    .footer-links li {
+        margin: 0;
+    }
+} 

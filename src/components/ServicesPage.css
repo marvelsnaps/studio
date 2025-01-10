@@ -1,0 +1,305 @@
+.services-page {
+    padding-top: 80px;
+    background-color: #c6c6c6;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.services-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 15px;
+    justify-content: center;
+}
+
+.service-detailed-block {
+    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* Image Container and Hover Effect */
+.service-detailed-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all 1.3s ease;
+}
+
+.service-detailed-block:hover .service-detailed-image {
+    transform: scale(1.1);
+    filter: brightness(0.8);
+}
+
+/* Content Styling */
+.service-detailed-content {
+    flex: 1;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.9s ease;
+}
+
+.service-detailed-content h3 {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.service-detailed-content p {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+/* Hover Effects */
+.service-detailed-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .services-detailed-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-detailed-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-detailed-block {
+        max-width: 100%;
+    }
+
+    .service-detailed-image {
+        height: 180px;
+    }
+}
+
+/* Add these styles to your existing ServicesPage.css */
+
+.booking-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+}
+
+.book-now-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.book-now-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.book-now-button:active {
+    transform: translateY(0);
+}
+
+.booking-card {
+    background-color: #FFD700;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+    min-height: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.booking-card h2 {
+    font-size: 2rem;
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.booking-card p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.book-now-button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+    max-width: 150px;
+    align-self: center;
+}
+
+.book-now-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #222;
+}
+
+.book-now-button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .booking-card {
+        margin: 15px;
+        padding: 15px;
+        min-height: 150px;
+    }
+
+    .booking-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .booking-card p {
+        font-size: 0.9rem;
+    }
+}
+
+.service-showcase {
+    margin: 40px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.service-section {
+    margin-bottom: 30px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    background-color: #FFD700;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.service-images {
+    display: flex;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.large-image {
+    width: 340px;
+    height: 340px;
+    margin-right: 10px;
+    margin-left: 50px;
+    border-radius: 15px;
+}
+
+/* Add this to your existing ServicesPage.css */
+
+.fade-in {
+    animation: fade-in 0.5s forwards; /* Animation for fading in */
+}
+
+.fade-out {
+    animation: fade-out 0.5s forwards; /* Animation for fading out */
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1; /* Start fully visible */
+    }
+    to {
+        opacity: 0; /* End invisible */
+    }
+}
+
+.service-showcase h2{
+    font-size: 3rem; /* Increase font size for the section titles */
+    color: #000; /* Optional: Set color to black for better visibility */
+    margin: 0; /* Optional: Remove default margin */
+    font-family: "Josefin Sans", sans-serif;
+    text-decoration: underline;
+    padding-bottom: 20px;
+}
+
+.service-section h3 {
+    font-size: 3rem; /* Increase font size for the section titles */
+    color: #000; /* Optional: Set color to black for better visibility */
+    margin: 0; /* Optional: Remove default margin */
+    font-family: "Josefin Sans", sans-serif;
+    text-decoration: underline;
+    margin-bottom: 250px;
+    
+}
+
+.service-detailed-contents{
+    flex: 1;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.9s ease;
+    margin-right: 50px;
+    border-top-right-radius: 75px;
+    border-bottom-right-radius: 75px;
+}
+
+/* Responsive Design for Specialized Services */
+@media (max-width: 768px) {
+    .service-section {
+        flex-direction: column; /* Stack items vertically */
+        height: auto; /* Adjust height */
+        padding: 20px; /* Add padding */
+    }
+
+    .service-images {
+        margin: 0 auto 20px; /* Center images and add space below */
+        
+    }
+
+    .large-image {
+        width: 100%; /* Full width */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0; /* Remove margins */
+        border-radius: 10px; /* Adjust border radius */
+    }
+
+    .service-detailed-contents {
+        margin: 0; /* Remove margins */
+        padding: 20px; /* Add padding */
+        border-radius: 10px; /* Adjust border radius */
+    }
+
+    .service-section h3 {
+        font-size: 1.5rem; /* Adjust font size */
+        margin-bottom: 10px; /* Add space below */
+    }
+
+    .service-section p {
+        font-size: 1rem; /* Adjust font size */
+    }
+}

@@ -1,0 +1,279 @@
+.gallery-section {
+    padding: 3rem 10rem; /* Padding around the section */
+    text-align: center; /* Center text */
+    background-color: #FAED00; /* Light background */
+    color: #333; /* Dark text for contrast */
+}
+div.gallery-section {
+    background-color: #FAED00;
+    border-radius: 25px;
+}
+.gallery-section h2 {
+    font-size: 2.5rem; /* Heading size */
+    margin-bottom: 1.5rem; /* Space below heading */
+    font-family: "Josefin Sans", sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 10px; /* Adds space between text and underline */
+    text-decoration-thickness: 5px;
+}
+
+.gallery-section h3 {
+    font-size: 1.5rem; /* Adjusted size for subheading */
+    margin-bottom: 1rem; /* Space below subheading */
+}
+
+.gallery-grid {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(4, 1fr); /* Default to 4 columns */
+    gap: 1rem; /* Space between images */
+}
+
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item.landscape {
+    grid-column: span 2; /* Make the landscape image span two columns */
+}
+
+.gallery-grid img {
+    width: 100%; /* Full width of the grid item */
+    height: auto; /* Keep the original height and aspect ratio */
+    max-height: 100%; /* Avoid the image from exceeding its grid cell */
+    object-fit: cover; /* Maintain aspect ratio and fill the grid cell */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: transform 0.6s; /* Smooth transition for hover effect */
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.15); /* Slightly enlarge on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery-section {
+        padding: 2rem 1rem;
+    }
+
+    .gallery-section h2 {
+        font-size: 2rem;
+    }
+
+    .gallery-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show 2 images per row */
+        gap: 0.5rem; /* Reduced gap between images */
+    }
+
+    .gallery-grid img {
+        width: 100%; /* Full width within the grid cell */
+        height: 150px; /* Fixed height for consistency */
+        max-width: none; /* Remove max-width constraint */
+        object-fit: cover; /* Ensure images cover the area properly */
+    }
+
+    .gallery-item img {
+        width: 150px; /* Set width to 100px */
+        height: 150px; /* Set height to 100px */
+        object-fit: cover; /* Maintain aspect ratio */
+    }
+}
+
+.view-gallery-button {
+    margin-top: 2rem; /* Space above the button */
+    padding: 0.5rem 1.5rem; /* Padding for the button */
+    font-size: 1rem; /* Font size */
+    color: #ffffff; /* Text color */
+    background: rgb(0, 0, 0); /* Semi-transparent white background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    backdrop-filter: blur(10px); /* Blur effect for glass effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.view-gallery-button:hover {
+    background: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    color: black;
+}
+
+.gallery {
+    position: relative;
+    background-color: #f4f4f4; /* or your gallery background color */
+    padding-top: 80px;
+    margin-bottom: -20px; /* Creates overlap with footer */
+}
+
+/* Top curve (from About to Gallery) */
+.gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: #f4f4f4; /* match with gallery background */
+    border-radius: 50% 50% 0 0;
+    transform: translateY(-25px);
+}
+
+/* Bottom curve (from Gallery to Footer) */
+.gallery::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background-color: #f4f4f4; /* match with gallery background */
+    border-radius: 0 0 50% 50%;
+    transform: translateY(25px);
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        padding-top: 40px;
+        margin-bottom: -15px;
+    }
+
+    .gallery::before {
+        height: 30px;
+        transform: translateY(-15px);
+    }
+
+    .gallery::after {
+        height: 30px;
+        transform: translateY(15px);
+    }
+}
+
+/* Add these new styles */
+.book-now-section {
+    background-color: #FAED00;
+    padding: 50px 20px;
+    text-align: center;
+    border-radius: 25px;
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+.book-now-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.book-now-section p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+.book-now-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.book-now-btn:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .book-now-section {
+        margin: 20px 15px;
+        padding: 30px 15px;
+    }
+
+    .book-now-section h2 {
+        font-size: 2rem;
+    }
+
+    .book-now-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Add these new styles */
+/* @keyframes borderColorChange {
+    0% { border-color: #ff0000; } 
+    25% { border-color: #00ff00; }
+    50% { border-color: #0000ff; } 
+    75% { border-color: #ffff00; } 
+    100% { border-color: #ff00ff; } 
+} */
+
+.more-to-see-button {
+    display: inline-block; /* Make it an inline block for padding */
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 1rem; /* Font size */
+    color: #ffffff; /* Text color */
+    background: rgb(0, 0, 0); /* Background color */
+    /* border: 4px solid #ff0000; Initial border color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+    /* animation: borderColorChange 5s infinite;  */
+}
+
+.more-to-see-button:hover {
+    background: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    color: black; /* Change text color on hover */
+}
+
+.view-more-button {
+    display: inline-block; /* Make it an inline block for padding */
+    margin-top: 20px; /* Space above the button */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 1rem; /* Font size */
+    color: #ffffff; /* Text color */
+    background: #000; /* Background color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.view-more-button:hover {
+    background: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Media query for laptop view */
+@media (min-width: 769px) and (max-width: 2440px) {
+    .gallery-item img {
+        width: 200px; /* Set width to 250px */
+        height: 200px; /* Set height to 250px */
+        object-fit: cover; /* Maintain aspect ratio */
+    }
+}
+
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3); /* Light border */
+    border-top: 4px solid #FAED00; /* Color of the spinner */
+    border-radius: 50%; /* Make it circular */
+    width: 50px; /* Width of the spinner */
+    height: 50px; /* Height of the spinner */
+    animation: spin 2s linear infinite; /* Spin animation */
+    position: absolute; /* Position it in the center of the image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the spinner */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

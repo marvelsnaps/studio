@@ -1,0 +1,183 @@
+body{
+    background-color: aqua;
+}
+
+
+.services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Adjust height as needed */
+    text-align: center; /* Center text */
+    position: relative;
+    /* background-color: #f9f9f9 Replace with your services section background color */
+    padding-top: 40px;
+}
+
+.services h2 {
+    padding-top: 50px;
+    font-size: 2rem; /* Increase font size */
+    margin-bottom: 1rem; /* Space below the heading */
+    font-family: "Josefin Sans", sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 8px; /* Adds space between text and underline */
+    text-decoration-thickness: 5px;
+    line-height: 1.5;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 1rem; /* Space between blocks */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Optional: limit width for better readability */
+}
+
+.service-block {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-block:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-image {
+    width: 100%; /* Full width of the block */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+.services li {
+    font-size: 1.5rem; /* Adjust font size for list items */
+    margin: 0.5rem 0; /* Space between list items */
+}
+
+@media (max-width: 768px) {
+    .services-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        padding: 20px 0;
+    }
+
+    .services-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .services-grid {
+        display: flex;
+        gap: 20px;
+        padding: 0 20px;
+        width: max-content;
+        grid-template-columns: none;
+    }
+
+    .service-block {
+        min-width: 280px; /* Fixed width for each block */
+        margin: 0;
+        animation: slideIn 15s linear infinite;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes slideIn {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .services-container:hover .service-block {
+        animation-play-state: paused;
+    }
+}
+
+.services-page {
+    padding: 20px;
+}
+
+.services {
+    text-align: center;
+}
+
+.services-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+}
+
+.service-detailed-block {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures the image doesn't overflow */
+}
+
+.service-detailed-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Set a maximum height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.service-detailed-content {
+    padding: 15px;
+}
+
+.services button {
+    margin-top: 2rem;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.services button:hover {
+    transform: scale(1.05);
+    background-color: #333;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(1, 1fr); /* Changed to 1 image per row */
+        gap: 1.5rem; /* Increased gap between items */
+        padding: 0 1rem; /* Add some padding on sides */
+    }
+
+    .service-block {
+        max-width: 400px; /* Set maximum width */
+        margin: 0 auto; /* Center the block */
+    }
+
+    .service-image {
+        width: 100%;
+        height: 250px; /* Set fixed height */
+        object-fit: cover; /* Maintain aspect ratio while covering area */
+    }
+
+    .services h3 {
+        font-size: 1rem; /* Increased from 10px */
+        margin-top: 0.5rem; /* Add some space above title */
+    }
+
+    .services button {
+        padding: 10px 25px;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+    }
+}

@@ -1,0 +1,168 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FAED00;
+    padding: 1rem;
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 1rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    /* z-index: 3; */
+}
+
+/* Styles for the sliding menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Start off-screen from the right */
+    width: 250px;
+    height: 100%;
+    background-color: #FAED00; /* Ensure background color is visible */
+    transition: right 0.3s ease; /* Smooth transition */
+    z-index: 3; /* Ensure it appears above other content */
+}
+
+.side-menu.open {
+    right: 0; /* Slide in from the right */
+}
+
+.close-button {
+    background-color: #000;
+    color: #FAED00;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Desktop nav links */
+.nav-links-desktop {
+    list-style: none;
+    padding: 0; /* Remove padding for desktop */
+    display: flex; /* Show normal navigation links */
+}
+
+.nav-links-desktop li {
+    margin: 0 1rem; /* Space between items */
+}
+
+.nav-links-desktop a {
+    text-decoration: none;
+    color: #000; /* Ensure text color contrasts with background */
+    padding: 0.5rem 1rem;
+    position: relative; /* Position relative for the pseudo-element */
+    background: none; /* Remove any background */
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+}
+
+.nav-links-desktop a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px; /* Adjust as needed */
+    height: 4px; /* Thickness of the underline */
+    background-color: #000; /* Color of the underline */
+    transform: scaleX(0); /* Initially hide the underline */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.nav-links-desktop a:hover::after,
+.nav-links-desktop a.active::after {
+    transform: scaleX(1); /* Show the underline on hover or when active */
+}
+
+.nav-links-desktop a:hover {
+    background: none; /* Ensure no background on hover */
+}
+
+/* Mobile nav links */
+.nav-links-mobile {
+    list-style: none;
+    padding: 2rem 1rem; /* Add padding for spacing */
+}
+
+.nav-links-mobile li {
+    margin: 1rem 0; /* Space between items */
+}
+
+.logo {
+    height: 40px; /* Adjust the height as needed */
+    /* padding-top: 50px; */
+    margin-left: 30px;
+}
+
+.nav-links-mobile a {
+    text-decoration: none;
+    color: #000; /* Ensure text color contrasts with background */
+    padding: 0.5rem 1rem;
+    display: block; /* Make the link fill the space */
+    text-align: center; /* Center the text */
+}
+
+@media (max-width: 600px) {
+    ul.nav-links-desktop {
+        display: none;
+    }
+
+    .menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        z-index: 4;
+    }
+
+    .menu-button svg {
+        width: 24px;
+        height: 24px;
+        fill: #000;
+    }
+}
+
+/* Media query for mobile view */
+@media (min-width: 768px) {
+    .side-menu {
+        display: none; 
+    }
+
+    .nav-links-desktop {
+        margin-left: auto; /* Align links to the right */
+        display: flex;
+    }
+
+    .menu-button {
+        display: none; /* Hide the menu button on larger screens */
+    }
+}
+
+.logo-link {
+    display: inline-block; /* Ensure the link wraps around the image */
+    background: none; /* Remove any background */
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+    transition: transform 0.6s; /* Apply transition to the normal state */
+}
+
+.logo-link:hover {
+    transform: scale(1.3); /* Slightly enlarge the logo on hover */
+    transition: transform 0.6s; /* Smooth transition */
+    background: none; /* Ensure no background on hover */
+}
