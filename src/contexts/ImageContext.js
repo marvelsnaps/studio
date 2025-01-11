@@ -6,7 +6,7 @@ export const ImageProvider = ({ children }) => {
     const [images, setImages] = useState([]);
     const [error, setError] = useState(null); // State to hold error messages
 
-    const GITHUB_API_KEY = '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'; // Your GitHub API key
+    const GITHUB_API_KEY = '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'; // Your GitHub API key
     const repo = 'demo'; // Your repository name
     const owner = 'dineshraja03'; // Your GitHub username
 
