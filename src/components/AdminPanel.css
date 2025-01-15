@@ -38,3 +38,34 @@
     margin-bottom: 20px;
     color: #333;
 }
+
+.image-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.image-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.image-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.image-item button {
+    padding: 5px 10px;
+    background-color: #FFD735;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.image-item button:hover {
+    background-color: #FFC107; /* Darker shade on hover */
+}

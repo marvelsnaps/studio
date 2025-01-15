@@ -6,38 +6,21 @@ export const ImageProvider = ({ children }) => {
     const [images, setImages] = useState([]);
     const [error, setError] = useState(null); // State to hold error messages
 
-    const GITHUB_API_KEY = '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'; // Your GitHub API key
-    const repo = 'demo'; // Your repository name
-    const owner = 'dineshraja03'; // Your GitHub username
-
     useEffect(() => {
-        const fetchImages = async () => {
-            try {
-                const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/src/components/images`, {
-                    headers: {
-                        'Authorization': `token ${GITHUB_API_KEY}`,
-                    },
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                const imageUrls = data.map(image => ({
-                    name: image.name,
-                    src: image.download_url, // Use the download URL for the image
-                    alt: image.name,
-                }));
-                setImages(imageUrls);
-            } catch (err) {
-                setError(err.message); // Set error message
-                console.error("Failed to fetch images:", err);
-            }
-        };
-
-        fetchImages();
-    }, [GITHUB_API_KEY, repo, owner]);
+        const importAll = (r) => r.keys().map(r);
+        try {
+            const images = importAll(require.context('../components/images', false, /\.(png|jpe?g|svg|gif|mp4)$/));
+            const imageUrls = images.map((image, index) => ({
+                name: `Image ${index + 1}`,
+                src: image, // Ensure image.default is used
+                alt: `Image ${index + 1}`,
+            }));
+            setImages(imageUrls);
+        } catch (err) {
+            setError(err.message); // Set error message
+            console.error("Failed to fetch images:", err);
+        }
+    }, []);
 
     return (
         <ImageContext.Provider value={{ images, error }}>

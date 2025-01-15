@@ -7,14 +7,14 @@ const Gallery = () => {
     const { images } = useContext(ImageContext); 
 
     // Determine the number of images to display based on screen size
-    const isMobile = window.innerWidth <= 860; // Check if the screen width is 768px or less
-    const isLaptop = window.innerWidth > 860 && window.innerWidth <= 2440; // Check if the screen width is between 768px and 1024px
+    const isMobile = window.innerWidth <= 860; // Check if the screen width is 860px or less
+    const isLaptop = window.innerWidth > 860 && window.innerWidth <= 2440; // Check if the screen width is between 860px and 2440px
     let displayedImages;
 
     if (isMobile) {
         displayedImages = images.slice(0, 4); // Show only 4 images on mobile
     } else if (isLaptop) {
-        displayedImages = images.slice(0, 8); // Show only 10 images on laptop
+        displayedImages = images.slice(0, 8); // Show only 8 images on laptop
     } else {
         displayedImages = images; // Show all images on larger screens
     }
@@ -43,4 +43,4 @@ const Gallery = () => {
     );
 };
 
-export default Gallery; 
+export default Gallery;

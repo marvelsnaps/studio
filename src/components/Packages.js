@@ -64,19 +64,19 @@ const Packages = () => {
             </div>
 
             {selectedPackage && (
-                <div className="modal">
-                    <div className="modal-content">
+                <div className="modal" onClick={handleCloseModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                         <span className="close" onClick={handleCloseModal}>&times;</span>
                         <img src={selectedPackage.image} alt={`${selectedPackage.category} package`} className="modal-package-image" />
                         <h3>{selectedPackage.category} Package</h3>
                         <p className="package-description">{selectedPackage.description}</p>
-                        <div className="packages-list">
-                            {selectedPackage.services.map((service, idx) => (
-                                <div className="package-item" key={idx}>
-                                    <h4>{service.name}</h4>
-                                    {service.cost && <p>{service.cost}</p>}
-                                </div>
-                            ))}
+                        <div className="services-section">
+                            <h4>Services</h4>
+                            <ul>
+                                {selectedPackage.services.map((service, idx) => (
+                                    <li key={idx}>{service.name} {service.cost && `- ${service.cost}`}</li>
+                                ))}
+                            </ul>
                         </div>
                         {selectedPackage.complementary.length > 0 && (
                             <div className="complementary-section">

@@ -142,13 +142,11 @@
 
 /* Modal styles */
 .modal {
-    display: flex; /* Flexbox for centering */
+    display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    position: fixed; /* Fixed position */
-    z-index: 1; /* On top */
-    left: 0;
-    top: 0;
+    position: fixed;
+    z-index: 1; 
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -168,6 +166,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center; /* Center content */
+    position: relative;
 }
 
 @keyframes fadeIn {
@@ -177,7 +177,9 @@
 
 .close {
     color: #aaa;
-    float: right;
+    position: absolute; /* Position it within the modal content */
+    top: 10px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
     font-size: 28px;
     font-weight: bold;
 }
