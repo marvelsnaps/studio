@@ -33,7 +33,7 @@ const AdminPanel = () => {
                 },
                 {
                     headers: {
-                        Authorization: `token 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`,
+                        Authorization: `token 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`,
                     },
                 }
             );
@@ -50,7 +50,7 @@ const AdminPanel = () => {
                 `https://api.github.com/repos/dineshraja03/demo/contents/src/components/images/${image.alt}`,
                 {
                     headers: {
-                        Authorization: `token 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`,
+                        Authorization: `token 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`,
                     },
                 }
             );
@@ -62,7 +62,7 @@ const AdminPanel = () => {
                         sha: response.data.sha,
                     },
                     headers: {
-                        Authorization: `token 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`,
+                        Authorization: `token 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`,
                     },
                 }
             );
