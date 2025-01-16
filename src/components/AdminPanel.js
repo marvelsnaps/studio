@@ -33,7 +33,7 @@ const AdminPanel = () => {
                 },
                 {
                     headers: {
-                        Authorization: `token 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`,
+                        Authorization: `token ${process.env.REACT_APP_GITHUB_API_KEY}`,
                     },
                 }
             );
@@ -50,7 +50,7 @@ const AdminPanel = () => {
                 `https://api.github.com/repos/dineshraja03/demo/contents/src/components/images/${image.alt}`,
                 {
                     headers: {
-                        Authorization: `token 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`,
+                        Authorization: `token ${process.env.REACT_APP_GITHUB_API_KEY}`,
                     },
                 }
             );
@@ -62,7 +62,7 @@ const AdminPanel = () => {
                         sha: response.data.sha,
                     },
                     headers: {
-                        Authorization: `token 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`,
+                        Authorization: `token ${process.env.REACT_APP_GITHUB_API_KEY}`,
                     },
                 }
             );
