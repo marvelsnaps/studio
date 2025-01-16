@@ -1,3 +1,4 @@
+// filepath: /C:/Users/DHLITS/Desktop/new/demo/src/components/AdminPanel.js
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import './AdminPanel.css';
