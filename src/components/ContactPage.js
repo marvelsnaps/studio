@@ -74,6 +74,10 @@ const ContactPage = () => {
 
     return (
         <div className="contact-page">
+            <h2 className="title">Let’s Work Together</h2>
+            
+            <h3 className="subtitle">Ready to create beautiful memories? Contact us for more information or to book your session today!
+            </h3>
             <BookingPopup isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
             <div className="contact-container">
                 <div className="contact-section glass-effect">

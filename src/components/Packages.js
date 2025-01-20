@@ -1,98 +1,153 @@
 import React, { useState } from 'react';
-import './Packages.css'; // Import the CSS file for styling
-import img1 from './images/cam-new.gif';
+import './Packages.css';
+import img1 from '../images/silver.jpg';
+import img2 from '../images/gold.jpg';
+import img3 from '../images/diamond.jpg';
+import BookNowButton from './BookNowButton';
+
 
 const packages = [
     {
         category: 'Silver',
-        image: img1, // Add image URL
-        description: 'Our most comprehensive package with premium services.',
+        image: img1,
+        price: '₹ 55,000',
+        mainServices: 'Traditional photo & video',
+        description: 'Perfect for traditional ceremonies with essential coverage',
         services: [
-            { name: 'Wedding Photography', cost: '₹ 50000' },
-            { name: 'Traditional photos only' },
-            { name: 'For Videos extra charges will be applied' }
+            'Traditional photo & video coverage',
+            'Outdoor photos only',
+            'Additional charges for outdoor videos'
         ],
         complementary: [
-            { name: 'Outdoor photo shoot (photo only)', cost: '' },
-            { name: '2 - Photoframe', cost: '' },
-            { name: '2 - Calendar', cost: '' },
-            { name: 'WhatsApp wedding invitation', cost: '' },
-            { name: '1/2 kg wedding cake', cost: '' },
+            'Outdoor photo shoot (photo only)',
+            '2 Photoframes',
+            '2 Calendars',
+            'WhatsApp wedding invitation',
+            '1/2 kg wedding cake'
         ],
+        terms: 'Outdoor photos up to 10km no charges. Above 10 km travel expense applicable.'
     },
     {
         category: 'Gold',
-        image: img1, // Add image URL
-        description: 'A great balance of quality and affordability.',
+        image: img2,
+        price: '₹ 85,000',
+        mainServices: 'Traditional & Candid Coverage',
+        description: 'Complete coverage with both traditional and candid moments',
         services: [
-            { name: 'Wedding Photography', cost: '$1200' }
+            'Traditional photo & video coverage',
+            'Candid photo & video coverage',
+            'Complete event documentation'
         ],
-        complementary: [],
+        complementary: [
+            'Outdoor photo shoot (photo only)',
+            '3 Photoframes',
+            '2 Calendars',
+            'WhatsApp wedding invitation',
+            '1 kg wedding cake'
+        ],
+        terms: 'Outdoor photos up to 10km no charges. Above 10 km travel expense applicable.'
     },
     {
         category: 'Diamond',
-        image: img1, // Add image URL
-        description: 'Essential services for a budget-friendly option.',
+        image: img3,
+        price: '₹ 1,30,000',
+        mainServices: 'Premium All-Inclusive Coverage',
+        description: 'Luxury coverage with all premium features included',
         services: [
-            { name: 'Wedding Photography', cost: '$1000' }
+            'Traditional photo & video coverage',
+            'Candid photo & video coverage',
+            'LED Wall (8x6)',
+            'Drone coverage',
+            'Complete outdoor photos & videos'
         ],
-        complementary: [],
-    },
+        complementary: [
+            'Complete outdoor photo & video shoot',
+            '4 Photoframes',
+            '2 Calendars',
+            'WhatsApp wedding invitation',
+            '1 kg wedding cake'
+        ],
+        terms: 'Outdoor photos up to 10km no charges. Above 10 km travel expense applicable.'
+    }
 ];
 
 const Packages = () => {
     const [selectedPackage, setSelectedPackage] = useState(null);
 
-    const handlePackageClick = (pkg) => {
-        setSelectedPackage(pkg);
-    };
-
-    const handleCloseModal = () => {
-        setSelectedPackage(null);
-    };
-
     return (
         <div className="packages-section">
-            <h2>Our Packages</h2>
-            <div className="packages-list">
+            <h2>Wedding Photography Packages</h2>
+            <div className="packages-grid">
                 {packages.map((pkg, index) => (
-                    <div key={index} className={`package-category ${pkg.category.toLowerCase()}`} onClick={() => handlePackageClick(pkg)}>
-                        <img src={pkg.image} alt={`${pkg.category} package`} className="package-image" />
-                        <h3>{pkg.category} Package</h3>
+                    <div 
+                        key={index} 
+                        className={`package-card ${pkg.category.toLowerCase()}`}
+                        onClick={() => setSelectedPackage(pkg)}
+                    >
+                        <div className="package-preview">
+                            <img src={pkg.image} alt={pkg.category} />
+                            <h3>{pkg.category}</h3>
+                            <div className="price">{pkg.price}</div>
+                            <div className="main-services">{pkg.mainServices}</div>
+                        </div>
                     </div>
                 ))}
             </div>
 
             {selectedPackage && (
-                <div className="modal" onClick={handleCloseModal}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <span className="close" onClick={handleCloseModal}>&times;</span>
-                        <img src={selectedPackage.image} alt={`${selectedPackage.category} package`} className="modal-package-image" />
-                        <h3>{selectedPackage.category} Package</h3>
-                        <p className="package-description">{selectedPackage.description}</p>
-                        <div className="services-section">
-                            <h4>Services</h4>
-                            <ul>
-                                {selectedPackage.services.map((service, idx) => (
-                                    <li key={idx}>{service.name} {service.cost && `- ${service.cost}`}</li>
-                                ))}
-                            </ul>
+                <div className="package-modal" onClick={() => setSelectedPackage(null)}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <button className="close-btn" onClick={() => setSelectedPackage(null)}>×</button>
+                        
+                        <div className="modal-header">
+                            <h2>{selectedPackage.category} Package</h2>
+                            <div className="price-tag">{selectedPackage.price}</div>
                         </div>
-                        {selectedPackage.complementary.length > 0 && (
-                            <div className="complementary-section">
-                                <h4>Complementary</h4>
-                                <ul className="complementary-list">
-                                    {selectedPackage.complementary.map((item, idx) => (
-                                        <li className="complementary-item" key={idx}>
-                                            <h4>{item.name}</h4>
-                                        </li>
+
+                        <img src={selectedPackage.image} alt={selectedPackage.category} />
+                        
+                        <div className="modal-body">
+                            <div className="package-description">
+                                <h3>Package Description</h3>
+                                <p>{selectedPackage.description}</p>
+                            </div>
+
+                            <div className="services-section">
+                                <h3>Services Included</h3>
+                                <ul className="services-list">
+                                    {selectedPackage.services.map((service, idx) => (
+                                        <li key={idx}>✓ {service}</li>
                                     ))}
                                 </ul>
                             </div>
-                        )}
-                    </div>
+
+                            <div className="complementary-section">
+                                <h3>Complementary Offerings</h3>
+                                <ul className="complementary-list">
+                                    {selectedPackage.complementary.map((item, idx) => (
+                                        <li key={idx}>🎁 {item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="terms-section">
+                                <h3>Terms & Conditions</h3>
+                                <p>{selectedPackage.terms}</p>
+                            </div>
+                        </div>
+                    </div>     
                 </div>
+
+                
+                
             )}
+            <div className="booking-section">
+                
+                <h2>Book Your Photoshoot</h2>
+                
+                <p>Schedule your professional photography session with Marvel Snaps Studio</p>
+                <BookNowButton />
+                 </div>
         </div>
     );
 };

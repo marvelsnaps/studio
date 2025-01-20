@@ -22,7 +22,9 @@
     flex: 1; /* Take up space */
     margin-right: 2rem; /* Space between sections */
 }
-
+.footer-p{
+    font-size: 1rem;
+}
 .footer-logo img {
     width: 100px; /* Adjust logo size */
 }

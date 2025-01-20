@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Timmana&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
+
 .contact-page {
     padding-top: 80px;
     background-color: #f4f4f4;
@@ -94,22 +97,31 @@
     font-size: 1.8rem;
     margin-bottom: 30px;
     text-align: center;
-    font-family: "Josefin Sans", sans-serif;
-    text-decoration: underline;
-    text-underline-offset: 8px; /* Adds space between text and underline */
-    text-decoration-thickness: 5px;
+    font-family: "Yanone Kaffeesatz", serif;
+
 }
 
 .contact-section h2 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     margin-bottom: 30px;
     text-align: center;
-    font-family: "Josefin Sans", sans-serif;
-    text-decoration: underline;
-    text-underline-offset: 8px; /* Adds space between text and underline */
-    text-decoration-thickness: 5px;
-    line-height: 1.5;
+    font-family: "Yanone Kaffeesatz", serif;
 }
+.title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    position: static;
+    font-family: "Yanone Kaffeesatz", serif;
+    text-align: center;
+}
+.subtitle {
+    font-size: 1.5rem;
+    text-align: justify;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 
 @media (max-width: 768px) {
     .social-media-buttons {

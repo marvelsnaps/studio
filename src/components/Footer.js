@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="footer-content">
                 <div className="footer-logo">
                     <img src={logo} alt="Logo" /> {/* Replace with your logo path */}
-                    <p>Marvel Snaps studio, Palani's best studio, captures life's beauty to create timeless memories you'll treasure forever.</p>
+                    <p className="footer-p">Marvel Snaps studio, Palani's best studio, captures life's beauty to create timeless memories you'll treasure forever.</p>
                 </div>
                 <div className="footer-links">
                     <h4>Navigation Links</h4>
@@ -36,7 +36,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>© 2024 copyright Marvel Snaps studio. All Rights Reserved.</p>
+                <p className="footer-p">© 2024 copyright Marvel Snaps studio. All Rights Reserved.</p>
             </div>
         </footer>
     );

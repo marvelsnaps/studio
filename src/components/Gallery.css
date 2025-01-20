@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Timmana&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
 .gallery-section {
     padding: 3rem 10rem; /* Padding around the section */
     text-align: center; /* Center text */
@@ -9,12 +11,10 @@ div.gallery-section {
     border-radius: 25px;
 }
 .gallery-section h2 {
-    font-size: 2.5rem; /* Heading size */
+    font-size: 3.5rem; /* Heading size */
     margin-bottom: 1.5rem; /* Space below heading */
-    font-family: "Josefin Sans", sans-serif;
-    text-decoration: underline;
-    text-underline-offset: 10px; /* Adds space between text and underline */
-    text-decoration-thickness: 5px;
+    font-family: "Yanone Kaffeesatz", serif;
+    
 }
 
 .gallery-section h3 {
@@ -57,7 +57,7 @@ div.gallery-section {
     }
 
     .gallery-section h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .gallery-section h3 {
@@ -164,9 +164,10 @@ div.gallery-section {
 }
 
 .book-now-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+    font-size: 3.5rem;  /* Increased from 2.5rem */
+    /* margin-bottom: 15px; */
     color: #000;
+    font-family: "Yanone Kaffeesatz", serif;
 }
 
 .book-now-section p {

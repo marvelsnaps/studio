@@ -1,192 +1,163 @@
 .packages-section {
     padding: 40px;
-    background: linear-gradient(135deg, #FAED00, #FFD700); /* Gradient background */
-    text-align: center; /* Center text */
-    font-family: 'Poppins', sans-serif; /* Modern font */
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    min-height: 100vh;
 }
 
 .packages-section h2 {
-    font-size: 3rem; /* Larger font size for the title */
-    margin-bottom: 20px; /* Space below the title */
-    color: #333; /* Darker text color */
-    border-bottom: 3px solid #333; /* Underline the title */
-    display: inline-block; /* Ensure underline is only as wide as the text */
+    text-align: center;
+    color: #2d3436;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
 }
 
-.package-category {
-    margin-bottom: 30px;
-    border-radius: 15px; /* More rounded corners */
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     padding: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
-    width: 400px; /* Adjust width */
-    margin: 0 auto 30px; /* Center the category box and add space below */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
-    cursor: pointer; /* Pointer cursor on hover */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.package-category.platinum {
-    background: linear-gradient(135deg, #e5e4e2, #c0c0c0); /* Platinum gradient */
+.package-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.package-category.gold {
-    background: linear-gradient(135deg, #FFD700, #FFA500); /* Gold gradient */
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
-.package-category.silver {
-    background: linear-gradient(135deg, #C0C0C0, #A9A9A9); /* Silver gradient */
-}
-
-.package-category.diamond {
-    background: linear-gradient(135deg, #00FF7F, #00FA9A); /* Premium green gradient */
-    background-image: 
-        linear-gradient(135deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%),
-        linear-gradient(225deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%),
-        linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%),
-        linear-gradient(315deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%);
-    background-size: 20px 20px;
-    background-position: 0 0, 10px 0, 10px -10px, 0px 10px;
-}
-
-.package-category:hover {
-    transform: translateY(-10px); /* Lift effect on hover */
-}
-
-.package-category h3 {
-    font-size: 2rem; /* Larger font size */
-    margin-bottom: 10px; /* More space below */
-    color: #333; /* Darker text color */
-}
-
-.package-description {
-    font-size: 1.2rem; /* Font size for description */
-    color: #666; /* Text color for description */
-    margin-bottom: 20px; /* Space below description */
-}
-
-.packages-list {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
-    justify-content: center; /* Center items */
-    gap: 20px; /* Space between items */
-}
-
-.package-item {
-    background-color: #f9f9f9; /* Light background for each package */
-    border-radius: 10px; /* Rounded corners */
+.package-preview {
     padding: 20px;
-    margin: 10px; /* Space between packages */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: calc(50% - 40px); /* Two items per line with space between */
-    height: auto; /* Adjust height */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    text-align: center;
 }
 
-.package-item:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-}
-
-.package-item h4 {
-    margin: 0; /* Remove default margin */
-    font-size: 1.5rem; /* Font size for package name */
-    color: #555; /* Slightly darker text color */
-}
-
-.package-item p {
-    font-size: 1.2rem; /* Font size for cost */
-    color: #777; /* Lighter text color */
-}
-
-.package-item:not(:last-child) {
-    border-bottom: 1px solid #ddd; /* Divider between items */
-    padding-bottom: 15px; /* Padding below */
-    margin-bottom: 15px; /* Margin below */
-}
-
-.package-image {
-    width: 200px;
+.package-preview img {
+    width: 100%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.package-preview h3 {
+    color: #2d3436;
+    font-size: 1.8rem;
     margin-bottom: 10px;
 }
 
-.modal-package-image {
-    width: 250px;
-    height: 250px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    align-content: center;
+.price {
+    font-size: 2rem;
+    color: #00b894;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
-.complementary-section {
-    margin-top: 20px; /* Space above complementary section */
+.main-services {
+    color: #636e72;
+    font-size: 1.1rem;
 }
 
-.complementary-section h4 {
-    font-size: 1.8rem; /* Font size for complementary title */
-    color: #00796b; /* Color for complementary title */
-    margin-bottom: 10px; /* Space below title */
-}
-
-.complementary-list {
-    list-style-type: none; /* Remove default list style */
-    padding: 0; /* Remove default padding */
-}
-
-.complementary-item {
-    background-color: #e0f7fa; /* Light blue background for complementary items */
-    border: 2px dashed #00796b; /* Dashed border for complementary items */
-    padding: 10px; /* Padding for list items */
-    margin-bottom: 10px; /* Space between list items */
-}
-
-/* Modal styles */
-.modal {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+.package-modal {
     position: fixed;
-    z-index: 1; 
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 90%; /* Increased width for modal */
-    max-width: 800px; /* Increased max width for modal */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    animation: fadeIn 0.3s; /* Fade-in animation */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Center content */
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.close {
-    color: #aaa;
-    position: absolute; /* Position it within the modal content */
-    top: 10px; /* Adjust as needed */
-    right: 20px; /* Adjust as needed */
-    font-size: 28px;
-    font-weight: bold;
+.price-tag {
+    background: #00b894;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1.5rem;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
     cursor: pointer;
+    color: #636e72;
+}
+
+.modal-body {
+    display: grid;
+    gap: 30px;
+}
+
+.services-list, .complementary-list {
+    list-style: none;
+    padding: 0;
+}
+
+.services-list li, .complementary-list li {
+    padding: 12px;
+    margin: 8px 0;
+    background: #f5f6fa;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+.terms-section {
+    background: #ffeaa7;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.terms-section h3 {
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+.terms-section p {
+    color: #636e72;
+}
+
+
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px;
+    }
+    
+    .price-tag {
+        font-size: 1.2rem;
+    }
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Timmana&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
 .services-page {
     padding-top: 80px;
     background-color: #c6c6c6;
@@ -201,6 +203,7 @@
     display: flex;
     align-items: flex-start;
     margin-right: 20px;
+
 }
 
 .large-image {
@@ -209,6 +212,7 @@
     margin-right: 10px;
     margin-left: 50px;
     border-radius: 15px;
+    
 }
 
 /* Add this to your existing ServicesPage.css */
@@ -240,11 +244,9 @@
 }
 
 .service-showcase h2{
-    font-size: 3rem; /* Increase font size for the section titles */
+    font-size: 3.5rem; /* Increase font size for the section titles */
     color: #000; /* Optional: Set color to black for better visibility */
     margin: 0; /* Optional: Remove default margin */
-    font-family: "Josefin Sans", sans-serif;
-    text-decoration: underline;
     padding-bottom: 20px;
 }
 
@@ -254,14 +256,14 @@
     margin: 0; /* Optional: Remove default margin */
     font-family: "Josefin Sans", sans-serif;
     text-decoration: underline;
-    margin-bottom: 250px;
+    margin-bottom: 40px;
     
 }
 
 .service-detailed-contents{
     flex: 1;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.95);   
     transition: all 0.9s ease;
     margin-right: 50px;
     border-top-right-radius: 75px;
@@ -277,7 +279,7 @@
     }
 
     .service-images {
-        margin: 0 auto 20px; /* Center images and add space below */
+        margin: 0 auto 20px;
         
     }
 

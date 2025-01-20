@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Timmana&family=Yanone+Kaffeesatz:wght@200..700&display=swap');
+
+.about-page {
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 150px;
+    h2{
+        font-size: 3rem;
+        font-family: "Yanone Kaffeesatz", serif;
+        padding-bottom: 20px;
+    }
+}
+
+
+
+.hero {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 6rem;
+    font-family: "Yanone Kaffeesatz", serif;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+}
+h2{
+    font-size: 2rem;
+    font-family: "Yanone Kaffeesatz", serif;
+}
+h3{
+    font-size: 3rem;
+}
+p{
+    font-size: 1.7rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-right: 20px;
+}
+.hero-content p {
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.intro {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.studio-logo {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.intro-text {
+    flex: 1;
+}
+
+.stats {
+    padding: 80px 0;
+    background: #FAED00;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item .number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+}
+
+.stat-item .label {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.photographer {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.photographer-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.photographer-content img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10%;
+    gap:50px;
+    margin-left: 30px;
+}
+
+.photographer-content h2 {
+    font-size: 3rem;
+    font-family: "Yanone Kaffeesatz", serif;
+}
+
+.photographer-content h3 {
+    font-size: 3rem;
+    font-family: "Yanone Kaffeesatz", serif;
+}
+
+.photographer-info {
+    flex: 1;
+}
+
+.expertise {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.expertise span {
+    padding: 8px 16px;
+    background: #FAED00;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.cta {
+    padding: 80px 0;
+    background: #FAED00;
+    text-align: center;
+}
+
+.book-now {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.book-now:hover {
+    transform: scale(1.05);
+}
+
+.fade-in {
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.photographer .container {
+    margin-bottom: 80px; /* Add gap between containers */
+}
+
+.photographer .container:last-child {
+    margin-bottom: 0; /* Remove margin from last container */
+}
+
+/* Update media query for responsive design */
+@media (max-width: 768px) {
+    .photographer .container {
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p{
+        font-size: 1.2rem;
+    }
+
+    .intro-content,
+    .photographer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .photographer-content img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .expertise {
+        justify-content: center;
+    }
+}
+
+
+
+.team-section {
+    padding: 60px 0;
+    background: #ffd70c;
+    h3{
+        font-size: 3rem;
+        text-align: center;
+        font-family: "Yanone Kaffeesatz", serif;
+    }
+}
+
+.team-section1 {
+    padding: 60px 0;
+    background: #ffffff;
+    h3{
+        font-size: 3rem;
+        text-align: center;
+        font-family: "Yanone Kaffeesatz", serif;
+    }
+}
+
+
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+}
+
+.team-member img {
+    width: 250px;
+    height: 250px;
+    border-radius: 10%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.team-member h3 {
+    margin: 10px 0;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.team-member p {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+

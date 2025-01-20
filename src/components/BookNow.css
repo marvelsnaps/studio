@@ -1,0 +1,53 @@
+.book-now-section {
+    padding: 50px 15px;
+    background: linear-gradient(135deg, #FAED00, #FFD700);
+    text-align: center;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.book-now-section h2 {
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: "Yanone Kaffeesatz", serif;
+}
+
+.book-now-section p {
+    font-size: 1.2rem;
+    color: #666;
+    /* margin-bottom: 20px; */
+}
+
+.book-now-button {
+    display: inline-block;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.book-now-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(229, 229, 229, 0.2);
+}
+
+@media (max-width: 768px) {
+    .book-now-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .book-now-section p {
+        font-size: 1rem;
+    }
+
+    .book-now-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
