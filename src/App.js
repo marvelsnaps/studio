@@ -60,10 +60,10 @@ function App() {
                         
                         {/* Floating Icons */}
                         <div className="floating-icons">
-                            <a href="https://wa.me/8098449639" target="_blank" rel="noopener noreferrer" className="icon whatsapp">
+                            <a href="https://wa.me/+918098449639" target="_blank" rel="noopener noreferrer" className="icon whatsapp">
                                 <FaWhatsapp size={30} />
                             </a>
-                            <a href="tel:8098449639" className="icon phone">
+                            <a href="tel:+918098449639" className="icon phone">
                                 <FaPhone size={30} />
                             </a>
                         </div>

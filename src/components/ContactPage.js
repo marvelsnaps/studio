@@ -35,19 +35,19 @@ const ContactPage = () => {
         {
             icon: <FaWhatsapp />,
             name: 'WhatsApp',
-            link: 'https://wa.me/8098449639',
+            link: 'https://wa.me/+918098449639',
             color: '#000000'
         },
         {
             icon: <FaPhone />,
             name: 'Call Us',
-            link: 'tel:8098449639',
+            link: 'tel:+918098449639',
             color: '#000000'
         },
         {
             icon: <FaEnvelope />,
             name: 'Email',
-            link: 'mailto:contact@marvelsnaps.com',
+            link: 'mailto:marvelsnapsnkp@gmail.com',
             color: '#000000'
         },
         {
