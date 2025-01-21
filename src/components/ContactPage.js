@@ -23,7 +23,7 @@ const ContactPage = () => {
         {
             icon: <FaInstagram />,
             name: 'Instagram',
-            link: 'https://instagram.com/marvelsnaps',
+            link: 'https://instagram.com/marvel_snaps_studio',
             color: '#000000'
         },
         {
@@ -35,13 +35,13 @@ const ContactPage = () => {
         {
             icon: <FaWhatsapp />,
             name: 'WhatsApp',
-            link: 'https://wa.me/1234567890',
+            link: 'https://wa.me/8098449639',
             color: '#000000'
         },
         {
             icon: <FaPhone />,
             name: 'Call Us',
-            link: 'tel:+1234567890',
+            link: 'tel:8098449639',
             color: '#000000'
         },
         {
