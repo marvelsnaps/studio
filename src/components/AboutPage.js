@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 import './AboutPage.css';
-import studioLogo from './images/logo1.png';
+import studioLogo from './assets/logo1.png';
 import admin from '../images/admin.webp';
 import pra from '../images/pra.webp';
 import prav from '../images/prav.webp';
@@ -124,9 +124,8 @@ const AboutPage = () => {
                             <br></br>
                             <h3>CEO </h3>
                             <br></br>
-                            <p>Based in Palani, I bring over a decade of experience in capturing 
-                               life's most precious moments. My passion lies in creating timeless 
-                               memories through creative and authentic photography.</p>
+                            <p>Hi, I’m ThiruKumaran, a professional photographer based in Palani. My journey into photography began long ago when I received my first camera and since then, I’ve been dedicated to capturing stories, emotions, and the world around me through my lens. With a passion for portrait, landscape, or event photography, I focus on creating images that tell a compelling story and make every moment last forever.
+                            </p>
                         </div>
                     </div>
                 </div>
