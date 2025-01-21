@@ -23,7 +23,7 @@ const ContactPage = () => {
         {
             icon: <FaInstagram />,
             name: 'Instagram',
-            link: 'https://instagram.com/marvel_snaps_studio',
+            link: 'https://instagram.com/marvel_snaps_official',
             color: '#000000'
         },
         {
