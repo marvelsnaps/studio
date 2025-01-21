@@ -159,14 +159,14 @@ const AboutPage = () => {
                             <div className="team-member">
                                 <img src={far} alt="Team member" />
                                 <h3>Fazrul Hak Abdulkaboor</h3>
-                                {/* <p>Lead Photographer</p> */}
+                                <p>Marketing Head</p>
                             </div>
                            
                             <div className="team-member">
                                 <img src={nirmal} alt="Team member" />
                                 <h3>Nirmal Abdullah Abdul Rahman
                                 </h3>
-                                {/* <p>Lead Photographer</p> */}
+                                <p>Accounts Department</p>
                             </div>
                            
                             </div>
