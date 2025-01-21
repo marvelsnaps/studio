@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 import './AboutPage.css';
 import studioLogo from './images/logo1.png';
 import admin from '../images/admin.webp';
@@ -14,14 +15,21 @@ import surya from '../images/surya.jpg';
 import nirmal from '../images/nirmal.jpg';
 import vish from '../images/vish.jpg';
 import jai from '../images/jai.jpg';
-
-
-import photographerImg from '../images/noimg.webp';
+import mrk from '../images/mrk.jpg';
 import heroVideo from './videos/MS .webm';
 
 
 const AboutPage = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [isMuted, setIsMuted] = useState(true);
+    const videoRef = useRef(null);
+
+    const handleMuteToggle = () => {
+        if (videoRef.current) {
+            videoRef.current.muted = !videoRef.current.muted;
+            setIsMuted(!isMuted);
+        }
+    };
 
     useEffect(() => {
         setIsVisible(true);
@@ -42,14 +50,23 @@ const AboutPage = () => {
         <div className="about-page">
             <section className="hero">
                 <video 
+                    ref={videoRef}
                     autoPlay                     
                     loop 
                     playsInline
+                    muted={isMuted}
                     className="hero-video"
                 >
                     <source src={heroVideo} type="video/webm" />
                 </video>
                 <div className="hero-overlay"></div>
+                <button 
+                    className="mute-button"
+                    onClick={handleMuteToggle}
+                    aria-label={isMuted ? "Unmute" : "Mute"}
+                >
+                    {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+                </button>
                 <div className="hero-content">
                     <h1 className={`fade-in ${isVisible ? 'visible' : ''}`}>
                         Marvel Snaps Studio
@@ -87,7 +104,7 @@ const AboutPage = () => {
                             <span className="label">Weddings</span>
                         </div>
                         <div className="stat-item">
-                            <span className="number">50+</span>
+                            <span className="number">150+</span>
                             <span className="label">Commercial</span>
                         </div>
                         <div className="stat-item">
@@ -116,7 +133,7 @@ const AboutPage = () => {
 
                 <div className="container">
                     <div className="photographer-content">
-                        <img src={photographerImg} alt="Lead Photographer" />
+                        <img src={mrk} alt="Lead Photographer" />
                         <div className="photographer-info">
                             <h2>Kaviyaraj Nagaraj</h2>
                             <br></br>
@@ -222,7 +239,7 @@ const AboutPage = () => {
                     </div>
                 </div>
 
-
+        
 
             </section>
 

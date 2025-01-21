@@ -1,10 +1,11 @@
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, {  useRef } from 'react';
+// import { Link } from 'react-router-dom';
+import { useHistory,Link } from 'react-router-dom';
 import './Services.css';
 // import weddingImage from './images/service.jpg';
 import weddingVideo from '../images/wedding/w1.jpeg';
 import drone from '../images/drone/d1.jpeg';
-import event from '../images/service/event.jpeg';
+import event from '../images/baby/b1.jpeg';
 import port from '../images/portraits/p1.jpeg';
 import bday from '../images/birthday/bd1.jpeg';
 import product from '../images/product.jpeg';
@@ -17,7 +18,7 @@ const servicesData = [
         media: weddingVideo 
     },
     { 
-        name: 'Event Videography', 
+        name: 'Baby Photography', 
         type: 'image',
         media: event 
     },
@@ -46,8 +47,22 @@ const servicesData = [
 ];
 
 const Services = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
     const videoRef = useRef(null);
+    const history = useHistory();
+
+    const handleServiceClick = (serviceName) => {
+        const categoryMap = {
+            'Wedding Photography': 'wedding',
+            'Baby Photography': 'babyShoot',
+            'Drone Videography': 'drone',
+            'Portrait Sessions': 'portrait',
+            'Birthday Photography': 'birthday',
+            'Product Photography': 'product'
+        };
+
+        const category = categoryMap[serviceName];
+        history.push('/service-gallery', { selectedCategory: category });
+    };
 
     const handleViewMore = () => {
         console.log("View More button clicked");
@@ -77,19 +92,15 @@ const Services = () => {
             <div className="services-container">
                 <div className="services-grid">
                     {servicesData.map((service, index) => (
-                        <div className="service-block" key={index}>
+                        <div 
+                            className="service-block" 
+                            key={index}
+                            onClick={() => handleServiceClick(service.name)}
+                            style={{ cursor: 'pointer' }}
+                        >
                             {renderMedia(service)}
                             <h3>{service.name}</h3>
                         </div>
-                    ))}
-                </div>
-                <div className="navigation-dots">
-                    {servicesData.map((_, index) => (
-                        <span 
-                            key={index} 
-                            className={`dot ${index === activeIndex ? 'active' : ''}`}
-                            onClick={() => setActiveIndex(index)}
-                        />
                     ))}
                 </div>
             </div>

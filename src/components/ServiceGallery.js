@@ -15,8 +15,8 @@ import m4 from '../images/model/m4.jpeg';
 import m5 from '../images/model/m5.jpeg';
 
 // Pre & Post Wedding imports
-import pp1 from '../images/Pre and Post wedding/m1.jpeg';
-import pp2 from '../images/Pre and Post wedding/m2.jpeg';
+// import pp1 from '../images/Pre and Post wedding/m1.jpeg';
+// import pp2 from '../images/Pre and Post wedding/m2.jpeg';
 import pp3 from '../images/Pre and Post wedding/m3.jpeg';
 import pp4 from '../images/Pre and Post wedding/m4.jpeg';
 import pp5 from '../images/Pre and Post wedding/m5.jpeg';
@@ -25,7 +25,7 @@ import pp6 from '../images/Pre and Post wedding/m6.jpeg';
 // Portrait imports
 import p1 from '../images/portraits/p1.jpeg';
 import p4 from '../images/portraits/p2.jpeg';
-import p3 from '../images/portraits/p3.jpeg';
+// import p3 from '../images/portraits/p3.jpeg';
 import p2 from '../images/portraits/p4.jpeg';
 import p5 from '../images/portraits/p5.jpeg';
 
@@ -83,8 +83,8 @@ const galleryData = {
         { id: 4, url: w4, title: 'Reception' }
     ],
     prePostWedding: [
-        { id: 1, url: pp1, title: 'Pre-Wedding Shoot' },
-        { id: 2, url: pp2, title: 'Post-Wedding' },
+        // { id: 1, url: pp1, title: 'Pre-Wedding Shoot' },
+        // { id: 2, url: pp2, title: 'Post-Wedding' },
         { id: 3, url: pp3, title: 'Couple Shoot' },
         { id: 4, url: pp4, title: 'Couple Shoot' },
         { id: 5, url: pp5, title: 'Couple Shoot' },
@@ -93,7 +93,7 @@ const galleryData = {
     portrait: [
         { id: 1, url: p1, title: 'Studio Portrait' },
         { id: 2, url: p2, title: 'Outdoor Portrait' },
-        { id: 3, url: p3, title: 'Family Portrait' },
+        // { id: 3, url: p3, title: 'Family Portrait' },
         { id: 4, url: p4, title: 'Family Portrait' },
         { id: 5, url: p5, title: 'Family Portrait' }
     ],
@@ -181,7 +181,7 @@ const ServiceGallery = () => {
 
     return (
         <div className="service-gallery">
-            <h2>Our Photography Portfolio</h2>
+            <h2 id='top' >Our Photography Portfolio</h2>
             <div className="gallery-content">
                 {isLoading ? (
                     <div className="loading-spinner">loading . . .</div>
@@ -203,7 +203,7 @@ const ServiceGallery = () => {
                                                 loading="lazy"
                                             />
                                             <div className="image-overlay">
-                                                <h3>{image.title}</h3>
+                                                <h4>{image.title}</h4>
                                             </div>
                                         </div>
                                     </div>

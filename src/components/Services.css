@@ -2,6 +2,14 @@
     padding: 4rem 2rem;
     background: #ffd70c;
     text-align: center;
+    button{
+        background-color: black;
+        /* border-color: #fff; */
+        color: #fff;
+        border-radius: 15px;
+        border-width: 2px;
+        border-style: solid;
+    }
 }
 
 .services h2 {

@@ -30,7 +30,7 @@ nav {
     right: -250px; /* Start off-screen from the right */
     width: 250px;
     height: 100%;
-    background-color: #FAED00; /* Ensure background color is visible */
+    background-color: #ffd70c; /* Ensure background color is visible */
     transition: right 0.3s ease; /* Smooth transition */
     z-index: 3; /* Ensure it appears above other content */
 }
@@ -41,7 +41,7 @@ nav {
 
 .close-button {
     background-color: #000;
-    color: #FAED00;
+    color: #ffd70c;
     border: none;
     padding: 0.5rem;
     cursor: pointer;

@@ -178,7 +178,7 @@ p{
 
 .cta {
     padding: 80px 0;
-    background: #FAED00;
+    background: #ffd70c;
     text-align: center;
 }
 
@@ -328,3 +328,41 @@ p{
     }
 }
 
+/* Add after hero-video styles */
+.mute-button {
+    position: absolute;
+    bottom: 20px;
+    /* center: 20px; */
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.mute-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.mute-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .mute-button {
+        bottom: 10px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+}
