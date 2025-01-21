@@ -120,7 +120,7 @@ const AboutPage = () => {
                     <div className="photographer-content">
                         <img src={admin} alt="Lead Photographer" />
                         <div className="photographer-info">
-                            <h2>Kumaran Giriswaran</h2>
+                            <h2>Thirukkumaran Giriswaran</h2>
                             <br></br>
                             <h3>CEO </h3>
                             <br></br>
