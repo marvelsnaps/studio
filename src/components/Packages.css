@@ -1,12 +1,12 @@
 .packages-section {
     padding: 40px;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    background: linear-gradient(135deg, #acacac, #acacac);
     min-height: 100vh;
 }
 
 .packages-section h2 {
     text-align: center;
-    color: #2d3436;
+    color: #000000;
     font-size: 2.5rem;
     margin-bottom: 40px;
 }

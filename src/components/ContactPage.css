@@ -3,7 +3,7 @@
 
 .contact-page {
     padding-top: 80px;
-    background-color: #f4f4f4;
+    background-color: #acacac;
 }
 
 .contact-container {
@@ -16,11 +16,12 @@
 }
 
 .contact-section {
+    margin-top: 50px;
     width: 100%;
     max-width: 600px;
     padding: 30px;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color:#fff;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     margin-bottom: 30px;
 }
@@ -41,7 +42,7 @@
 .contact-form button {
     padding: 12px;
     background-color: #000;
-    color: #FFD735;
+    color: #fff;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -76,7 +77,7 @@
     color: var(--button-color);
     font-weight: bold;
     border: 2px solid var(--button-color);
-    background-color: transparent;
+    background-color: #fff;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -118,8 +119,8 @@
     font-size: 1.5rem;
     text-align: justify;
     text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 250px;
+    padding-right: 250px;
 }
 
 
@@ -132,6 +133,13 @@
     .social-media-button {
         width: 100%;
         max-width: 300px;
+    }
+    .subtitle {
+        padding-left: 20px;
+        padding-right: 20px;
+        h3{
+            font-size: 20px;
+        }
     }
 }
 

@@ -2,12 +2,12 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Services.css';
 // import weddingImage from './images/service.jpg';
-import weddingVideo from '../images/wedding/w1.webp';
-import drone from '../images/drone/d1.webp';
-import event from '../images/service/event.webp';
-import port from '../images/portraits/p1.webp';
-import bday from '../images/birthday/bd1.webp';
-import product from '../images/product.webp';
+import weddingVideo from '../images/wedding/w1.jpeg';
+import drone from '../images/drone/d1.jpeg';
+import event from '../images/service/event.jpeg';
+import port from '../images/portraits/p1.jpeg';
+import bday from '../images/birthday/bd1.jpeg';
+import product from '../images/product.jpeg';
 
 
 const servicesData = [

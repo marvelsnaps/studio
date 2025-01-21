@@ -85,7 +85,7 @@ p{
 
 .intro {
     padding: 80px 0;
-    background: #fff;
+    background: #acacac;
 }
 
 .intro-content {
@@ -106,7 +106,7 @@ p{
 
 .stats {
     padding: 80px 0;
-    background: #FAED00;
+    background: #ffd70c;
 }
 
 .stats-grid {
@@ -130,7 +130,7 @@ p{
 
 .photographer {
     padding: 80px 0;
-    background: #fff;
+    background: #acacac;
 }
 
 .photographer-content {
@@ -273,7 +273,7 @@ p{
 
 .team-section1 {
     padding: 60px 0;
-    background: #ffffff;
+    background: #acacac;
     h3{
         font-size: 3rem;
         text-align: center;

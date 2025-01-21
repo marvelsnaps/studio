@@ -2,76 +2,77 @@ import React, { useState, useEffect } from 'react';
 import './ServiceGallery.css';
 
 // Wedding imports
-import w1 from '../images/wedding/w1.webp';
-import w2 from '../images/wedding/w2.webp';
-import w3 from '../images/wedding/w4.webp';
-import w4 from '../images/wedding/w5.webp';
+import w1 from '../images/wedding/w1.jpeg';
+import w2 from '../images/wedding/w2.jpeg';
+import w3 from '../images/wedding/w4.jpeg';
+import w4 from '../images/wedding/w5.jpeg';
 
 // Model imports
-import m1 from '../images/model/webp/m1.webp';
-import m2 from '../images/model/webp/m2.webp';
-import m3 from '../images/model/webp/m3.webp';
-import m4 from '../images/model/webp/m4.webp';
-import m5 from '../images/model/webp/m5.webp';
+import m1 from '../images/model/m1.jpeg';
+import m2 from '../images/model/m2.jpeg';
+import m3 from '../images/model/m3.jpeg';
+import m4 from '../images/model/m4.jpeg';
+import m5 from '../images/model/m5.jpeg';
 
 // Pre & Post Wedding imports
-import pp1 from '../images/Pre and Post wedding/m1.webp';
-import pp2 from '../images/Pre and Post wedding/m2.webp';
-import pp3 from '../images/Pre and Post wedding/m3.webp';
-import pp4 from '../images/Pre and Post wedding/m5.webp';
-import pp5 from '../images/Pre and Post wedding/m6.webp';
-import pp6 from '../images/Pre and Post wedding/m7.webp';
+import pp1 from '../images/Pre and Post wedding/m1.jpeg';
+import pp2 from '../images/Pre and Post wedding/m2.jpeg';
+import pp3 from '../images/Pre and Post wedding/m3.jpeg';
+import pp4 from '../images/Pre and Post wedding/m4.jpeg';
+import pp5 from '../images/Pre and Post wedding/m5.jpeg';
+import pp6 from '../images/Pre and Post wedding/m6.jpeg';
 
 // Portrait imports
-import p1 from '../images/portraits/p1.webp';
-import p4 from '../images/portraits/p2.webp';
-import p3 from '../images/portraits/p3.webp';
-import p2 from '../images/portraits/p4.webp';
-import p5 from '../images/portraits/p5.webp';
+import p1 from '../images/portraits/p1.jpeg';
+import p4 from '../images/portraits/p2.jpeg';
+import p3 from '../images/portraits/p3.jpeg';
+import p2 from '../images/portraits/p4.jpeg';
+import p5 from '../images/portraits/p5.jpeg';
 
 // Baby imports
-import b1 from '../images/baby/b1.webp';
-import b2 from '../images/baby/b2.webp';
-import b3 from '../images/baby/b3.webp';
-import b4 from '../images/baby/b4.webp';
-import b5 from '../images/baby/b5.webp';
-// import b6 from '../images/baby/b6.webp';
-import b7 from '../images/baby/b7.webp';
-import b8 from '../images/baby/b8.webp';
-import b9 from '../images/baby/b9.webp';
-import b10 from '../images/baby/b10.webp';
-import b11 from '../images/baby/b11.webp';
+import b1 from '../images/baby/b1.jpeg';
+import b2 from '../images/baby/b2.jpeg';
+import b3 from '../images/baby/b3.jpeg';
+import b4 from '../images/baby/b4.jpeg';
+import b5 from '../images/baby/b5.jpeg';
+import b6 from '../images/baby/b6.jpeg';
+import b7 from '../images/baby/b7.jpeg';
+import b8 from '../images/baby/b8.jpeg';
+import b9 from '../images/baby/b9.jpeg';
+import b10 from '../images/baby/b10.jpeg';
+import b11 from '../images/baby/b11.jpeg';
+import b12 from '../images/baby/b12.jpeg';
 
 // Birthday imports
-import bd1 from '../images/birthday/bd1.webp';
-import bd2 from '../images/birthday/bd2.webp';
-import bd3 from '../images/birthday/bd3.webp';
-import bd4 from '../images/birthday/bd4.webp';
-import bd5 from '../images/birthday/bd5.webp';
+import bd1 from '../images/birthday/bd1.jpeg';
+import bd2 from '../images/birthday/bd2.jpeg';
+import bd3 from '../images/birthday/bd3.jpeg';
+import bd4 from '../images/birthday/bd4.jpeg';
+import bd5 from '../images/birthday/bd5.jpeg';
 
 
 //corporate imports
 
-import c1 from '../images/corp/c1.webp';
-import c2 from '../images/corp/c2.webp';
-import c3 from '../images/corp/c3.webp';
-import c4 from '../images/corp/c4.webp';
-import c5 from '../images/corp/c5.webp';
+import c1 from '../images/corp/c1.jpeg';
+import c2 from '../images/corp/c2.jpeg';
+import c3 from '../images/corp/c3.jpeg';
+import c4 from '../images/corp/c4.jpeg';
+import c5 from '../images/corp/c5.jpeg';
 
 //candit imports
 
-import candit1 from '../images/candit/c1.webp';
-import candit2 from '../images/candit/c2.webp';
-import candit3 from '../images/candit/c3.webp';
-import candit4 from '../images/candit/c4.webp';
+import candit1 from '../images/candit/c1.jpeg';
+import candit2 from '../images/candit/c2.jpeg';
+import candit3 from '../images/candit/c3.jpeg';
+import candit4 from '../images/candit/c4.jpeg';
 
 //drone imports
 
-import drone1 from '../images/drone/d1.webp';
-import drone2 from '../images/drone/d2.webp';
-import drone3 from '../images/drone/d3.webp';
-import drone4 from '../images/drone/d4.webp';
-import drone5 from '../images/drone/d5.webp';
+import drone1 from '../images/drone/d1.jpeg';
+import drone2 from '../images/drone/d2.jpeg';
+import drone3 from '../images/drone/d3.jpeg';
+import drone4 from '../images/drone/d4.jpeg';
+import drone5 from '../images/drone/d5.jpeg';
 
 
 const galleryData = {
@@ -104,18 +105,19 @@ const galleryData = {
         { id: 3, url: m5, title: 'Editorial' }
     ],
     babyShoot: [
-        { id: 8, url: b8, title: 'Baby Candid' },
-        { id: 9, url: b9, title: 'Baby Candid' },
-        { id: 10, url: b10, title: 'Baby Candid' },
-        { id: 11, url: b11, title: 'Baby Candid' },
+       
         { id: 1, url: b1, title: 'Baby Portrait' },
         { id: 2, url: b2, title: 'Family with Baby' },
         { id: 3, url: b3, title: 'Baby Candid' },
         { id: 4, url: b4, title: 'Baby Candid' },
         { id: 5, url: b5, title: 'Baby Candid' },
-        // { id: 6, url: b6, title: 'Baby Portrait' },
-        { id: 7, url: b7, title: 'Family with Baby' }
-        
+        { id: 6, url: b6, title: 'Family with Baby' },
+        { id: 7, url: b7, title: 'Baby Candid' },
+        { id: 8, url: b8, title: 'Baby Candid' },
+        { id: 9, url: b9, title: 'Baby Candid' },
+        { id: 10, url: b10, title: 'Baby Candid' },
+        { id: 11, url: b11},
+        { id: 12, url: b12}
     ],
     birthday: [
         { id: 1, url: bd1, title: 'Birthday Party' },
@@ -148,12 +150,33 @@ const galleryData = {
 
 };
 
+
 const ServiceGallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => setIsLoading(false), 1000);
+        const preloadImages = async () => {
+            const loaded = {};
+            await Promise.all(
+                Object.values(galleryData).flat().map(async (image) => {
+                    try {
+                        await new Promise((resolve) => {
+                            const img = new Image();
+                            img.src = image.url;
+                            img.onload = resolve;
+                            img.onerror = resolve;
+                        });
+                        loaded[image.id] = true;
+                    } catch (error) {
+                        console.error('Error loading image:', error);
+                    }
+                })
+            );
+            setIsLoading(false);
+        };
+
+        preloadImages();
     }, []);
 
     return (
@@ -161,13 +184,13 @@ const ServiceGallery = () => {
             <h2>Our Photography Portfolio</h2>
             <div className="gallery-content">
                 {isLoading ? (
-                    <div className="loading-spinner">Loading...</div>
+                    <div className="loading-spinner">loading . . .</div>
                 ) : (
                     Object.entries(galleryData).map(([category, images]) => (
                         <section key={category} className="category-section">
                             <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
                             <div className="image-grid">
-                                {images.map((image) => (
+                               {images.map((image) => (
                                     <div 
                                         key={image.id} 
                                         className="image-card"

@@ -1,20 +1,21 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo , useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
 import BookNowButton from './BookNowButton';
 import './ServicesPage.css';
 
-import wedding from '../images/service/wedding.webp';
-import event from '../images/service/event.webp';
-import portrait from '../images/service/portrait.webp';
-import model from '../images/service/model.webp';
-import prewed from '../images/service/pre-wed.webp';
-import postwed from '../images/service/post-wed.webp';
+import wedding from '../images/service/wedding.jpeg';
+import event from '../images/service/event.jpeg';
+import portrait from '../images/service/portrait.jpeg';
+import model from '../images/service/model.jpeg';
+import prewed from '../images/service/pre-wed.jpeg';
+import postwed from '../images/service/post-wed.jpeg';
 import empty from '../images/service/empty.png';
-import candid from '../images/service/candit.webp';
-import drone from '../images/service/drone.webp';
-import baby from '../images/baby/b8.webp';
-import corp from '../images/corp/c5.webp';
-import product from '../images/product.webp';
+import candid from '../images/service/candit.jpeg';
+import drone from '../images/service/drone.jpeg';
+import baby from '../images/baby/b8.jpeg';
+import corp from '../images/corp/c5.jpeg';
+import product from '../images/product.jpeg';
 
 
 const servicesData = [
@@ -89,8 +90,34 @@ const serviceDescriptions = {
     'Video Editing': 'Transform raw footage into stunning visual masterpieces with our video editing services. We blend creativity, precision, and storytelling to create impactful content. Make every second count with seamless edits.'
 };
 
+const ImagePlaceholder = () => (
+    <div className="image-placeholder"></div>
+);
+
+const OptimizedImage = ({ src, alt, className, height, onError }) => (
+    <LazyLoad 
+        height={height}
+        once
+        placeholder={<ImagePlaceholder />}
+        offset={100}
+        throttle={100}
+    >
+        <img 
+            src={src} 
+            alt={alt} 
+            className={className}
+            onError={onError}
+            loading="lazy"
+            decoding="async"
+        />
+    </LazyLoad>
+);
+
+
+
 const ServicesPage = () => {
     const history = useHistory();
+    const [isLoading, setIsLoading] = useState(true);
     const [currentImages, setCurrentImages] = useState({
         Photography: 0,
         Videography: 0,
@@ -98,6 +125,8 @@ const ServicesPage = () => {
         Artworks: 0,
         'Video Editing': 0,
     });
+
+    
 
     const [animationClass, setAnimationClass] = useState('fade-in');
 
@@ -139,48 +168,114 @@ const ServicesPage = () => {
         ],
     }), []);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setAnimationClass('fade-out');
-            setTimeout(() => {
-                setCurrentImages(prev => {
-                    const newImages = { ...prev };
-                    Object.keys(newImages).forEach(section => {
-                        newImages[section] = (newImages[section] + 1) % images[section].length;
-                    });
-                    return newImages;
-                });
-                setAnimationClass('fade-in');
-            }, 100);
-        }, 2500);
-        return () => clearInterval(interval);
-    }, [images]);
-
-    const handleServiceClick = (service) => {
+    const handleServiceClick = useCallback((service) => {
         history.push('/service-gallery', { 
             selectedService: service.name 
         });
-    };
+    }, [history]);
+
+    const handleImageError = useCallback((e) => {
+        e.target.src = empty;
+    }, []);
+
+
+
+
+
+    const renderServiceCard = useCallback((service, index) => (
+        <div 
+            key={index} 
+            className="service-detailed-block glass-effect"
+            onClick={() => handleServiceClick(service)}
+            style={{ cursor: 'pointer' }}
+        >
+            <OptimizedImage 
+                src={service.image}
+                alt={service.name}
+                className="service-detailed-image"
+                height={200}
+                onError={handleImageError}
+            />
+            <div className="service-detailed-content">
+                <h3>{service.name}</h3>
+                <p>{service.description}</p>
+            </div>
+        </div>
+    ), [handleImageError,handleServiceClick]);
+
+    const renderSlideshow = useCallback((service) => (
+        <div className="service-images">
+            <OptimizedImage 
+                src={images[service][currentImages[service]]}
+                alt={`${service} ${currentImages[service] + 1}`}
+                className={`large-image ${animationClass}`}
+                height={340}
+                onError={handleImageError}
+            />
+        </div>
+    ), [images, currentImages, animationClass, handleImageError]);
+
+    useEffect(() => {
+        let mounted = true;
+        
+        const preloadImages = async () => {
+            try {
+                await Promise.all(
+                    Object.values(images).flat().map(src => {
+                        return new Promise((resolve) => {
+                            const img = new Image();
+                            img.src = src;
+                            img.onload = resolve;
+                            img.onerror = resolve; // Continue on error
+                        });
+                    })
+                );
+                if (mounted) setIsLoading(false);
+            } catch (error) {
+                console.error('Error preloading images:', error);
+                if (mounted) setIsLoading(false);
+            }
+        };
+
+        preloadImages();
+
+        let slideshowInterval;
+        if (!isLoading) {
+            slideshowInterval = setInterval(() => {
+                setAnimationClass('fade-out');
+                setTimeout(() => {
+                    if (mounted) {
+                        setCurrentImages(prev => {
+                            const newImages = { ...prev };
+                            Object.keys(newImages).forEach(section => {
+                                newImages[section] = (newImages[section] + 1) % images[section].length;
+                            });
+                            return newImages;
+                        });
+                        setAnimationClass('fade-in');
+                    }
+                }, 100);
+            }, 2500);
+        }
+
+        return () => {
+            mounted = false;
+            clearInterval(slideshowInterval);
+        };
+    }, [images, isLoading]);
+
+    
+
+    if (isLoading) {
+        return <div className="loading-container"><ImagePlaceholder /></div>;
+    }
 
     return (
         <div className="services-page" id="top">
             <div className="services">
                 <h2 className='services-link'>Our Comprehensive Services</h2>
                 <div className="services-detailed-grid">
-                    {servicesData.map((service, index) => (
-                        <div 
-                            key={index} 
-                            className="service-detailed-block glass-effect"
-                            onClick={() => handleServiceClick(service)}
-                            style={{ cursor: 'pointer' }}
-                        >
-                            <img src={service.image} alt={service.name} className="service-detailed-image" />
-                            <div className="service-detailed-content">
-                                <h3>{service.name}</h3>
-                                <p>{service.description}</p>
-                            </div>
-                        </div>
-                    ))}
+                    {servicesData.map((service, index) => renderServiceCard(service, index))}
                 </div>
             </div>
 
@@ -188,13 +283,7 @@ const ServicesPage = () => {
                 <h2>Our Specialized Services</h2>
                 {['Photography', 'Videography', 'Frameworks', 'Artworks', 'Video Editing'].map((service, index) => (
                     <div key={index} className="service-section">
-                        <div className="service-images">
-                            <img 
-                                src={images[service][currentImages[service]]} 
-                                alt={`${service} ${currentImages[service] + 1}`} 
-                                className={`large-image ${animationClass}`}
-                            />
-                        </div>
+                        {renderSlideshow(service)}
                         <div className="service-detailed-contents">
                             <h3>{service}</h3>
                             <p>{serviceDescriptions[service]}</p>

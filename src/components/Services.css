@@ -1,6 +1,6 @@
 .services {
     padding: 4rem 2rem;
-    background: #f8f9fa;
+    background: #ffd70c;
     text-align: center;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .services-container button{
-    background-color: #FAED00;
+    background-color: #ffd70c;
 }
 
 .services-grid {
