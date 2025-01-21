@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
-import dummyImage from './images/ab1.jpg';
-
+import center from './assets/c.JPG';
+import left from './assets/e.JPG';
+import right from './assets/d.JPG';
 const About = () => {
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -21,9 +22,9 @@ const About = () => {
             <div className="about-text">
                 <h2 className="animate slide-down">Welcome to Marvel snaps</h2>
                 <div className="image-gallery animate fade-in">
-                    <img src={dummyImage} alt="Left side view" className="side-image left-image" />
-                    <img src={dummyImage} alt="Studio showcase" className="main-image" />
-                    <img src={dummyImage} alt="Right side view" className="side-image right-image" />
+                    <img src={left} alt="Left side view" className="side-image left-image" />
+                    <img src={center} alt="Studio showcase" className="main-image" />
+                    <img src={right} alt="Right side view" className="side-image right-image" />
                 </div>
                 
                 <div className="content-container animate slide-up">

@@ -10,7 +10,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (credentials.username === 'a' && credentials.password === 'a') {
+    if (credentials.username === 'marvelsnaps' && credentials.password === 'angelvaishu26') {
       setIsAuthenticated(true);
       localStorage.setItem('isAuthenticated', 'true');
       history.push('/admin-dashboard');
