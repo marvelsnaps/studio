@@ -133,7 +133,7 @@ const galleryData = {
         { id: 4, url: c4, title: 'Corporate Event' },
         { id: 5, url: c5, title: 'Corporate Event' }
     ],
-    candit: [
+    candid: [
         { id: 1, url: candit1, title: 'Candid Photography' },
         { id: 2, url: candit2, title: 'Candid Photography' },
         { id: 3, url: candit3, title: 'Candid Photography' },

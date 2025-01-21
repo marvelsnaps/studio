@@ -32,7 +32,7 @@ const Footer = () => {
                     <h4>Contact Info</h4>
                     <p>📞 +91 8098449639</p>
                     <p>✉️ marvelsnapsnpk@gmail</p>
-                    <p>📍 loaction</p>
+                    <p>📍 location</p>
                 </div>
             </div>
             <div className="footer-bottom">
