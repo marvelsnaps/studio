@@ -20,7 +20,7 @@ const BookingPopup = ({ isOpen, onClose }) => {
         const whatsappMessage = `Name: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0ADate: ${formData.date}%0AService Type: ${formData.serviceType}%0AMessage: ${formData.message}`;
         
         // Replace with your WhatsApp number
-        const phoneNumber = '9344913761'; // Example: '1234567890' (without +)
+        const phoneNumber = '8098449639'; 
         const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
         // Open WhatsApp
@@ -38,10 +38,6 @@ const BookingPopup = ({ isOpen, onClose }) => {
 
     if (!isOpen) return null;
 
-    // const photoPaths = {
-    //     ab1: ab1,
-    //     photo2: photo2
-    // };
 
     return (
         <div className="booking-popup-overlay">
