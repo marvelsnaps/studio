@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 import './AboutPage.css';
 import studioLogo from './assets/logo1.png';
-import admin from '../images/admin.webp';
+import admin from '../images/admin.jpg';
 import pra from '../images/pra.webp';
 import prav from '../images/prav.webp';
 import arv from '../images/arv.jpg';
