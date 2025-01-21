@@ -122,7 +122,7 @@ const AboutPage = () => {
                         <div className="photographer-info">
                             <h2>Thirukkumaran Giriswaran</h2>
                             <br></br>
-                            <h3>CEO </h3>
+                            <h3>CEO of Marvel Snaps</h3>
                             <br></br>
                             <p>Hi, I’m ThiruKumaran, a professional photographer based in Palani. My journey into photography began long ago when I received my first camera and since then, I’ve been dedicated to capturing stories, emotions, and the world around me through my lens. With a passion for portrait, landscape, or event photography, I focus on creating images that tell a compelling story and make every moment last forever.
                             </p>
