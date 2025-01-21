@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css'; // Ensure you have the CSS file for styling
-import logo from './images/white-logo.png';
+import logo from './images/logo2.png';
 const Footer = () => {
     return (
         <footer className="footer">

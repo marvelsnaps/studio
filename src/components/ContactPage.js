@@ -72,6 +72,11 @@ const ContactPage = () => {
         // Add form submission logic
     };
 
+    const studioLocation = {
+        address: "#2, Bathrakalaiyamman kovil complex,Kolumam main road, neikkarapatti,palani.624615",
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1731.2651358511234!2d77.46333853765884!3d10.444507641246968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDI2JzQyLjIiTiA3N8KwMjcnNTAuNyJF!5e1!3m2!1sen!2sin!4v1737446585601!5m2!1sen!2sin"  // Replace with your studio's embed URL
+    };
+
     return (
         <div className="contact-page">
             <h2 className="title">Let’s Work Together</h2>
@@ -108,6 +113,23 @@ const ContactPage = () => {
                         />
                         <button type="submit">Send Message</button>
                     </form>
+                </div>
+
+                <div className="location-section glass-effect">
+                    <h2>Visit Our Studio</h2>
+                    <p className="studio-address">{studioLocation.address}</p>
+                    <div className="map-container">
+                        <iframe
+                            src={studioLocation.mapUrl}
+                            width="100%"
+                            height="400"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Studio Location"
+                        ></iframe>
+                    </div>
                 </div>
 
                 <div className="social-media-section">

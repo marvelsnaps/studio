@@ -1,5 +1,5 @@
 div.booking-section {
-    background-color: #FAED00;
+    background-color: #ffd70c;
     padding: 80px 20px;
     text-align: center;
 }
@@ -7,7 +7,7 @@ div.booking-section {
 .booking-content {
     max-width: 600px;
     margin: 0 auto;
-    background-color:#FAED00;
+    background-color:#ffd70c;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -23,7 +23,7 @@ div.booking-section {
     margin-top: 20px;
     padding: 12px 24px;
     background-color: #000;
-    color: #FAED00;
+    color: #ffd70c;
     text-decoration: none;
     border-radius: 8px;
     transition: all 0.3s ease;
