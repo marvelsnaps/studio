@@ -1,17 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css'; // Ensure you have the CSS file for styling
-import logo from './assets/logo2.png';
+import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import './Footer.css';
 const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-content">
                 <div className="footer-logo">
-                    <img src={logo} alt="Logo" /> {/* Replace with your logo path */}
-                    <p className="footer-p">Marvel Snaps studio, Palani's best studio, captures life's beauty to create timeless memories you'll treasure forever.</p>
+                    <h3>Marvel Snaps</h3>
+                    <div className="social-links">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                            <FaFacebook />
+                        </a>
+                        <a href="https://www.instagram.com/marvel_snaps_official" target="_blank" rel="noopener noreferrer">
+                            <FaInstagram />
+                        </a>
+                        <a href="https://wa.me/+918098449639" target="_blank" rel="noopener noreferrer">
+                            <FaWhatsapp />
+                        </a>
+                    </div>
                 </div>
+
                 <div className="footer-links">
-                    <h4>Navigation Links</h4>
+                    <h4>Quick Links</h4>
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
@@ -20,21 +31,34 @@ const Footer = () => {
                         <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </div>
-                {/* <div className="footer-links">
-                    <h4>Important Links</h4>
-                    <ul>
-                        <li>Get a Quote</li>
-                        <li>Chat with an Expert</li>
-                        <li>WhatsApp Chat Support</li>
-                    </ul>
-                </div> */}
+
                 <div className="footer-contact">
                     <h4>Contact Info</h4>
-                    <p>📞 +91 8098449639</p>
-                    <p>✉️ marvelsnapsnpk@gmail</p>
-                    <p>📍 location</p>
+                    <p>
+                        <span className="contact-icon">📞</span>
+                        <span className="contact-text">
+                            <a href="tel:+918098449639">+91 8098449639</a>
+                        </span>
+                    </p>
+                    <p>
+                        <span className="contact-icon">✉️</span>
+                        <span className="contact-text">
+                            <a href="mailto:marvelsnapsnpk@gmail.com">marvelsnapsnpk@gmail.com</a>
+                        </span>
+                    </p>
+                    <p>
+                        <Link to="/contact#location" className="location-link">
+                            <span className="contact-icon">📍</span>
+                            <span className="contact-text">
+                                #2, Bathrakalaiyamman kovil complex, 
+                                Kolumam main road, neikkarapatti, 
+                                palani.624615
+                            </span>
+                        </Link>
+                    </p>
                 </div>
             </div>
+
             <div className="footer-bottom">
                 <p className="footer-p">© 2024 copyright Marvel Snaps studio. All Rights Reserved.</p>
             </div>
@@ -42,4 +66,4 @@ const Footer = () => {
     );
 };
 
-export default Footer; 
+export default Footer;

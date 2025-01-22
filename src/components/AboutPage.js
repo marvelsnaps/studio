@@ -69,7 +69,7 @@ const AboutPage = () => {
                 </button>
                 <div className="hero-content">
                     <h1 className={`fade-in ${isVisible ? 'visible' : ''}`}>
-                        Marvel Snaps Studio
+                        Marvel Snaps
                     </h1>
                     <p className={`fade-in ${isVisible ? 'visible' : ''}`}>
                         <q>Photography is the push button of life</q> 
