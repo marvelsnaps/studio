@@ -176,3 +176,78 @@ nav a:hover {
 html {
     scroll-behavior: smooth; /* Enable smooth scrolling */
 }
+
+
+
+/* Add to existing floating icons styles */
+
+.scroll-top {
+    background: #333;
+    border: none;
+    cursor: pointer;
+    padding: 10px 5px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.scroll-top:hover {
+    background: #444;
+    transform: translateY(-3px);
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.floating-icons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.scroll-top {
+    height: 120px;
+    border-radius: 50px;
+    background: #333;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    
+}
+
+.floating-icons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}

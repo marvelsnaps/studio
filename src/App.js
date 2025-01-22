@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
 import Home from './components/Home';
@@ -37,6 +37,28 @@ function HomePage() {
 }
 
 function App() {
+
+    const [showScrollButton, setShowScrollButton] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setShowScrollButton(window.scrollY > 300);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
+
+
+
     return (
         <AuthProvider>
         <ImageProvider>
@@ -60,6 +82,13 @@ function App() {
                         
                         {/* Floating Icons */}
                         <div className="floating-icons">
+                        {showScrollButton && (
+                                    <button onClick={scrollToTop} className="icon scroll-top">
+                                        <span className="vertical-text">⬅️ Go top</span>
+                                    </button>
+                                )}
+
+
                             <a href="https://wa.me/+918098449639" target="_blank" rel="noopener noreferrer" className="icon whatsapp">
                                 <FaWhatsapp size={30} />
                             </a>
