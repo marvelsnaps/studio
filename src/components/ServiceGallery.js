@@ -25,9 +25,10 @@ import pp6 from '../images/Pre and Post wedding/m6.jpeg';
 // Portrait imports
 import p1 from '../images/portraits/p1.jpeg';
 import p4 from '../images/portraits/p2.jpeg';
-// import p3 from '../images/portraits/p3.jpeg';
+import p3 from '../images/portraits/p3.jpg';
 import p2 from '../images/portraits/p4.jpeg';
 import p5 from '../images/portraits/p5.jpeg';
+import p6 from '../images/portraits/p6.jpg';
 
 // Baby imports
 import b1 from '../images/baby/b1.jpeg';
@@ -42,6 +43,9 @@ import b9 from '../images/baby/b9.jpeg';
 import b10 from '../images/baby/b10.jpeg';
 import b11 from '../images/baby/b11.jpeg';
 import b12 from '../images/baby/b12.jpeg';
+import b13 from '../images/baby/b13.JPG';
+import b14 from '../images/baby/b14.jpg';
+import b15 from '../images/baby/b15.jpg';
 
 // Birthday imports
 import bd1 from '../images/birthday/bd1.jpeg';
@@ -49,6 +53,7 @@ import bd2 from '../images/birthday/bd2.jpeg';
 import bd3 from '../images/birthday/bd3.jpeg';
 import bd4 from '../images/birthday/bd4.jpeg';
 import bd5 from '../images/birthday/bd5.jpeg';
+// import bd6 from '../images/birthday/bd6.jpeg';
 
 
 //corporate imports
@@ -65,6 +70,12 @@ import candit1 from '../images/candit/c1.jpeg';
 import candit2 from '../images/candit/c2.jpeg';
 import candit3 from '../images/candit/c3.jpeg';
 import candit4 from '../images/candit/c4.jpeg';
+import candit5 from '../images/candit/c5.jpg';
+import candit6 from '../images/candit/c6.JPG';
+import candit7 from '../images/candit/c7.JPG'; 
+import candit8 from '../images/candit/c8.jpg';
+import candit9 from '../images/candit/c9.jpg';
+import candit10 from '../images/candit/c10.jpg';
 
 //drone imports
 
@@ -78,9 +89,9 @@ import drone5 from '../images/drone/d5.jpeg';
 const galleryData = {
     wedding: [
         { id: 1, url: w1, title: 'Traditional Wedding' },
-        { id: 2, url: w2, title: 'Modern Wedding' },
+        { id: 2, url: w2, title: 'Traditional Wedding' },
         { id: 3, url: w3, title: 'Wedding Ceremony' },
-        { id: 4, url: w4, title: 'Reception' }
+        { id: 4, url: w4, title: 'Traditional Wedding' }
     ],
     prePostWedding: [
         // { id: 1, url: pp1, title: 'Pre-Wedding Shoot' },
@@ -91,18 +102,19 @@ const galleryData = {
         { id: 6, url: pp6, title: 'Couple Shoot' }
     ],
     portrait: [
-        { id: 1, url: p1, title: 'Studio Portrait' },
-        { id: 2, url: p2, title: 'Outdoor Portrait' },
-        // { id: 3, url: p3, title: 'Family Portrait' },
-        { id: 4, url: p4, title: 'Family Portrait' },
-        { id: 5, url: p5, title: 'Family Portrait' }
+        { id: 1, url: p1, title: 'Portrait' },
+        { id: 2, url: p2, title: 'Portrait' },
+        { id: 3, url: p3, title: 'Portrait' },
+        { id: 4, url: p4, title: 'Portrait' },
+        { id: 5, url: p5, title: 'Portrait' },
+        { id: 6, url: p6, title: 'Wedding Portrait' }
     ],
     modelShoots: [
         { id: 1, url: m1, title: 'Fashion Photography' },
-        { id: 2, url: m2, title: 'Portfolio Shoot' },
-        { id: 3, url: m3, title: 'Editorial' },
-        { id: 3, url: m4, title: 'Editorial' },
-        { id: 3, url: m5, title: 'Editorial' }
+        { id: 2, url: m2, title: 'Model Shoot' },
+        { id: 3, url: m3, title: 'Model Shoot' },
+        { id: 3, url: m4, title: 'Model Shoot' },
+        { id: 3, url: m5, title: 'Model Shoot' }
     ],
     babyShoot: [
        
@@ -117,7 +129,10 @@ const galleryData = {
         { id: 9, url: b9, title: 'Baby Candid' },
         { id: 10, url: b10, title: 'Baby Candid' },
         { id: 11, url: b11},
-        { id: 12, url: b12}
+        { id: 12, url: b12},
+        { id: 13, url: b13},
+        { id: 14, url: b14},
+        { id: 15, url: b15}
     ],
     birthday: [
         { id: 1, url: bd1, title: 'Birthday Party' },
@@ -137,7 +152,13 @@ const galleryData = {
         { id: 1, url: candit1, title: 'Candid Photography' },
         { id: 2, url: candit2, title: 'Candid Photography' },
         { id: 3, url: candit3, title: 'Candid Photography' },
-        { id: 4, url: candit4, title: 'Candid'}
+        { id: 4, url: candit4, title: 'Candid'},
+        { id: 5, url: candit5, title: 'Candid'},
+        { id: 6, url: candit6, title: 'Candid'},
+        { id: 7, url: candit7, title: 'Candid'},
+        { id: 8, url: candit8, title: 'Candid'},
+        { id: 9, url: candit9, title: 'Candid'},
+        { id: 10, url: candit10, title: 'Candid'}
     ],
     drone:[
         { id: 1, url: drone1, title: 'Drone Photography' },
