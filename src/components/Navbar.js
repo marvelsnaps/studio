@@ -40,6 +40,7 @@ const Navbar = () => {
                     <li><NavLink to="/about" onClick={toggleMenu} activeClassName="active">About</NavLink></li>
                     <li><NavLink to="/services" onClick={toggleMenu} activeClassName="active">Services</NavLink></li>
                     <li><NavLink to="/gallery" onClick={toggleMenu} activeClassName="active">Gallery</NavLink></li>
+                    <li><NavLink to="/packages" onClick={toggleMenu} activeClassName="active">Packages</NavLink></li>
                     <li><NavLink to="/contact" onClick={toggleMenu} activeClassName="active">Contact Us</NavLink></li>
                 </ul>
             </div>

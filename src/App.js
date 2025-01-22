@@ -56,9 +56,6 @@ function App() {
         });
     };
 
-
-
-
     return (
         <AuthProvider>
         <ImageProvider>
