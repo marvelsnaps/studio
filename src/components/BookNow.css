@@ -12,14 +12,14 @@
 .book-now-section h2 {
     font-size: 3.5rem;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     font-family: "Yanone Kaffeesatz", serif;
 }
 
 .book-now-section p {
     font-size: 1.2rem;
     color: #666;
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
 }
 
 .book-now-button {
