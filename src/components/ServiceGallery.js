@@ -101,6 +101,18 @@ const galleryData = {
         { id: 5, url: pp5, title: 'Couple Shoot' },
         { id: 6, url: pp6, title: 'Couple Shoot' }
     ],
+    candid: [
+        { id: 1, url: candit1, title: 'Candid Photography' },
+        { id: 2, url: candit2, title: 'Candid Photography' },
+        { id: 3, url: candit3, title: 'Candid Photography' },
+        { id: 4, url: candit4, title: 'Candid'},
+        { id: 5, url: candit5, title: 'Candid'},
+        { id: 6, url: candit6, title: 'Candid'},
+        { id: 7, url: candit7, title: 'Candid'},
+        { id: 8, url: candit8, title: 'Candid'},
+        { id: 9, url: candit9, title: 'Candid'},
+        { id: 10, url: candit10, title: 'Candid'}
+    ],
     portrait: [
         { id: 1, url: p1, title: 'Portrait' },
         { id: 2, url: p2, title: 'Portrait' },
@@ -148,18 +160,7 @@ const galleryData = {
         { id: 4, url: c4, title: 'Corporate Event' },
         { id: 5, url: c5, title: 'Corporate Event' }
     ],
-    candid: [
-        { id: 1, url: candit1, title: 'Candid Photography' },
-        { id: 2, url: candit2, title: 'Candid Photography' },
-        { id: 3, url: candit3, title: 'Candid Photography' },
-        { id: 4, url: candit4, title: 'Candid'},
-        { id: 5, url: candit5, title: 'Candid'},
-        { id: 6, url: candit6, title: 'Candid'},
-        { id: 7, url: candit7, title: 'Candid'},
-        { id: 8, url: candit8, title: 'Candid'},
-        { id: 9, url: candit9, title: 'Candid'},
-        { id: 10, url: candit10, title: 'Candid'}
-    ],
+    
     drone:[
         { id: 1, url: drone1, title: 'Drone Photography' },
         { id: 2, url: drone2, title: 'Drone Photography' },

@@ -3,30 +3,35 @@ import React, {  useRef } from 'react';
 import { useHistory,Link } from 'react-router-dom';
 import './Services.css';
 // import weddingImage from './images/service.jpg';
-import weddingVideo from '../images/wedding/w1.jpeg';
-import drone from '../images/drone/d1.jpeg';
-import event from '../images/baby/b1.jpeg';
+import weddingVideo from './videos/wedding.webm';
+import drone from './videos/drone.mp4';
+import event from './videos/event.mp4';
 import port from '../images/portraits/p1.jpeg';
 import bday from '../images/birthday/bd1.jpeg';
-import product from '../images/product.jpeg';
+import videography from './videos/videography.webm';
 
 
 const servicesData = [
     { 
-        name: 'Wedding Photography', 
-        type: 'image',
+        name: 'Wedding shoots', 
+        type: 'video',
         media: weddingVideo 
     },
     { 
-        name: 'Baby Photography', 
-        type: 'image',
+        name: 'Event shoots', 
+        type: 'video',
         media: event 
     },
 
     { 
-        name: 'Drone Videography', 
-        type: 'image',
+        name: 'Drone shoots', 
+        type: 'video',
         media: drone
+    },
+    { 
+        name: 'Videography', 
+        type: 'video',
+        media: videography
     },
     { 
         name: 'Portrait Sessions', 
@@ -39,11 +44,7 @@ const servicesData = [
         type: 'image',
         media: bday
     },
-    { 
-        name: 'Product Photography', 
-        type: 'image',
-        media: product
-    },
+    
 ];
 
 const Services = () => {

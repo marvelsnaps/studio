@@ -25,21 +25,6 @@ const servicesData = [
         image: wedding
     },
     { 
-        name: 'Event Videography', 
-        description: 'Let me capture your special event, be it a corporate gathering, birthday, or milestone celebration.',
-        image: event
-    },
-    { 
-        name: 'Portrait Sessions', 
-        description: 'Whether it’s a professional headshot or a personal family session, I create timeless portraits that you’ll cherish forever.',
-        image: portrait
-    },
-    { 
-        name: 'Corporate Photography', 
-        description: 'Professional imagery that represents your brand and corporate identity.',
-        image: corp
-    },
-    { 
         name: 'Pre-wedding Photoshoot', 
         description: 'Capture the love before the big day with our pre-wedding photoshoot packages.',
         image: prewed
@@ -50,14 +35,15 @@ const servicesData = [
         image: postwed
     },
     { 
-        name: 'Ad Films', 
-        description: 'Create stunning advertisements that showcase your brand effectively.',
-        image: empty
+        name: 'Candid Photography & Videography', 
+        description: 'Capture genuine moments with our candid photography and videography services.',
+        image: candid
     },
+   
     { 
-        name: 'Baby Photography', 
-        description: 'Capture your events in a creative short film format.',
-        image: baby
+        name: 'Portrait Sessions', 
+        description: 'Whether it’s a professional headshot or a personal family session, I create timeless portraits that you’ll cherish forever.',
+        image: portrait
     },
     { 
         name: 'Model Shoots', 
@@ -65,19 +51,35 @@ const servicesData = [
         image: model 
     },
     { 
-        name: 'Product Photography', 
-        description: 'Showcase your products with high-quality photography that attracts customers.',
-        image: product
+        name: 'Event Videography', 
+        description: 'Let me capture your special event, be it a corporate gathering, birthday, or milestone celebration.',
+        image: event
     },
     { 
-        name: 'Candid Photography & Videography', 
-        description: 'Capture genuine moments with our candid photography and videography services.',
-        image: candid
+        name: 'Baby Photography', 
+        description: 'Capture your events in a creative short film format.',
+        image: baby
     },
+    { 
+        name: 'Corporate Photography', 
+        description: 'Professional imagery that represents your brand and corporate identity.',
+        image: corp
+    },
+    
     { 
         name: 'Drone Shoots', 
         description: 'Get stunning aerial shots with our professional drone photography services.',
         image: drone
+    },
+    { 
+        name: 'Ad Films', 
+        description: 'Create stunning advertisements that showcase your brand effectively.',
+        image: empty
+    },
+    { 
+        name: 'Product Photography', 
+        description: 'Showcase your products with high-quality photography that attracts customers.',
+        image: product
     }
    
 ];

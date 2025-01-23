@@ -29,6 +29,7 @@ const Navbar = () => {
                     <li><NavLink to="/about" activeClassName="active">About</NavLink></li>
                     <li><NavLink to="/gallery" activeClassName="active">Gallery</NavLink></li>
                     <li><NavLink to="/services" activeClassName="active">Services</NavLink></li>
+                    <li><NavLink to="/service-gallery" activeClassName="active">Services Gallery</NavLink></li>
                     <li><NavLink to="/packages" activeClassName="active">Packages</NavLink></li>
                     <li><NavLink to="/contact" activeClassName="active">Contact Us</NavLink></li>
                 </ul>
@@ -39,7 +40,7 @@ const Navbar = () => {
                     <li><NavLink to="/" onClick={toggleMenu} activeClassName="active">Home</NavLink></li>
                     <li><NavLink to="/about" onClick={toggleMenu} activeClassName="active">About</NavLink></li>
                     <li><NavLink to="/services" onClick={toggleMenu} activeClassName="active">Services</NavLink></li>
-                    <li><NavLink to="/gallery" onClick={toggleMenu} activeClassName="active">Gallery</NavLink></li>
+                    <li><NavLink to="/service-gallery" onClick={toggleMenu} activeClassName="active">Gallery</NavLink></li>
                     <li><NavLink to="/packages" onClick={toggleMenu} activeClassName="active">Packages</NavLink></li>
                     <li><NavLink to="/contact" onClick={toggleMenu} activeClassName="active">Contact Us</NavLink></li>
                 </ul>
