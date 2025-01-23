@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useCallback} from 'react';
 import './ServiceGallery.css';
+import { useLocation } from 'react-router-dom';
 
 // Wedding imports
 import w1 from '../images/wedding/w1.jpeg';
@@ -29,6 +30,7 @@ import p3 from '../images/portraits/p3.jpg';
 import p2 from '../images/portraits/p4.jpeg';
 import p5 from '../images/portraits/p5.jpeg';
 import p6 from '../images/portraits/p6.jpg';
+import p7 from '../images/portraits/p7.JPG';
 
 // Baby imports
 import b1 from '../images/baby/b1.jpeg';
@@ -119,7 +121,8 @@ const galleryData = {
         { id: 3, url: p3, title: 'Portrait' },
         { id: 4, url: p4, title: 'Portrait' },
         { id: 5, url: p5, title: 'Portrait' },
-        { id: 6, url: p6, title: 'Wedding Portrait' }
+        { id: 6, url: p6, title: 'Wedding Portrait' },
+        { id: 7, url: p7, title: 'Portrait' }
     ],
     modelShoots: [
         { id: 1, url: m1, title: 'Fashion Photography' },
@@ -175,48 +178,102 @@ const galleryData = {
 
 const ServiceGallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentCategory, setCurrentCategory] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const location = useLocation();
 
     useEffect(() => {
         const preloadImages = async () => {
-            const loaded = {};
-            await Promise.all(
-                Object.values(galleryData).flat().map(async (image) => {
-                    try {
-                        await new Promise((resolve) => {
+            try {
+                await Promise.all(
+                    Object.values(galleryData).flat().map(image => {
+                        return new Promise((resolve) => {
                             const img = new Image();
                             img.src = image.url;
                             img.onload = resolve;
                             img.onerror = resolve;
                         });
-                        loaded[image.id] = true;
-                    } catch (error) {
-                        console.error('Error loading image:', error);
-                    }
-                })
-            );
-            setIsLoading(false);
+                    })
+                );
+                setIsLoading(false);
+            } catch (error) {
+                console.error('Error preloading images:', error);
+                setIsLoading(false);
+            }
         };
-
         preloadImages();
     }, []);
 
+    useEffect(() => {
+        if (location.state?.selectedCategory && !isLoading) {
+            const element = document.getElementById(location.state.selectedCategory);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }, [location.state, isLoading]);
+
+    useEffect(() => {
+        const handleNavigation = (direction) => {
+            if (!currentCategory || !selectedImage) return;
+            
+            const currentImages = galleryData[currentCategory];
+            let newIndex = currentImageIndex + direction;
+            
+            if (newIndex < 0) newIndex = currentImages.length - 1;
+            if (newIndex >= currentImages.length) newIndex = 0;
+            
+            setCurrentImageIndex(newIndex);
+            setSelectedImage(currentImages[newIndex]);
+        };
+
+        const handleKeyPress = (e) => {
+            if (!selectedImage) return;
+            if (e.key === 'ArrowRight') handleNavigation(1);
+            if (e.key === 'ArrowLeft') handleNavigation(-1);
+            if (e.key === 'Escape') setSelectedImage(null);
+        };
+
+        window.addEventListener('keydown', handleKeyPress);
+        return () => window.removeEventListener('keydown', handleKeyPress);
+    }, [selectedImage, currentImageIndex, currentCategory]);
+
+    const openModal = (image, category, index) => {
+        setSelectedImage(image);
+        setCurrentCategory(category);
+        setCurrentImageIndex(index);
+    };
+
+    const handleNavClick = useCallback((direction) => {
+        if (!currentCategory) return;
+        
+        const currentImages = galleryData[currentCategory];
+        let newIndex = currentImageIndex + direction;
+        
+        if (newIndex < 0) newIndex = currentImages.length - 1;
+        if (newIndex >= currentImages.length) newIndex = 0;
+        
+        setCurrentImageIndex(newIndex);
+        setSelectedImage(currentImages[newIndex]);
+    }, [currentCategory, currentImageIndex]);
+
     return (
         <div className="service-gallery">
-            <h2 id='top' >Our Photography Portfolio</h2>
+            <h2 id='top'>Our Photography Portfolio</h2>
             <div className="gallery-content">
                 {isLoading ? (
                     <div className="loading-spinner">loading . . .</div>
                 ) : (
                     Object.entries(galleryData).map(([category, images]) => (
-                        <section key={category} className="category-section">
+                        <section key={category} className="category-section" id={category}>
                             <h2>{category.charAt(0).toUpperCase() + category.slice(1)}</h2>
                             <div className="image-grid">
-                               {images.map((image) => (
+                                {images.map((image, index) => (
                                     <div 
                                         key={image.id} 
                                         className="image-card"
-                                        onClick={() => setSelectedImage(image)}
+                                        onClick={() => openModal(image, category, index)}
                                     >
                                         <div className="image-wrapper">
                                             <img 
@@ -237,10 +294,32 @@ const ServiceGallery = () => {
             </div>
 
             {selectedImage && (
-                <div className="modal" onClick={() => setSelectedImage(null)}>
-                    <span className="close">&times;</span>
+                <div className="modal" onClick={(e) => {
+                    if (e.target.className === 'modal') {
+                        setSelectedImage(null);
+                    }
+                }}>
+                    <span className="close" onClick={() => setSelectedImage(null)}>&times;</span>
+                    <button 
+                        className="nav-btn prev" 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavClick(-1);
+                        }}
+                    >
+                        &#10094;
+                    </button>
                     <img src={selectedImage.url} alt={selectedImage.title} />
-                    <h3>{selectedImage.title}</h3>
+                    <button 
+                        className="nav-btn next" 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleNavClick(1);
+                        }}
+                    >
+                        &#10095;
+                    </button>
+                    {/* <h3>{selectedImage.title}</h3> */}
                 </div>
             )}
         </div>
