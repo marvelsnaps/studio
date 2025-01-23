@@ -20,7 +20,7 @@ const BookingPopup = ({ isOpen, onClose }) => {
         const whatsappMessage = `Name: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0ADate: ${formData.date}%0AService Type: ${formData.serviceType}%0AMessage: ${formData.message}`;
         
         // Replace with your WhatsApp number
-        const phoneNumber = '8098449639'; 
+        const phoneNumber = '+918098449639'; 
         const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
         // Open WhatsApp
