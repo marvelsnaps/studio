@@ -4,7 +4,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,32 +13,24 @@
 }
 
 .booking-popup {
-    background-color: white;
+    background: white;
     padding: 30px;
     border-radius: 15px;
     width: 90%;
     max-width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000000;
-    isolation: isolate;
-    backdrop-filter: none;
 }
 
 .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #666;
-}
-
-.close-button:hover {
     color: #333;
 }
 
@@ -45,176 +38,187 @@
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+    font-family: "Yanone Kaffeesatz", serif;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.booking-popup form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: #666;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 8px;
+.booking-popup input,
+.booking-popup select,
+.booking-popup textarea {
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
-.form-group textarea {
+.booking-popup textarea {
+    height: 100px;
     resize: vertical;
 }
 
 .submit-button {
-    width: 100%;
+    background-color: #ffd700;
+    color: #333;
     padding: 12px;
-    background-color: #ffd735;
-    color: rgb(0, 0, 0);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 19px;
-    font-weight: bolder;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
-.submit-button:hover {
-    background-color: #0c8f00;
-    color: white;
-}
-.selected-photo{
-    color: black;
+.submit-button:hover:not(:disabled) {
+    background-color: #ffed4a;
+    transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-    .booking-popup-overlay {
-        z-index: 999999;
-        align-items: flex-start;
-        padding-top: 20px;
-    }
-    
-    .booking-popup {
-        width: 95%;
-        padding: 20px;
-        z-index: 1000000;
-        position: relative;
-        background-color: white;
-        margin-top: 20px;
-        max-height: 85vh;
-    }
-   
-}  
-
-.photo-preview {
-    margin-top: 10px;
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-} 
-
-.custom-dropdown {
-    position: relative;
-    cursor: pointer;
+.submit-button.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
 
-.selected-photo {
-    border: 1px solid #ddd;
-    padding: 8px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-}
-
-.dropdown-options {
-    position: absolute;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    z-index: 1000;
-    width: 100%;
-    margin-top: 10px;
-    max-width: 350px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.dropdown-option {
-    padding: 8px;
-    display: flex;
-    align-items: center;
-}
-
-.photo-option {
-    width: 50px; /* Adjust size as needed */
-    height: auto;
-    margin-right: 10px;
-}
-
-.dropdown-option:hover {
-    background-color: #f0f0f0;
-} 
-
-.dropdown-options.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 10px; /* Space between grid items */
-    max-width: 310px;
-}
-
-.photo-option {
-    width: 100%; /* Make the image take the full width of the grid cell */
-    height: auto;
-    border-radius: 4px;
-    cursor: pointer; /* Change cursor to pointer for better UX */
-}
-
-.dropdown-option {
-    position: relative; /* Position relative for absolute positioning of the tick */
-    cursor: pointer; /* Change cursor to pointer for better UX */
-}
-
-.tick {
-    position: absolute;
-    top: 5px; /* Adjust as needed */
-    right: 5px; /* Adjust as needed */
-    color: white; /* Default color for the tick */
-    font-size: 20px; /* Adjust size as needed */
-    transition: color 0.3s; /* Smooth transition for color change */
-}
-
-.tick.selected {
-    color: green; /* Change color to green when selected */
-} 
-
-.photo-selection-popup-overlay {
+.terms-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999999;
+    z-index: 1000001;
 }
 
-.photo-selection-popup {
+.terms-modal {
     background-color: white;
     padding: 30px;
     border-radius: 15px;
     width: 90%;
-    max-width: 400px;
-    min-height: 450px;
+    max-width: 600px;
+    max-height: 80vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 999999999;
-} 
+}
+
+.terms-content {
+    margin-top: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.scroll-indicator {
+    text-align: center;
+    padding: 10px;
+    background: #fff3cd;
+    color: #856404;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.terms-warning {
+    color: #856404;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.terms-checkbox input[type="checkbox"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.terms-content h4 {
+    color: #333;
+    margin: 15px 0 10px;
+    font-size: 1.2rem;
+}
+
+.terms-content p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #666;
+}
+
+.terms-content ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.terms-content li {
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.terms-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.terms-link {
+    color: #0066cc;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+.terms-link:hover {
+    color: #004999;
+}
+
+
+.timer-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.close-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .booking-popup {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .terms-modal {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .booking-popup input,
+    .booking-popup select,
+    .booking-popup textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .terms-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .terms-content p,
+    .terms-content li {
+        font-size: 14px;
+    }
+}
