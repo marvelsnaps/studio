@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import './ContactPage.css';
 import BookingPopup from './BookingPopup';
 import { 
@@ -10,7 +10,37 @@ import {
     FaEnvelope 
 } from 'react-icons/fa6';
 
+
+const TermsWelcomeModal = ({ isOpen, onClose }) => {
+    if (!isOpen) return null;
+    
+    return (
+        <div className="terms-welcome-overlay">
+            <div className="terms-welcome-modal">
+                <h3>Terms & Conditions</h3>
+                <div className="terms-content">
+                    <h4>1. Acceptance of terms:</h4>
+                    <p>By using this Website, you agree to these Terms and any future amendments. We may update or modify the Terms at any time, and such changes will be effective immediately upon posting. Please review the Terms periodically.</p>
+                    
+                    <h4>2. Services Provided:</h4>
+                    <p>Marvel Snaps offers a range of services, including photography booking, image purchase, and digital content.</p>
+                    
+                    <h4>3. Pricing and Payments:</h4>
+                    <ul>
+                        <li>25% advance payment required for booking</li>
+                        <li>Full payment before final delivery</li>
+                    </ul>
+                    
+                    <h4>4. Client's support:</h4>
+                    <p>Proper support and details required for the event & editing must be provided from the client's end for better outputs.</p>
+                </div>
+                <button className="terms-ok-button" onClick={onClose}>OK, I Understand</button>
+            </div>
+        </div>
+    );
+};
 const ContactPage = () => {
+    const [showTerms, setShowTerms] = useState(true);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -79,6 +109,10 @@ const ContactPage = () => {
 
     return (
         <div className="contact-page">
+            <TermsWelcomeModal 
+                isOpen={showTerms} 
+                onClose={() => setShowTerms(false)} 
+            />
             <h2 className="title">Let’s Work Together</h2>
             
             <h3 className="subtitle">Ready to create beautiful memories? Contact us for more information or to book your session today!

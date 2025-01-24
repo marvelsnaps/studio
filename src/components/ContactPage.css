@@ -137,9 +137,7 @@
     .subtitle {
         padding-left: 20px;
         padding-right: 20px;
-        h3{
-            font-size: 20px;
-        }
+        font: 1em poppins;
     }
 }
 
@@ -229,5 +227,79 @@
 
     .map-container iframe {
         height: 300px;
+    }
+}
+
+.terms-welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.terms-welcome-modal {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.terms-welcome-modal h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: "Yanone Kaffeesatz", serif;
+}
+
+.terms-content {
+    margin: 20px 0;
+}
+
+.terms-content h4 {
+    color: #333;
+    margin: 15px 0 10px;
+}
+
+.terms-content p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.terms-content ul {
+    margin: 10px 0 10px 20px;
+}
+
+.terms-ok-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #FFD735;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.terms-ok-button:hover {
+    background-color: #000;
+    color: #FFD735;
+}
+
+@media (max-width: 768px) {
+    .terms-welcome-modal {
+        width: 95%;
+        padding: 20px;
     }
 }
