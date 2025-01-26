@@ -1,3 +1,40 @@
+.booking-popup {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.booking-popup::-webkit-scrollbar {
+    width: 8px;
+}
+
+.booking-popup::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.booking-popup::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.booking-popup::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.booking-popup h2 {
+    top: 0;
+    background: white;
+    padding: 15px 0;
+    margin-top: 0;
+    z-index: 2;
+}
+
 .book-now-section {
     padding: 50px 15px;
     background: linear-gradient(135deg, #ffd70c, #ffd70c);
@@ -24,11 +61,12 @@
 
 .book-now-button {
     display: inline-block;
+    width: 250px;
     background: #333;
     color: white;
     text-decoration: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
+    border-radius:15px;
+    font-size: 1.5rem;
     transition: all 0.3s ease;
 }
 
@@ -49,5 +87,66 @@
     .book-now-button {
         padding: 12px 30px;
         font-size: 1rem;
+    }
+}
+
+.book-now-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.book-now-section::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 12, 0.1) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
+}
+
+.book-now-button {
+    position: relative;
+    overflow: hidden;
+    padding: 15px 40px;
+    z-index: 1;
+}
+
+.book-now-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.book-now-button:hover::after {
+    left: 100%;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .book-now-section h2 {
+        font-size: 2rem;
+    }
+
+    .book-now-section p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .book-now-button {
+        padding: 10px 25px;
+        font-size: 0.9rem;
     }
 }

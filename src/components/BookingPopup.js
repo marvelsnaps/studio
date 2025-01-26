@@ -85,6 +85,11 @@ const BookingPopup = ({ isOpen, onClose }) => {
         phone: '',
         date: '',
         serviceType: 'Wedding Photography',
+        eventDetails: '',
+        personNames: '',
+        duration: '',
+        time: '',
+        place: '',
         message: ''
     });
     const [termsAccepted, setTermsAccepted] = useState(false);
@@ -101,8 +106,8 @@ const BookingPopup = ({ isOpen, onClose }) => {
 
         console.log('Form submitted:', formData);
         // Construct WhatsApp message
-        const whatsappMessage = `Name: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0ADate: ${formData.date}%0AService Type: ${formData.serviceType}%0AMessage: ${formData.message}`;
-        
+        const whatsappMessage = `Name: ${formData.name}%0AEmail: ${formData.email}%0APhone: ${formData.phone}%0ADate: ${formData.date}%0AService Type: ${formData.serviceType}%0AEvent Details: ${formData.eventDetails}%0APerson Names: ${formData.personNames}%0ADuration: ${formData.duration}%0ATime: ${formData.time}%0APlace: ${formData.place}%0AMessage: ${formData.message}`;
+
         // Replace with your WhatsApp number
         const phoneNumber = '+918098449639'; 
         const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
@@ -185,6 +190,52 @@ const BookingPopup = ({ isOpen, onClose }) => {
                         <option value="Baby Photography">Baby Photography</option>
                         <option value="Product Photography">Product Photography</option>
                     </select>
+
+                    <input
+                        type="text"
+                        name="eventDetails"
+                        placeholder="Event Details"
+                        value={formData.eventDetails}
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="text"
+                        name="personNames"
+                        placeholder="Person Names"
+                        value={formData.personNames}
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="text"
+                        name="duration"
+                        placeholder="Duration (e.g., 4 hours, Full day)"
+                        value={formData.duration}
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="time"
+                        name="time"
+                        placeholder="Time"
+                        value={formData.time}
+                        onChange={handleChange}
+                        required
+                    />
+
+                    <input
+                        type="text"
+                        name="place"
+                        placeholder="Place/Venue"
+                        value={formData.place}
+                        onChange={handleChange}
+                        required
+                    />
+
                     <textarea
                         name="message"
                         placeholder="Additional Message"
