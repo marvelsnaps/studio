@@ -176,9 +176,14 @@ const BookingPopup = ({ isOpen, onClose }) => {
                         required
                     >
                         <option value="Wedding Photography">Wedding Photography</option>
+                        <option value="Wedding Photography & videography">Wedding Photography & Videography</option>
+                        <option value="Pre-Wedding Photography">Pre & Post Wedding Photography</option>
+                        <option value="Candid Photography">Candid Photography</option>
+                        <option value="Model shoots">Model Shoots</option>
                         <option value="Portrait Session">Portrait Session</option>
                         <option value="Event Photography">Event Photography</option>
                         <option value="Baby Photography">Baby Photography</option>
+                        <option value="Product Photography">Product Photography</option>
                     </select>
                     <textarea
                         name="message"
