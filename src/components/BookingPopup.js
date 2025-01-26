@@ -84,7 +84,7 @@ const BookingPopup = ({ isOpen, onClose }) => {
         email: '',
         phone: '',
         date: '',
-        serviceType: 'Wedding Photography',
+        serviceType: 'choose service',
         eventDetails: '',
         personNames: '',
         duration: '',

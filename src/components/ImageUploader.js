@@ -41,8 +41,8 @@ const ImageUploader = () => {
         const base64Content = await convertToBase64(file);
 
         await octokit.repos.createOrUpdateFileContents({
-          owner: 'Dineshraja03',
-          repo: 'demo',
+          owner: 'marvelsnaps',
+          repo: 'studio',
           path: `src/components/images/${file.name}`,
           message: `Upload image: ${file.name}`,
           content: base64Content,
