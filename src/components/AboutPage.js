@@ -3,21 +3,20 @@ import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 import './AboutPage.css';
 import studioLogo from './assets/logo1.png';
 import admin from '../images/admin.jpg';
-import pra from '../images/pra.webp';
-import prav from '../images/prav.webp';
 import arv from '../images/arv.jpg';
 import far from '../images/far.webp';
-import log from '../images/log.webp';
-import kar from '../images/kar.webp';
-import selva from '../images/selva.jpg';
-import vetri from '../images/vetri.jpg';
-import surya from '../images/surya.jpg';
 import nirmal from '../images/nirmal.jpg';
-import vish from '../images/vish.jpg';
-import jai from '../images/jai.jpg';
 import mrk from '../images/mrk.jpg';
 import heroVideo from './videos/MS .webm';
-
+// import vish from '../images/vish.jpg';
+// import jai from '../images/jai.jpg';
+// import log from '../images/log.webp';
+// import kar from '../images/kar.webp';
+// import selva from '../images/selva.jpg';
+// import vetri from '../images/vetri.jpg';
+// import surya from '../images/surya.jpg';
+// import pra from '../images/pra.webp';
+// import prav from '../images/prav.webp';
 
 const AboutPage = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -174,69 +173,65 @@ const AboutPage = () => {
                 </div>
 
 
-                <div className="team-section">
+                {/* <div className="team-section">
                 <h3>Marvel Snaps Supporters</h3>
                     <div className="container">
                         <div className="team-grid">
                             <div className="team-member">
                                 <img src={kar} alt="Team member" />
                                 <h3>G Karthikeyan</h3>
-                                {/* <p>Senior Photographer</p> */}
+                                
                             </div>
                             <div className="team-member">
                                 <img src={surya} alt="Team member" />
                                 <h3>Dhilip Surya</h3>
-                                {/* <p>Lead Photographer</p> */}
+                        
                             </div>
                             <div className="team-member">
                                 <img src={vetri} alt="Team member" />
                                 <h3>Vetrimani kannan</h3>
-                                {/* <p>Video Editor</p> */}
+                                
                             </div>
                             <div className="team-member">
                                 <img src={pra} alt="Team member" />
                                 <h3>Prabhakaran</h3>
-                                {/* <p>Video Editor</p> */}
+                                
                             </div>
 
 
                             <div className="team-member">
                                 <img src={log} alt="Team member" />
                                 <h3>Lokesh</h3>
-                                {/* <p>Video Editor</p> */}
+                                
                             </div>
 
                             <div className="team-member">
                                 <img src={selva} alt="Team member" />
                                 <h3>Selva</h3>
-                                {/* <p>Video Editor</p> */}
+                                
                             </div>
 
                             <div className="team-member">
                                 <img src={prav} alt="Team member" />
                                 <h3>Praveen Kumar</h3>
-                                {/* <p>Video Editor</p> */}
+                                
                             </div>
 
                             <div className="team-member">
                                 <img src={vish} alt="Team member" />
                                 <h3>Vishnu</h3>
-                                {/* <p>Video Editor</p> */}
+                            
                             </div>
 
                             <div className="team-member">
                                 <img src={jai} alt="Team member" />
                                 <h3>Jai</h3>
-                                {/* <p>Video Editor</p> */}
+                                
                             </div>
-
-
-
-
 
                         </div>
                     </div>
-                </div>
+                </div> */}
 
         
 

@@ -22,6 +22,8 @@ import AdminDashboard from './components/AdminDashboard';
 import PrivateRoute from './components/PrivateRoute';
 import { AuthProvider } from './contexts/AuthContext';
 import BookNowButton from './components/BookNow.js';
+import WelcomePopup from './components/WelcomePopup';
+
 
 function HomePage() {
     return (
@@ -62,6 +64,7 @@ function App() {
             <Router>
                 <ErrorBoundary>
                     <div className="App">
+                    <WelcomePopup />
                         <Navbar />
                         <Switch>
                             <Route exact path="/" component={HomePage} />

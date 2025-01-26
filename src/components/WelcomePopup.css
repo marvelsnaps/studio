@@ -1,0 +1,212 @@
+.ms-welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.ms-welcome-popup {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    animation: ms-slideIn 0.5s ease-out;
+}
+
+.ms-glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.ms-welcome-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.ms-welcome-logo {
+    width: 150px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.ms-welcome-title {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    margin-top: -35px;
+    color: #fff;
+    font-size: 3.5rem;
+    font-family: "Yanone Kaffeesatz", serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                 0 0 20px rgba(255, 255, 255, 0.3),
+                 0 0 30px rgba(255, 215, 0, 0.3),
+                 0 0 40px rgba(255, 215, 0, 0.2);
+    animation: ms-glow 2s ease-in-out infinite alternate;
+}
+
+.ms-welcome-subtitle {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ms-welcome-content {
+    margin: 30px 0;
+}
+
+.ms-content-text {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.ms-services-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.ms-service-item {
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.ms-service-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.ms-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ms-close-btn:hover {
+    transform: rotate(90deg);
+}
+
+.ms-start-btn {
+    padding: 12px 30px;
+    background: #ffd700;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ms-start-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    background: #fff;
+}
+
+.ms-fade-in {
+    animation: ms-fadeIn 0.5s ease-in;
+}
+
+.ms-fade-out {
+    animation: ms-fadeOut 0.5s ease-out;
+}
+
+@keyframes ms-slideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes ms-fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes ms-fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .ms-welcome-popup {
+        padding: 30px;
+        width: 95%;
+    }
+
+    .ms-welcome-title {
+        font-size: 2rem;
+    }
+
+    .ms-welcome-logo {
+        width: 120px;
+    }
+
+    .ms-services-list {
+        grid-template-columns: 1fr;
+    }
+
+    .ms-service-item {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .ms-start-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}
+@keyframes ms-glow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                     0 0 20px rgba(255, 255, 255, 0.3),
+                     0 0 30px rgba(255, 215, 0, 0.3),
+                     0 0 40px rgba(255, 215, 0, 0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.6),
+                     0 0 30px rgba(255, 255, 255, 0.4),
+                     0 0 40px rgba(255, 215, 0, 0.4),
+                     0 0 50px rgba(255, 215, 0, 0.3),
+                     0 0 60px rgba(255, 215, 0, 0.2);
+    }
+}
