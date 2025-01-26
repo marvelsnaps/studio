@@ -7,6 +7,9 @@ import w1 from '../images/wedding/w1.jpeg';
 import w2 from '../images/wedding/w2.jpeg';
 import w3 from '../images/wedding/w4.jpeg';
 import w4 from '../images/wedding/w5.jpeg';
+import w5 from '../images/wedding/w6.JPG';
+import w6 from '../images/wedding/w7.JPG';
+// import w7 from '../images/wedding/w8.JPG';
 
 // Model imports
 import m1 from '../images/model/m1.jpeg';
@@ -17,7 +20,7 @@ import m5 from '../images/model/m5.jpeg';
 
 // Pre & Post Wedding imports
 // import pp1 from '../images/Pre and Post wedding/m1.jpeg';
-// import pp2 from '../images/Pre and Post wedding/m2.jpeg';
+import pp2 from '../images/Pre and Post wedding/m2.JPG';
 import pp3 from '../images/Pre and Post wedding/m3.jpeg';
 import pp4 from '../images/Pre and Post wedding/m4.jpeg';
 import pp5 from '../images/Pre and Post wedding/m5.jpeg';
@@ -48,6 +51,11 @@ import b12 from '../images/baby/b12.jpeg';
 import b13 from '../images/baby/b13.JPG';
 import b14 from '../images/baby/b14.jpg';
 import b15 from '../images/baby/b15.jpg';
+import b16 from '../images/baby/b16.JPG';
+import b17 from '../images/baby/b17.JPG';
+import b18 from '../images/baby/b18.JPG';
+import b19 from '../images/baby/b19.JPG';
+import b20 from '../images/baby/b20.JPG';
 
 // Birthday imports
 import bd1 from '../images/birthday/bd1.jpeg';
@@ -93,11 +101,13 @@ const galleryData = {
         { id: 1, url: w1, title: 'Traditional Wedding' },
         { id: 2, url: w2, title: 'Traditional Wedding' },
         { id: 3, url: w3, title: 'Wedding Ceremony' },
-        { id: 4, url: w4, title: 'Traditional Wedding' }
+        { id: 4, url: w4, title: 'Traditional Wedding' },
+        { id: 5, url: w5, title: 'Wedding Ceremony' },
+        { id: 6, url: w6, title: 'Wedding Ceremony' },
     ],
     prePostWedding: [
         // { id: 1, url: pp1, title: 'Pre-Wedding Shoot' },
-        // { id: 2, url: pp2, title: 'Post-Wedding' },
+        { id: 2, url: pp2, title: 'Post-Wedding' },
         { id: 3, url: pp3, title: 'Couple Shoot' },
         { id: 4, url: pp4, title: 'Couple Shoot' },
         { id: 5, url: pp5, title: 'Couple Shoot' },
@@ -147,7 +157,12 @@ const galleryData = {
         { id: 12, url: b12},
         { id: 13, url: b13},
         { id: 14, url: b14},
-        { id: 15, url: b15}
+        { id: 15, url: b15},
+        { id: 16, url: b16},
+        { id: 17, url: b17},
+        { id: 18, url: b18},
+        { id: 19, url: b19},
+        { id: 20, url: b20}
     ],
     birthday: [
         { id: 1, url: bd1, title: 'Birthday Party' },
