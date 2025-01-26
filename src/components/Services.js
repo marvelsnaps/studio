@@ -1,8 +1,6 @@
 import React, {  useRef } from 'react';
-// import { Link } from 'react-router-dom';
 import { useHistory,Link } from 'react-router-dom';
 import './Services.css';
-// import weddingImage from './images/service.jpg';
 import weddingVideo from './videos/wedding.webm';
 import drone from './videos/drone.mp4';
 import event from './videos/event.mp4';
@@ -53,9 +51,9 @@ const Services = () => {
 
     const handleServiceClick = (serviceName) => {
         const categoryMap = {
-            'Wedding Photography': 'wedding',
+            'Wedding shoots': 'wedding',
             'Baby Photography': 'babyShoot',
-            'Drone Videography': 'drone',
+            'Drone shoots': 'drone',
             'Portrait Sessions': 'portrait',
             'Birthday Photography': 'birthday',
             'Product Photography': 'product'
