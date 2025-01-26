@@ -95,6 +95,11 @@ import drone3 from '../images/drone/d3.jpeg';
 import drone4 from '../images/drone/d4.jpeg';
 import drone5 from '../images/drone/d5.jpeg';
 
+//baby shower import
+
+import bs1 from '../images/baby shower/bs1.jpg';
+import bs2 from '../images/baby shower/bs2.jpg';
+
 
 const galleryData = {
     wedding: [
@@ -112,6 +117,10 @@ const galleryData = {
         { id: 4, url: pp4, title: 'Couple Shoot' },
         { id: 5, url: pp5, title: 'Couple Shoot' },
         { id: 6, url: pp6, title: 'Couple Shoot' }
+    ],
+    babyshower:[
+        {id: 1, url: bs1, title: 'Baby Shower'},
+        {id: 2, url: bs2, title: 'Baby Shower'}
     ],
     candid: [
         { id: 1, url: candit1, title: 'Candid Photography' },
