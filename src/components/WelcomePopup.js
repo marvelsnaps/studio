@@ -26,7 +26,7 @@ const WelcomePopup = () => {
     return (
         <div className={`ms-welcome-overlay ${isClosing ? 'ms-fade-out' : 'ms-fade-in'}`}>
             <div className="ms-welcome-popup ms-glass-effect">
-                <button className="ms-close-btn" onClick={handleClose}>&times;</button>
+                {/* <button className="ms-close-btn" onClick={handleClose}>&times;</button> */}
                 <div className="ms-welcome-header">
                     <img src={logo} alt="Marvel Snaps" className="ms-welcome-logo" />
                     <h2 className="ms-welcome-title">Welcome to Marvel Snaps</h2>
