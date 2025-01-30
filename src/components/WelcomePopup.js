@@ -16,7 +16,7 @@ const WelcomePopup = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             handleClose();
-        }, 12000); // 12 seconds
+        }, 6000); // 12 seconds
 
         return () => clearTimeout(timer);
     }, []);

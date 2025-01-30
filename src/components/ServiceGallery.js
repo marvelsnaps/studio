@@ -12,11 +12,15 @@ import w6 from '../images/wedding/w7.JPG';
 // import w7 from '../images/wedding/w8.JPG';
 
 // Model imports
-import m1 from '../images/model/m1.jpeg';
-import m2 from '../images/model/m2.jpeg';
-import m3 from '../images/model/m3.jpeg';
-import m4 from '../images/model/m4.jpeg';
+import m1 from '../images/model/m1.jpg';
+import m2 from '../images/model/m2.jpg';
+import m3 from '../images/model/m3.jpg';
+import m4 from '../images/model/m4.jpg';
 import m5 from '../images/model/m5.jpeg';
+import m6 from '../images/model/m6.jpeg';
+import m7 from '../images/model/m7.jpeg';
+import m8 from '../images/model/m8.jpeg';
+import m9 from '../images/model/m9.jpeg';
 
 // Pre & Post Wedding imports
 // import pp1 from '../images/Pre and Post wedding/m1.jpeg';
@@ -147,8 +151,13 @@ const galleryData = {
         { id: 1, url: m1, title: 'Fashion Photography' },
         { id: 2, url: m2, title: 'Model Shoot' },
         { id: 3, url: m3, title: 'Model Shoot' },
-        { id: 3, url: m4, title: 'Model Shoot' },
-        { id: 3, url: m5, title: 'Model Shoot' }
+        { id: 4, url: m4, title: 'Model Shoot' },
+        { id: 5, url: m5, title: 'Model Shoot' },
+        { id: 6, url: m6, title: 'Model Shoot' },
+        { id: 7, url: m7, title: 'Model Shoot' },
+        { id: 8, url: m8, title: 'Model Shoot' },
+        { id: 9, url: m9, title: 'Model Shoot' },
+
     ],
     babyShoot: [
        

@@ -28,6 +28,7 @@ import WelcomePopup from './components/WelcomePopup';
 function HomePage() {
     return (
         <>
+            <WelcomePopup />
             <Home />
             <About />
             <Services />
@@ -64,7 +65,6 @@ function App() {
             <Router>
                 <ErrorBoundary>
                     <div className="App">
-                    <WelcomePopup />
                         <Navbar />
                         <Switch>
                             <Route exact path="/" component={HomePage} />

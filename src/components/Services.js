@@ -4,9 +4,10 @@ import './Services.css';
 import weddingVideo from './videos/wedding.webm';
 import drone from './videos/drone.mp4';
 import event from './videos/event.mp4';
-import port from '../images/portraits/p1.jpeg';
+// import port from '../images/portraits/p1.jpeg';
 import bday from '../images/birthday/bd1.jpeg';
 import videography from './videos/videography.webm';
+import ad from './videos/ad.webm';
 
 
 const servicesData = [
@@ -32,11 +33,10 @@ const servicesData = [
         media: videography
     },
     { 
-        name: 'Portrait Sessions', 
-        type: 'image',
-        media: port
+        name: 'Ad flims', 
+        type: 'video',
+        media: ad
     },
-    
     { 
         name: 'Birthday Photography', 
         type: 'image',

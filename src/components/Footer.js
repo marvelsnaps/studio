@@ -60,7 +60,7 @@ const Footer = () => {
             </div>
 
             <div className="footer-bottom">
-                <p className="footer-p">© 2024 copyright Marvel Snaps studio. All Rights Reserved.</p>
+                <p className="footer-p">© 2024 copyright Marvel Snaps. All Rights Reserved.</p>
             </div>
         </footer>
     );
