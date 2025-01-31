@@ -5,9 +5,10 @@ import weddingVideo from './videos/wedding.webm';
 import drone from './videos/drone.mp4';
 import event from './videos/event.mp4';
 // import port from '../images/portraits/p1.jpeg';
-import bday from '../images/birthday/bd1.jpeg';
+import bday from './videos/birthday.webm';
 import videography from './videos/videography.webm';
 import ad from './videos/ad.webm';
+
 
 
 const servicesData = [
@@ -33,14 +34,15 @@ const servicesData = [
         media: videography
     },
     { 
+        name: 'Baby Shoots', 
+        type: 'video',
+        media: bday
+    },
+    
+    { 
         name: 'Ad flims', 
         type: 'video',
         media: ad
-    },
-    { 
-        name: 'Birthday Photography', 
-        type: 'image',
-        media: bday
     },
     
 ];

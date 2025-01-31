@@ -181,7 +181,7 @@ const AboutPage = () => {
                                 <img src={gokul} alt="Team member" />
                                 <h3>Gokul vasan B
                                 </h3>
-                                <p>~</p>
+                                <p>Photographer</p>
                             </div>
                            
                             </div>
