@@ -4,6 +4,7 @@ import img1 from '../images/silver.jpg';
 import img2 from '../images/gold.jpg';
 import img3 from '../images/diamond.jpg';
 import BookNowButton from './BookNowButton';
+import QuotationCalculator from './Quotation/QuotationCalculator';
 
 
 const packages = [
@@ -141,6 +142,8 @@ const Packages = () => {
                 
                 
             )}
+
+            <QuotationCalculator/>
             <div className="booking-section">
                 
                 <h2>Book Your Photoshoot</h2>
