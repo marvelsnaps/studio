@@ -46,6 +46,7 @@ const ContactPage = () => {
         email: '',
         message: ''
     });
+    
 
     const [isBookingOpen, setIsBookingOpen] = useState(false);
 
@@ -96,11 +97,38 @@ const ContactPage = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
-        // Add form submission logic
-    };
+    // ...existing code...
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Format message for WhatsApp
+    const whatsappMessage = 
+`New Contact Form Message
+-------------------------
+Name: ${formData.name}
+Email: ${formData.email}
+Message: ${formData.message}
+-------------------------`;
+
+    // WhatsApp business number
+    const phoneNumber = '+918098449639';
+    
+    // Create WhatsApp URL
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank');
+    
+    // Reset form
+    setFormData({
+        name: '',
+        email: '',
+        message: ''
+    });
+};
+
+// ...existing code...
 
     const studioLocation = {
         address: "#2, Bathrakalaiyamman kovil complex,Kolumam main road, neikkarapatti,palani.624615",

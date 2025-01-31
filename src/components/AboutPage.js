@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
+import { BsInstagram } from 'react-icons/bs';
+// import { BsTelephone } from 'react-icons/bs';
 import './AboutPage.css';
 import studioLogo from './assets/logo1.png';
 import admin from '../images/admin.jpg';
@@ -8,6 +10,7 @@ import far from '../images/far.webp';
 import nirmal from '../images/nirmal.jpg';
 import mrk from '../images/mrk.jpg';
 import heroVideo from './videos/MS .webm';
+import gokul from '../images/gokul.jpg';
 // import vish from '../images/vish.jpg';
 // import jai from '../images/jai.jpg';
 // import log from '../images/log.webp';
@@ -116,17 +119,23 @@ const AboutPage = () => {
 
             <section className="photographer animate-on-scroll">
                 <div className="container">
-                    <div className="photographer-content">
-                        <img src={admin} alt="Lead Photographer" />
-                        <div className="photographer-info">
-                            <h2>Thirukkumaran Giriswaran</h2>
-                            <br></br>
-                            <h3>CEO of Marvel Snaps</h3>
-                            <br></br>
-                            <p>Hi, I’m ThiruKumaran, a professional photographer based in Palani. My journey into photography began long ago when I received my first camera and since then, I’ve been dedicated to capturing stories, emotions, and the world around me through my lens. With a passion for portrait, landscape, or event photography, I focus on creating images that tell a compelling story and make every moment last forever.
-                            </p>
-                        </div>
-                    </div>
+                <div className="photographer-content">
+            <img src={admin} alt="Lead Photographer" />
+            <div className="photographer-info">
+                <h2>Thirukkumaran Giriswaran</h2>
+                <br></br>
+                <h3>CEO of Marvel Snaps</h3>
+                <br></br>
+                <p>Hi, I'm ThiruKumaran, a professional photographer based in Palani. My journey into photography began long ago when I received my first camera and since then, I've been dedicated to capturing stories, emotions, and the world around me through my lens. With a passion for portrait, landscape, or event photography, I focus on creating images that tell a compelling story and make every moment last forever.
+                </p>
+                <div className="social-links">
+                    <a href="https://www.instagram.com/man_with_cam" target="_blank" rel="noopener noreferrer">
+                        <BsInstagram className="social-icon" />
+                        <span>instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
                 </div>
 
                 <div className="container">
@@ -166,6 +175,13 @@ const AboutPage = () => {
                                 <h3>Nirmal Abdullah Abdul Rahman
                                 </h3>
                                 <p>Accounts Department</p>
+                            </div>
+
+                            <div className="team-member">
+                                <img src={gokul} alt="Team member" />
+                                <h3>Gokul vasan B
+                                </h3>
+                                <p>~</p>
                             </div>
                            
                             </div>
@@ -237,13 +253,13 @@ const AboutPage = () => {
 
             </section>
 
-            <section className="cta animate-on-scroll">
+            {/* <section className="cta animate-on-scroll">
                 <div className="container">
                     <h2>Ready to Create Memories?</h2>
                     <p>Let's capture your special moments together</p>
                     <button className="book-now">Book Now</button>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };

@@ -9,11 +9,11 @@ import event from '../images/service/event.jpeg';
 import portrait from '../images/service/portrait.jpeg';
 import model from '../images/service/model.jpeg';
 import prewed from '../images/service/pre-wed.jpeg';
-import postwed from '../images/service/post-wed.jpeg';
-import empty from '../images/service/empty.png';
+// import postwed from '../images/service/post-wed.jpeg';
+import ad from '../images/ad.jpg';
 import candid from '../images/service/candit.jpeg';
 import drone from '../images/service/drone.jpeg';
-import baby from '../images/baby/b8.jpeg';
+import baby from '../images/baby/b1.jpeg';
 import corp from '../images/corp/c5.jpeg';
 import product from '../images/product.jpeg';
 
@@ -25,15 +25,15 @@ const servicesData = [
         image: wedding
     },
     { 
-        name: 'Pre-wedding Photoshoot', 
+        name: 'Pre & Post wedding Photoshoot', 
         description: 'Capture the love before the big day with our pre-wedding photoshoot packages.',
         image: prewed
     },
-    { 
-        name: 'Post-wedding Photoshoot', 
-        description: 'Relive the moments after your wedding with our post-wedding photoshoot services.',
-        image: postwed
-    },
+    // { 
+    //     name: 'Post-wedding Photoshoot', 
+    //     description: 'Relive the moments after your wedding with our post-wedding photoshoot services.',
+    //     image: postwed
+    // },
     { 
         name: 'Candid Photography & Videography', 
         description: 'Capture genuine moments with our candid photography and videography services.',
@@ -74,7 +74,7 @@ const servicesData = [
     { 
         name: 'Ad Films', 
         description: 'Create stunning advertisements that showcase your brand effectively.',
-        image: empty
+        image: ad
     },
     { 
         name: 'Product Photography', 
@@ -177,7 +177,7 @@ const ServicesPage = () => {
     }, [history]);
 
     const handleImageError = useCallback((e) => {
-        e.target.src = empty;
+        e.target.src = ad;
     }, []);
 
 

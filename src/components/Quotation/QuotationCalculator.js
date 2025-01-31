@@ -41,7 +41,7 @@ const QuotationCalculator = () => {
                     .flatMap(category => category.services)
                     .find(s => s.id === serviceId);
                 return `- ${service?.name}: ₹${service?.price.toLocaleString()}`;
-            }).join('%0A');
+            }).join('  ');
 
         // Create formatted message
         const whatsappMessage = 
@@ -50,11 +50,12 @@ Selected Services:${selectedServicesList}
 Total Amount: ₹${calculateTotal().toLocaleString()}
 
 Contact Details:
-Name: ${contact.name}
-Phone: ${contact.phone}
-Email: ${contact.email}
-Event Date: ${contact.eventDate}
+Name: ${contact.name}, 
+Phone: ${contact.phone},
+Email: ${contact.email},
+Event Date: ${contact.eventDate},
 ${contact.message ? `Message: ${contact.message}%0A` : ''}`;
+
 
         // WhatsApp business number
         const phoneNumber = '918098449639';
