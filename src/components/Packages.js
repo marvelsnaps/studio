@@ -19,7 +19,7 @@ const packages = [
             'Additional charges for outdoor videos'
         ],
         complementary: [
-            'Outdoor photo shoot (photo only)',
+            // 'Outdoor photo shoot (photo only)',
             '2 Photoframes',
             '2 Calendars',
             'WhatsApp wedding invitation',
@@ -39,7 +39,7 @@ const packages = [
             'Complete event documentation'
         ],
         complementary: [
-            'Outdoor photo shoot (photo only)',
+            // 'Outdoor photo shoot (photo only)',
             '3 Photoframes',
             '2 Calendars',
             'WhatsApp wedding invitation',
@@ -61,7 +61,7 @@ const packages = [
             'Complete outdoor photos & videos'
         ],
         complementary: [
-            'Complete outdoor photo & video shoot',
+            // 'Complete outdoor photo & video shoot',
             '4 Photoframes',
             '2 Calendars',
             'WhatsApp wedding invitation',
