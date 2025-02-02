@@ -4,7 +4,7 @@ import img1 from '../images/silver.jpg';
 import img2 from '../images/gold.jpg';
 import img3 from '../images/diamond.jpg';
 import BookNowButton from './BookNowButton';
-import QuotationCalculator from './Quotation/QuotationCalculator';
+// import QuotationCalculator from './Quotation/QuotationCalculator';
 
 
 const packages = [
@@ -16,7 +16,6 @@ const packages = [
         description: 'Perfect for traditional ceremonies with essential coverage',
         services: [
             'Traditional photo & video coverage',
-            'Outdoor photos only',
             'Additional charges for outdoor videos'
         ],
         complementary: [
@@ -31,7 +30,7 @@ const packages = [
     {
         category: 'Gold',
         image: img2,
-        price: '₹ 85,000',
+        price: '₹ 95,000',
         mainServices: 'Traditional & Candid Coverage',
         description: 'Complete coverage with both traditional and candid moments',
         services: [
@@ -51,7 +50,7 @@ const packages = [
     {
         category: 'Diamond',
         image: img3,
-        price: '₹ 1,30,000',
+        price: '₹ 1,45,000',
         mainServices: 'Premium All-Inclusive Coverage',
         description: 'Luxury coverage with all premium features included',
         services: [
@@ -143,7 +142,7 @@ const Packages = () => {
                 
             )}
 
-            <QuotationCalculator/>
+            {/* <QuotationCalculator/> */}
             <div className="booking-section">
                 
                 <h2>Book Your Photoshoot</h2>
