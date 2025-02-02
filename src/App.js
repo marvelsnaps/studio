@@ -23,6 +23,7 @@ import PrivateRoute from './components/PrivateRoute';
 import { AuthProvider } from './contexts/AuthContext';
 import BookNowButton from './components/BookNow.js';
 import WelcomePopup from './components/WelcomePopup';
+import { Analytics } from "@vercel/analytics/react"
 
 
 function HomePage() {
@@ -79,6 +80,7 @@ function App() {
                             <PrivateRoute path="/admin-dashboard" component={AdminDashboard} />
                         </Switch>
                         <Footer />
+                        <Analytics />
                         
                         {/* Floating Icons */}
                         <div className="floating-icons">
