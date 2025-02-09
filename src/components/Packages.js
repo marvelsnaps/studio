@@ -4,6 +4,8 @@ import img1 from '../images/silver.jpg';
 import img2 from '../images/gold.jpg';
 import img3 from '../images/diamond.jpg';
 import BookNowButton from './BookNowButton';
+import { motion } from 'framer-motion';
+import { FaCheck } from 'react-icons/fa';
 // import QuotationCalculator from './Quotation/QuotationCalculator';
 
 
@@ -76,13 +78,23 @@ const Packages = () => {
 
     return (
         <div className="packages-section">
-            <h2>Wedding Photography Packages</h2>
+            <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+            >
+                Wedding Photography Packages
+            </motion.h2>
             <div className="packages-grid">
                 {packages.map((pkg, index) => (
-                    <div 
-                        key={index} 
+                    <motion.div
+                        key={index}
                         className={`package-card ${pkg.category.toLowerCase()}`}
                         onClick={() => setSelectedPackage(pkg)}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 }}
+                        whileHover={{ scale: 1.03 }}
                     >
                         <div className="package-preview">
                             <img src={pkg.image} alt={pkg.category} />
@@ -90,13 +102,24 @@ const Packages = () => {
                             <div className="price">{pkg.price}</div>
                             <div className="main-services">{pkg.mainServices}</div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
 
             {selectedPackage && (
-                <div className="package-modal" onClick={() => setSelectedPackage(null)}>
-                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                <motion.div 
+                    className="package-modal"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    onClick={() => setSelectedPackage(null)}
+                >
+                    <motion.div 
+                        className="modal-content"
+                        initial={{ scale: 0.5, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        onClick={e => e.stopPropagation()}
+                    >
                         <button className="close-btn" onClick={() => setSelectedPackage(null)}>×</button>
                         
                         <div className="modal-header">
@@ -116,7 +139,14 @@ const Packages = () => {
                                 <h3>Services Included</h3>
                                 <ul className="services-list">
                                     {selectedPackage.services.map((service, idx) => (
-                                        <li key={idx}>✓ {service}</li>
+                                        <motion.li 
+                                            key={idx}
+                                            initial={{ x: -20, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            transition={{ delay: idx * 0.1 }}
+                                        >
+                                            <FaCheck color="#00b894" /> {service}
+                                        </motion.li>
                                     ))}
                                 </ul>
                             </div>
@@ -135,11 +165,8 @@ const Packages = () => {
                                 <p>{selectedPackage.terms}</p>
                             </div>
                         </div>
-                    </div>     
-                </div>
-
-                
-                
+                    </motion.div>
+                </motion.div>
             )}
 
             {/* <QuotationCalculator/> */}
