@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@octokit/rest": "^21.1.0",
-    "@vercel/analytics": "^1.4.1",
+    "@vercel/analytics": "^0.1.11",
     "axios": "^1.7.9",
     "framer-motion": "^6.0.0",
     "lottie-react": "^2.0.0",
