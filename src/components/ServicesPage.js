@@ -183,7 +183,7 @@ const handleServiceClick = useCallback((service) => {
         'Corporate Photography': 'corporate',
         'Drone Shoots': 'drone',
         'Ad Films': 'adFilms',
-        'Product Photography': 'product'
+        'Product Photography': 'wedding'
     };
 
     const category = categoryMap[service.name];
