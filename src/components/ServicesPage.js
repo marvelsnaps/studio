@@ -170,11 +170,29 @@ const ServicesPage = () => {
         ],
     }), []);
 
-    const handleServiceClick = useCallback((service) => {
+    // Update the handleServiceClick function
+const handleServiceClick = useCallback((service) => {
+    const categoryMap = {
+        'Wedding Photography': 'wedding',
+        'Pre & Post wedding Photoshoot': 'prePostWedding',
+        'Candid Photography & Videography': 'candid',
+        'Portrait Sessions': 'portrait',
+        'Model Shoots': 'modelShoots',
+        'Event Videography': 'birthday',
+        'Baby Photography': 'babyShoot',
+        'Corporate Photography': 'corporate',
+        'Drone Shoots': 'drone',
+        'Ad Films': 'adFilms',
+        'Product Photography': 'product'
+    };
+
+    const category = categoryMap[service.name];
+    if (category) {
         history.push('/service-gallery', { 
-            selectedService: service.name 
+            selectedCategory: category 
         });
-    }, [history]);
+    }
+}, [history]);
 
     const handleImageError = useCallback((e) => {
         e.target.src = ad;
