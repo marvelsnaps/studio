@@ -40,7 +40,7 @@ const servicesData = [
     },
     
     { 
-        name: 'Ad flims', 
+        name: 'Ad films', 
         type: 'video',
         media: ad
     },
@@ -54,11 +54,12 @@ const Services = () => {
     const handleServiceClick = (serviceName) => {
         const categoryMap = {
             'Wedding shoots': 'wedding',
-            'Baby Photography': 'babyShoot',
+            'Event shoots': 'birthday',
             'Drone shoots': 'drone',
             'Portrait Sessions': 'portrait',
-            'Birthday Photography': 'birthday',
-            'Product Photography': 'product'
+            'Baby Shoots': 'babyShoot',
+            'Product Photography': 'product',
+            'Ad films': 'adFilms',
         };
 
         const category = categoryMap[serviceName];

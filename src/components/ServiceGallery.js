@@ -67,7 +67,9 @@ import bd2 from '../images/birthday/bd2.jpeg';
 import bd3 from '../images/birthday/bd3.jpeg';
 import bd4 from '../images/birthday/bd4.jpeg';
 import bd5 from '../images/birthday/bd5.jpeg';
-// import bd6 from '../images/birthday/bd6.jpeg';
+import bd6 from '../images/birthday/bd6.jpeg';
+import bd7 from '../images/birthday/bd7.jpeg';
+import bd8 from '../images/birthday/bd8.jpeg';
 
 
 //corporate imports
@@ -93,7 +95,7 @@ import candit10 from '../images/candit/c10.jpg';
 
 //drone imports
 
-import drone1 from '../images/drone/d1.jpeg';
+import drone1 from './videos/drone.mp4';
 import drone2 from '../images/drone/d2.jpeg';
 import drone3 from '../images/drone/d3.jpeg';
 import drone4 from '../images/drone/d4.jpeg';
@@ -103,7 +105,13 @@ import drone5 from '../images/drone/d5.jpeg';
 
 import bs1 from '../images/baby shower/bs1.jpg';
 import bs2 from '../images/baby shower/bs2.jpg';
+import bs3 from '../images/baby shower/bs3.JPG';
+import bs4 from '../images/baby shower/bs4.JPG';
+import bs5 from '../images/baby shower/bs5.JPG';
 
+// Add these imports at the top with other imports
+import ad1 from './videos/ad.webm';
+// import ad2 from '../images/edit.mp4';/
 
 const galleryData = {
     wedding: [
@@ -124,7 +132,11 @@ const galleryData = {
     ],
     babyshower:[
         {id: 1, url: bs1, title: 'Baby Shower'},
-        {id: 2, url: bs2, title: 'Baby Shower'}
+        {id: 2, url: bs2, title: 'Baby Shower'},
+        {id: 3, url: bs3, title: 'Baby Shower'},
+        {id: 4, url: bs4, title: 'Baby Shower'},
+        {id: 5, url: bs5, title: 'Baby Shower'}
+
     ],
     candid: [
         { id: 1, url: candit1, title: 'Candid Photography' },
@@ -187,7 +199,10 @@ const galleryData = {
         { id: 2, url: bd2, title: 'Cake Cutting' },
         { id: 3, url: bd3, title: 'Birthday Celebration' },
         { id: 4, url: bd4, title: 'Birthday Celebration' },
-        { id: 5, url: bd5, title: 'Birthday Celebration' }
+        { id: 5, url: bd5, title: 'Birthday Celebration' },
+        { id: 6, url: bd6, title: 'Birthday Celebration' },
+        { id: 7, url: bd7, title: 'Birthday Celebration' },
+        { id: 8, url: bd8, title: 'Birthday Celebration' }
     ],
     corporate: [
         { id: 1, url: c1, title: 'Corporate Event' },
@@ -198,13 +213,27 @@ const galleryData = {
     ],
     
     drone:[
-        { id: 1, url: drone1, title: 'Drone Photography' },
+        { id: 1, url: drone1, title: 'Drone Videography', type: 'video' },
         { id: 2, url: drone2, title: 'Drone Photography' },
         { id: 3, url: drone3, title: 'Drone Photography' },
         { id: 4, url: drone4, title: 'Drone Photography' },
         { id: 5, url: drone5, title: 'Drone Photography' }
-    ]
+    ],
 
+    adFilms: [
+        { 
+            id: 1, 
+            url: ad1, 
+            title: 'Hi-Tech Collections',
+            type: 'video'
+        },
+        // { 
+        //     id: 2, 
+        //     url: ad2, 
+        //     title: 'Product Advertisement',
+        //     type: 'video'
+        // }
+    ]
 
 };
 
@@ -309,11 +338,24 @@ const ServiceGallery = () => {
                                         onClick={() => openModal(image, category, index)}
                                     >
                                         <div className="image-wrapper">
-                                            <img 
-                                                src={image.url} 
-                                                alt={image.title} 
-                                                loading="lazy"
-                                            />
+                                            {image.type === 'video' ? (
+                                                <video 
+                                                    src={image.url}
+                                                    alt={image.title}
+                                                    controls
+                                                    autoPlay
+                                                    loop
+                                                    muted
+                                                    preload="metadata"
+                                                    className="video-preview"
+                                                />
+                                            ) : (
+                                                <img 
+                                                    src={image.url} 
+                                                    alt={image.title} 
+                                                    loading="lazy"
+                                                />
+                                            )}
                                             <div className="image-overlay">
                                                 <h4>{image.title}</h4>
                                             </div>
@@ -333,26 +375,30 @@ const ServiceGallery = () => {
                     }
                 }}>
                     <span className="close" onClick={() => setSelectedImage(null)}>&times;</span>
-                    <button 
-                        className="nav-btn prev" 
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            handleNavClick(-1);
-                        }}
-                    >
-                        &#10094;
-                    </button>
-                    <img src={selectedImage.url} alt={selectedImage.title} />
-                    <button 
-                        className="nav-btn next" 
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            handleNavClick(1);
-                        }}
-                    >
-                        &#10095;
-                    </button>
-                    {/* <h3>{selectedImage.title}</h3> */}
+                    {selectedImage.type === 'video' ? (
+                        <video 
+                            src={selectedImage.url}
+                            controls
+                            autoPlay
+                            className="modal-video"
+                        />
+                    ) : (
+                        <>
+                            <button className="nav-btn prev" onClick={(e) => {
+                                e.stopPropagation();
+                                handleNavClick(-1);
+                            }}>
+                                &#10094;
+                            </button>
+                            <img src={selectedImage.url} alt={selectedImage.title} />
+                            <button className="nav-btn next" onClick={(e) => {
+                                e.stopPropagation();
+                                handleNavClick(1);
+                            }}>
+                                &#10095;
+                            </button>
+                        </>
+                    )}
                 </div>
             )}
         </div>

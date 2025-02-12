@@ -179,3 +179,21 @@
     background: rgba(0, 0, 0, 0.8);
     transform: scale(1.1);
 }
+
+.video-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.modal-video {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.image-card:hover .video-preview {
+    transform: scale(1.05);
+}
