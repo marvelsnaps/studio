@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Packages.css';
-import img1 from '../images/silver.jpg';
-import img2 from '../images/gold.jpg';
-import img3 from '../images/diamond.jpg';
+import img1 from '../images/silver.png';
+import img2 from '../images/gold.png';
+import img3 from '../images/diamond.png';
 import BookNowButton from './BookNowButton';
 import { motion } from 'framer-motion';
 import { FaCheck } from 'react-icons/fa';
