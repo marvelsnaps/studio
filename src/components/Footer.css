@@ -32,14 +32,52 @@
 }
 
 .social-links a {
-    color: #000000;
+    color: #ffffff;
     font-size: 1.5rem;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .social-links a:hover {
     transform: translateY(-3px);
-    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.social-links a.facebook {
+    background: linear-gradient(45deg, #3b5998, #5d7dc0);
+}
+
+.social-links a.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-links a.whatsapp {
+    background: linear-gradient(45deg, #25d366, #128C7E);
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(0);
+    transition: 0.3s ease;
+    border-radius: 50%;
+}
+
+.social-links a:hover::before {
+    transform: scale(1);
 }
 
 .footer-links {
@@ -154,6 +192,25 @@
 
     .social-links {
         justify-content: center;
+        flex-direction: row; /* Explicitly set horizontal layout */
+        flex-wrap: nowrap; /* Prevent wrapping */
+        gap: 1.2rem; /* Reduce gap slightly for better fit */
+        margin: 1.5rem 0;
+        width: 100%; /* Ensure full width */
+        display: flex; /* Reinforce flex display */
+    }
+
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .social-links {
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
     }
 
     .footer-contact p {
@@ -166,5 +223,46 @@
 
     .location-link {
         justify-content: center;
+    }
+
+    .social-links a {
+        font-size: 1.8rem;
+        width: 55px;
+        height: 55px;
+        animation: pulse 2s infinite alternate;
+    }
+
+    .social-links a:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+
+    .social-links a:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-links a {
+        font-size: 1.6rem;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Add pulse animation for mobile */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.08);
+    }
+}
+
+/* Add touch-friendly feedback */
+@media (hover: none) {
+    .social-links a:active {
+        transform: scale(0.95);
+        opacity: 0.8;
     }
 }

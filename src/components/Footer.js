@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="footer-logo">
                     <h3>Marvel Snaps</h3>
                     <div className="social-links">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                             <FaFacebook />
                         </a>
                         <a href="https://www.instagram.com/marvel_snaps_official" target="_blank" rel="noopener noreferrer">
