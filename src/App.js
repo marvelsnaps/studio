@@ -22,14 +22,14 @@ import AdminDashboard from './components/AdminDashboard';
 import PrivateRoute from './components/PrivateRoute';
 import { AuthProvider } from './contexts/AuthContext';
 import BookNowButton from './components/BookNow.js';
-import WelcomePopup from './components/WelcomePopup';
+// import WelcomePopup from './components/WelcomePopup';
 import { Analytics } from "@vercel/analytics/react"
 
 
 function HomePage() {
     return (
         <>
-            <WelcomePopup />
+            {/* <WelcomePopup /> */}
             <Home />
             <About />
             <Services />
