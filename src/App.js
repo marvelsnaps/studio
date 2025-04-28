@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
 import Home from './components/Home';
@@ -24,7 +24,8 @@ import { AuthProvider } from './contexts/AuthContext';
 import BookNowButton from './components/BookNow.js';
 // import WelcomePopup from './components/WelcomePopup';
 import { Analytics } from "@vercel/analytics/react"
-
+// Import the security component
+import SecurityRestrictions from './components/SecurityRestrictions';
 
 function HomePage() {
     return (
@@ -41,7 +42,6 @@ function HomePage() {
 }
 
 function App() {
-
     const [showScrollButton, setShowScrollButton] = useState(false);
 
     useEffect(() => {
@@ -66,6 +66,8 @@ function App() {
             <Router>
                 <ErrorBoundary>
                     <div className="App">
+                        {/* Add the SecurityRestrictions component here */}
+                        <SecurityRestrictions />
                         <Navbar />
                         <Switch>
                             <Route exact path="/" component={HomePage} />
@@ -89,7 +91,6 @@ function App() {
                                         <span className="vertical-text">⬅️ Go top</span>
                                     </button>
                                 )}
-
 
                             <a href="https://wa.me/+918098449639" target="_blank" rel="noopener noreferrer" className="icon whatsapp">
                                 <FaWhatsapp size={30} />
