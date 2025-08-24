@@ -10,6 +10,16 @@ const Services = () => {
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Helper function to dynamically import service gallery images
+  const importImage = (path: string) => {
+    try {
+      return new URL(`../assest/service gallery/${path}`, import.meta.url).href;
+    } catch (error) {
+      console.error(`Failed to load image: ${path}`, error);
+      return '/placeholder.svg';
+    }
+  };
+
   const weddingPackages = [
     {
       name: 'Silver Package',
@@ -95,7 +105,7 @@ const Services = () => {
       title: 'Pre & Post Wedding Photoshoots',
       description: 'Beautiful pre and post-wedding sessions to capture your journey as a couple.',
       features: ['Pre-wedding shoots', 'Post-wedding sessions', 'Romantic sessions', 'Location shoots', 'Styled photography'],
-      image: '/src/assest/service gallery/Pre and Post wedding/m3.jpeg',
+      image: importImage('Pre and Post wedding/m3.jpeg'),
       category: 'wedding',
       icon: Heart,
       price: '₹20,000/-'
@@ -104,7 +114,7 @@ const Services = () => {
       title: 'Candid Photography & Videography',
       description: 'Natural, unposed moments captured beautifully with both photography and videography.',
       features: ['Candid moments', 'Natural expressions', 'Event documentation', 'Video highlights', 'Cinematic storytelling'],
-      image: '/src/assest/service gallery/candit/c1.jpeg',
+      image: importImage('candit/c1.jpeg'),
       category: 'candid',
       icon: Camera,
       price: '₹45,000/-'
@@ -113,7 +123,7 @@ const Services = () => {
       title: 'Portrait Sessions',
       description: 'Professional portrait photography for individuals and families.',
       features: ['Individual portraits', 'Family sessions', 'Professional headshots', 'Lifestyle photography'],
-      image: '/src/assest/service gallery/portraits/p1.jpeg',
+      image: importImage('portraits/p1.jpeg'),
       category: 'portrait',
       icon: User,
       price: '₹8,000/-'
@@ -122,7 +132,7 @@ const Services = () => {
       title: 'Model Shoots',
       description: 'Professional model photography for portfolios and fashion shoots.',
       features: ['Fashion photography', 'Portfolio building', 'Beauty shots', 'Creative concepts'],
-      image: '/src/assest/service gallery/model pics/m1.jpg',
+      image: importImage('model pics/m1.jpg'),
       category: 'model',
       icon: Sparkles,
       price: '₹20,000/-'
@@ -131,7 +141,7 @@ const Services = () => {
       title: 'Baby Photo Shoot',
       description: 'Precious moments with your little ones captured beautifully.',
       features: ['Newborn photography', 'Baby milestones', 'Family portraits', 'Maternity shoots'],
-      image: '/src/assest/service gallery/baby/b1.jpeg',
+      image: importImage('baby/b1.jpeg'),
       category: 'baby',
       icon: Heart,
       price: '₹10,000/-'
@@ -140,7 +150,7 @@ const Services = () => {
       title: 'Corporate Shoot',
       description: 'Professional corporate photography for businesses and organizations.',
       features: ['Corporate events', 'Team photography', 'Office documentation', 'Business portraits'],
-      image: '/src/assest/service gallery/corp/c1.jpeg',
+      image: importImage('corp/c1.jpeg'),
       category: 'corporate',
       icon: Building,
       price: 'Based on work'
