@@ -31,22 +31,6 @@ const Home = () => {
     acceptTerms: false
   });
 
-  const services = [
-    { title: 'Wedding Shoots', icon: Heart, description: 'Capture your special day with elegance' },
-    { title: 'Event Shoots', icon: Camera, description: 'Professional event photography' },
-    { title: 'Drone Shoots', icon: Play, description: 'Aerial photography and videography' },
-    { title: 'Videography', icon: Play, description: 'Cinematic video production' },
-    { title: 'Baby Shoots', icon: Heart, description: 'Precious moments with your little ones' },
-    { title: 'Ad Films', icon: Camera, description: 'Commercial photography and films' }
-  ];
-
-  const stats = [
-    { number: '500+', label: 'Projects Completed' },
-    { number: '100+', label: 'Weddings Captured' },
-    { number: '150+', label: 'Commercial Shoots' },
-    { number: '1000+', label: 'Happy Clients' }
-  ];
-
   // Helper function to dynamically import service gallery images
   const importImage = (path: string) => {
     try {
@@ -56,6 +40,88 @@ const Home = () => {
       return '/placeholder.svg';
     }
   };
+
+  const services = [
+    { 
+      title: 'Wedding Shoots', 
+      icon: Heart, 
+      description: 'Capture your special day with elegance',
+      images: [
+        importImage('wedding/w1.jpeg'),
+        importImage('wedding/w2.jpeg'),
+        importImage('wedding/w4.jpeg'),
+        importImage('wedding/w5.jpeg'),
+        importImage('wedding/w6.jpeg')
+      ]
+    },
+    { 
+      title: 'Event Shoots', 
+      icon: Camera, 
+      description: 'Professional event photography',
+      images: [
+        importImage('candit/c1.jpeg'),
+        importImage('candit/c2.jpeg'),
+        importImage('candit/c3.jpeg'),
+        importImage('candit/c4.jpeg'),
+        importImage('candit/c5.jpg')
+      ]
+    },
+    { 
+      title: 'Drone Shoots', 
+      icon: Play, 
+      description: 'Aerial photography and videography',
+      images: [
+        importImage('drone/d1.jpeg'),
+        importImage('drone/d2.jpeg'),
+        importImage('drone/d3.jpeg'),
+        importImage('drone/d4.jpeg'),
+        importImage('drone/d5.jpeg')
+      ]
+    },
+    { 
+      title: 'Videography', 
+      icon: Play, 
+      description: 'Cinematic video production',
+      images: [
+        importImage('model pics/m1.jpg'),
+        importImage('model pics/m2.jpg'),
+        importImage('model pics/m3.jpg'),
+        importImage('model pics/m4.jpg'),
+        importImage('Pre and Post wedding/m2.jpeg')
+      ]
+    },
+    { 
+      title: 'Baby Shoots', 
+      icon: Heart, 
+      description: 'Precious moments with your little ones',
+      images: [
+        importImage('baby/b1.jpeg'),
+        importImage('baby/b2.jpeg'),
+        importImage('baby/b3.jpeg'),
+        importImage('baby/b4.jpeg'),
+        importImage('baby/b5.jpeg')
+      ]
+    },
+    { 
+      title: 'Ad Films', 
+      icon: Camera, 
+      description: 'Commercial photography and films',
+      images: [
+        importImage('corp/c1.jpeg'),
+        importImage('corp/c2.jpeg'),
+        importImage('corp/c3.jpeg'),
+        importImage('corp/c4.jpeg'),
+        importImage('corp/c5.jpeg')
+      ]
+    }
+  ];
+
+  const stats = [
+    { number: '500+', label: 'Projects Completed' },
+    { number: '100+', label: 'Weddings Captured' },
+    { number: '150+', label: 'Commercial Shoots' },
+    { number: '1000+', label: 'Happy Clients' }
+  ];
 
   const galleryImages = [
     // Wedding Images
@@ -143,21 +209,21 @@ Additional Message: ${formData.message}`;
               <img 
                 src={left}
                 alt="Photography 1"
-                className="w-full h-32 md:h-80 object-cover rounded-lg shadow-lg transform rotate-3"
+                className="w-full h-64 md:h-[31rem] object-cover rounded-lg shadow-lg transform rotate-3"
               />
             </div>
             <div className="hover-lift">
               <img 
                 src={center}
                 alt="Photography 2"
-                className="w-full h-40 md:h-96 object-cover rounded-lg shadow-xl"
+                className="w-full h-64 md:h-[31rem] object-cover rounded-lg shadow-xl"
               />
             </div>
             <div className="hover-lift">
               <img 
                 src={right}
                 alt="Photography 3"
-                className="w-full h-32 md:h-80 object-cover rounded-lg shadow-lg transform -rotate-3"
+                className="w-full h-64 md:h-[31rem] object-cover rounded-lg shadow-lg transform -rotate-3"
               />
             </div>
           </div>
@@ -206,13 +272,86 @@ Additional Message: ${formData.message}`;
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {services.map((service, index) => (
-              <Card key={index} className="hover-lift cursor-pointer group">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 bg-marvel-yellow rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <service.icon className="h-8 w-8 text-black" />
+              <Card key={index} className="hover-lift cursor-pointer group overflow-hidden">
+                <CardContent className="p-0 relative">
+                  {/* Icon positioned at top-left */}
+                  <div className="absolute top-3 left-3 z-10 w-10 h-10 bg-marvel-yellow rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                    <service.icon className="h-5 w-5 text-black" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-gray-600">{service.description}</p>
+                  
+                  {/* Bento grid layout for images */}
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <div className="grid grid-cols-3 grid-rows-3 gap-0.5 h-full">
+                      {/* Large image taking 2x2 grid */}
+                      <div className="col-span-2 row-span-2 overflow-hidden">
+                        <img 
+                          src={service.images[0]} 
+                          alt={`${service.title} 1`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/placeholder.svg';
+                          }}
+                        />
+                      </div>
+                      
+                      {/* Top right image */}
+                      <div className="col-span-1 row-span-1 overflow-hidden">
+                        <img 
+                          src={service.images[1]} 
+                          alt={`${service.title} 2`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/placeholder.svg';
+                          }}
+                        />
+                      </div>
+                      
+                      {/* Middle right image */}
+                      <div className="col-span-1 row-span-1 overflow-hidden">
+                        <img 
+                          src={service.images[2]} 
+                          alt={`${service.title} 3`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/placeholder.svg';
+                          }}
+                        />
+                      </div>
+                      
+                      {/* Bottom left image */}
+                      <div className="col-span-1 row-span-1 overflow-hidden">
+                        <img 
+                          src={service.images[3]} 
+                          alt={`${service.title} 4`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/placeholder.svg';
+                          }}
+                        />
+                      </div>
+                      
+                      {/* Bottom middle image */}
+                      <div className="col-span-1 row-span-1 overflow-hidden">
+                        <img 
+                          src={service.images[4]} 
+                          alt={`${service.title} 5`}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/placeholder.svg';
+                          }}
+                        />
+                      </div>
+                      
+                      {/* Bottom right empty space for better visual balance */}
+                      <div className="col-span-1 row-span-1"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Text content */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    <p className="text-gray-600">{service.description}</p>
+                  </div>
                 </CardContent>
               </Card>
             ))}

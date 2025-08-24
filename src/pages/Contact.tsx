@@ -257,14 +257,14 @@ ${formData.message}`;
           </div>
           <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.123456789!2d77.123456!3d10.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDA3JzI0LjQiTiA3N8KwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d381.6036755579715!2d77.46410306221485!3d10.445191658361018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9d92db48b0631%3A0x367b94b9ee37a889!2sMARVEL%20SNAP%20STUDIO!5e1!3m2!1sen!2sin!4v1756068305727!5m2!1sen!2sin"
               width="100%"
-              height="400"
+              height="450"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Marvel Snaps Location"
+              title="Marvel Snap Studio Location"
             ></iframe>
           </div>
         </div>

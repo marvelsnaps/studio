@@ -78,7 +78,7 @@ const ServiceGallery = () => {
     { url: importImage('portraits/p5.jpeg'), category: 'portrait', title: 'Portrait Photography' },
     { url: importImage('portraits/p6.jpg'), category: 'portrait', title: 'Portrait Art' },
     { url: importImage('portraits/p7.jpeg'), category: 'portrait', title: 'Studio Portrait' },
-    { url: importImage('portraits/p8.jpg'), category: 'portrait', title: 'Creative Portrait' },
+    { url: importImage('portraits/p8.jpeg'), category: 'portrait', title: 'Creative Portrait' },
     
     // Model Images
     { url: importImage('model pics/m1.jpg'), category: 'model', title: 'Model Photography' },

@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+# Marvel Snaps Studio
 
-## Project info
+## Project Description
 
-**URL**: https://lovable.dev/projects/bed5e2f9-f468-4f3f-b348-82e59077ea39
+Marvel Snaps Studio is a professional photography and videography portfolio website showcasing our services including wedding shoots, event photography, drone photography, videography, baby shoots, and commercial ad films.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Responsive Design**: Works perfectly on all devices
+- **Service Gallery**: Showcasing different photography categories
+- **Interactive Portfolio**: Browse through our work
+- **Booking System**: Easy online booking with WhatsApp integration
+- **Modern UI**: Built with modern web technologies
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/bed5e2f9-f468-4f3f-b348-82e59077ea39) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
+## Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Fast build tool and development server
+- **TypeScript** - Type-safe JavaScript
+- **React** - Modern UI library
+- **shadcn-ui** - Beautiful and accessible UI components
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Beautiful icons
 
-## How can I deploy this project?
+## Development Setup
 
-Simply open [Lovable](https://lovable.dev/projects/bed5e2f9-f468-4f3f-b348-82e59077ea39) and click on Share -> Publish.
+To run this project locally:
 
-## Can I connect a custom domain to my Lovable project?
+```sh
+# Clone the repository
+git clone <YOUR_GIT_URL>
 
-Yes, you can!
+# Navigate to the project directory
+cd studio
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# Install dependencies
+npm install
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# Start the development server
+npm run dev
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── contexts/      # React contexts
+├── hooks/         # Custom hooks
+├── lib/           # Utility functions
+└── assets/        # Images and static files
+```
+
+## Contact
+
+For more information about Marvel Snaps Studio, visit our website or contact us through our booking system.
