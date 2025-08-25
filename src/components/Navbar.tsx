@@ -5,6 +5,9 @@ import { Menu, X, Instagram, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useNavigation } from '@/contexts/NavigationContext';
+import FeedbackForm from '@/components/FeedbackForm';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Heart } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,7 +24,7 @@ const Navbar = () => {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Gallery', href: '/gallery' },
-    { name: 'Services', href: '/services' },
+    { name: 'Packages', href: '/services' },
     { name: 'Service Gallery', href: '/service-gallery' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -130,20 +133,43 @@ const Navbar = () => {
                   <div className="flex-1 py-8">
                     <nav className="space-y-6">
                       {navItems.map((item) => (
-                        <button
-                          key={item.name}
-                          onClick={() => {
-                            setIsMobileMenuOpen(false);
-                            handleNavigation(item.href);
-                          }}
-                          className={`block text-lg font-medium transition-colors duration-300 hover:text-marvel-yellow ${
-                            location.pathname === item.href
-                              ? 'text-marvel-yellow'
-                              : 'text-black'
-                          }`}
-                        >
-                          {item.name}
-                        </button>
+                        <div key={item.name}>
+                          <button
+                            onClick={() => {
+                              setIsMobileMenuOpen(false);
+                              handleNavigation(item.href);
+                            }}
+                            className={`block text-lg font-medium transition-colors duration-300 hover:text-marvel-yellow ${
+                              location.pathname === item.href
+                                ? 'text-marvel-yellow'
+                                : 'text-black'
+                            }`}
+                          >
+                            {item.name}
+                          </button>
+
+                          {/* Place Write Review directly below the Contact nav item */}
+                          {item.name === 'Contact' && (
+                            <div className="mt-3 px-0">
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <button className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:scale-105 shadow-md px-4 py-3 rounded-full focus:outline-none focus:ring-4 focus:ring-yellow-300">
+                                    <Heart className="h-5 w-5" />
+                                    <span className="font-semibold">Write Review</span>
+                                  </button>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                                  <DialogHeader>
+                                    <DialogTitle>Write Feedback</DialogTitle>
+                                  </DialogHeader>
+                                  <div className="pt-2">
+                                    <FeedbackForm />
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </nav>
                   </div>
