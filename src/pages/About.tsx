@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Play, Volume2, VolumeX, Instagram, Award, Users, Camera } from 'lucide-react';
+import { Play, Volume2, VolumeX, Instagram, Award, Users, Camera, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { StaggerTestimonials } from '@/components/ui/stagger-testimonials';
+import FeedbackForm from '@/components/FeedbackForm';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import studio from '@/assest/videos/studio.webm';
 
 const About = () => {
@@ -211,6 +213,32 @@ const About = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Write a Review CTA (replaces inline feedback form) */}
+      <section className="py-12 bg-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl w-full bg-gradient-to-r from-yellow-50 to-white rounded-xl p-6 shadow-lg mx-auto flex flex-col items-center">
+            <h3 className="text-2xl font-semibold mb-2">Share your experience</h3>
+            <p className="text-gray-600 mb-4 text-center">Loved our work? Leave a quick review — it helps others and us.</p>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:scale-105 shadow-md px-4 py-2 rounded-full focus:outline-none focus:ring-4 focus:ring-yellow-300">
+                  <Heart className="h-5 w-5" />
+                  <span className="font-semibold">Write Feedback</span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Write Feedback</DialogTitle>
+                </DialogHeader>
+                <div className="pt-2">
+                  <FeedbackForm />
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Camera, Calendar, MapPin, Users, Award, Heart, Play } from 'lucide-react';
+import { Camera, Calendar, MapPin, Users, Award, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,7 +8,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent } from '@/components/ui/card';
 import { useNavigation } from '@/contexts/NavigationContext';
+import FeedbackForm from '@/components/FeedbackForm';
 import { StaggerTestimonials } from '@/components/ui/stagger-testimonials';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Heart } from 'lucide-react';
 import center from '@/assest/images/center.jpeg'; 
 import left from '@/assest/images/left.jpeg';
 import right from '@/assest/images/right.jpeg';
@@ -17,9 +20,10 @@ const Home = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
   const { navigateWithLoader } = useNavigation();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
+  name: '',
+  email: '',
+  phone: '',
+  rating: '', // Added rating as a string
     date: '',
     category: '',
     eventDetails: '',
@@ -59,7 +63,6 @@ const Home = () => {
       icon: Camera, 
       description: 'Professional event photography',
       images: [
-        importImage('candit/c1.jpeg'),
         importImage('candit/c2.jpeg'),
         importImage('candit/c3.jpeg'),
         importImage('candit/c4.jpeg'),
@@ -259,7 +262,7 @@ Additional Message: ${formData.message}`;
       </section>
 
       {/* Our Services */}
-      <section className="py-20 bg-white">
+  <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
@@ -416,6 +419,30 @@ Additional Message: ${formData.message}`;
             </p>
           </div>
           <StaggerTestimonials />
+
+          {/* Feedback CTA: appears directly below testimonials on Home only */}
+          <div className="mt-10 flex justify-center">
+            <div className="max-w-2xl w-full bg-gradient-to-r from-yellow-50 to-white rounded-xl p-6 shadow-lg flex flex-col items-center">
+              <h3 className="text-2xl font-semibold mb-2">Share your experience</h3>
+              <p className="text-gray-600 mb-4 text-center">Loved our work? Leave a quick review — it helps others and us.</p>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black hover:scale-105 shadow-md px-4 py-2 rounded-full focus:outline-none focus:ring-4 focus:ring-yellow-300">
+                    <Heart className="h-5 w-5" />
+                    <span className="font-semibold">Write Feedback</span>
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+                  <DialogHeader>
+                    <DialogTitle>Write Feedback</DialogTitle>
+                  </DialogHeader>
+                  <div className="pt-2">
+                    <FeedbackForm />
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </div>
         </div>
       </section>
 
