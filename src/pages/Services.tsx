@@ -140,7 +140,7 @@ const Services = () => {
     {
       title: 'Baby Photo Shoot',
       description: 'Precious moments with your little ones captured beautifully.',
-      features: ['Newborn photography', 'Baby milestones', 'Family portraits', 'Maternity shoots'],
+      features: ['Baby milestones', 'Family portraits', 'Maternity shoots'],
       image: importImage('baby/b1.jpeg'),
       category: 'baby',
       icon: Heart,
@@ -351,10 +351,11 @@ const Services = () => {
                     {service.description}
                   </p>
                   
-                  <ul className="list-disc pl-5 text-gray-600 text-sm mb-4 space-y-1">
+                  <ul className="pl-0 text-gray-600 text-sm mb-4 space-y-2">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="transition-colors duration-300 hover:text-yellow-600">
-                        {feature}
+                      <li key={i} className="flex items-start transition-colors duration-300 hover:text-yellow-600">
+                        <span className="mt-1 mr-3 h-2 w-2 rounded-full bg-gray-400 flex-shrink-0" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>

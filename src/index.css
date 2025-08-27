@@ -332,3 +332,18 @@
 .animate-flash {
   animation: flash 2s ease-in-out infinite;
 }
+
+/* Anti-save / anti-copy styles (best-effort) */
+img, picture, figure {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+/* Disable long-press image saving UI on iOS/Android where supported */
+img {
+  -webkit-touch-callout: none;
+}

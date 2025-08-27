@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -33,13 +33,27 @@ const ServiceGallery = () => {
     { id: 'candid', name: 'Candid' },
     { id: 'portrait', name: 'Portraits' },
     { id: 'model', name: 'Model Shoots' },
-    { id: 'videography', name: 'Videography' },
+  { id: 'videography', name: 'Birthday' },
     { id: 'baby', name: 'Baby Photography' },
     { id: 'corporate', name: 'Corporate' },
     { id: 'drone', name: 'Drone' },
     { id: 'commercial', name: 'Ad Films' },
     { id: 'product', name: 'Product' }
   ];
+
+  // Friendly labels used when showing category text in overlays/lightbox
+  const categoryLabels: Record<string, string> = {
+    videography: 'Birthday',
+    wedding: 'Weddings',
+    candid: 'Candid',
+    portrait: 'Portraits',
+    model: 'Model Shoots',
+    baby: 'Baby Photography',
+    corporate: 'Corporate',
+    drone: 'Drone',
+    commercial: 'Ad Films',
+    product: 'Product'
+  };
 
   // Gallery data with dynamic image imports
   const galleryImages = [
@@ -159,23 +173,23 @@ const ServiceGallery = () => {
     document.body.style.overflow = 'unset';
   };
 
-  const nextImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % filteredImages.length);
-    }
-  };
+  const nextImage = useCallback(() => {
+    setSelectedImage((prev) =>
+      prev === null ? prev : (prev + 1) % filteredImages.length
+    );
+  }, [filteredImages.length]);
 
-  const prevImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage(selectedImage === 0 ? filteredImages.length - 1 : selectedImage - 1);
-    }
-  };
+  const prevImage = useCallback(() => {
+    setSelectedImage((prev) =>
+      prev === null ? prev : prev === 0 ? filteredImages.length - 1 : prev - 1
+    );
+  }, [filteredImages.length]);
 
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (selectedImage === null) return;
-      
+
       if (event.key === 'Escape') {
         closeLightbox();
       } else if (event.key === 'ArrowRight') {
@@ -187,7 +201,7 @@ const ServiceGallery = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImage, filteredImages]);
+  }, [selectedImage, nextImage, prevImage]);
 
   if (!imagesLoaded) {
     return <div className="min-h-screen flex items-center justify-center">Loading gallery...</div>;
@@ -241,9 +255,12 @@ const ServiceGallery = () => {
                 onClick={() => openLightbox(index)}
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <img 
-                  src={image.url} 
+                <img
+                  src={image.url}
                   alt={image.title}
+                  draggable={false}
+                  onDragStart={(e) => e.preventDefault()}
+                  onContextMenu={(e) => e.preventDefault()}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   onError={(e) => {
                     // Fallback if image fails to load
@@ -253,7 +270,7 @@ const ServiceGallery = () => {
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center">
                   <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 text-center text-white transform translate-y-4 group-hover:translate-y-0">
                     <h3 className="text-lg font-semibold mb-1">{image.title}</h3>
-                    <p className="text-sm capitalize bg-marvel-yellow text-black px-2 py-1 rounded">{image.category}</p>
+                    <p className="text-sm capitalize bg-marvel-yellow text-black px-2 py-1 rounded">{categoryLabels[image.category] || image.category}</p>
                   </div>
                 </div>
               </div>
@@ -290,9 +307,12 @@ const ServiceGallery = () => {
           </Button>
 
           <div className="max-w-5xl max-h-[90vh] px-4 animate-scale-in">
-            <img 
-              src={filteredImages[selectedImage].url} 
+            <img
+              src={filteredImages[selectedImage].url}
               alt={filteredImages[selectedImage].title}
+              draggable={false}
+              onDragStart={(e) => e.preventDefault()}
+              onContextMenu={(e) => e.preventDefault()}
               className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
               onError={(e) => {
                 // Fallback if image fails to load
@@ -304,7 +324,7 @@ const ServiceGallery = () => {
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center animate-fade-in">
             <h3 className="text-xl font-semibold mb-1">{filteredImages[selectedImage].title}</h3>
             <p className="text-sm capitalize bg-marvel-yellow text-black px-3 py-1 rounded-full mb-2 inline-block">
-              {filteredImages[selectedImage].category}
+              {categoryLabels[filteredImages[selectedImage].category] || filteredImages[selectedImage].category}
             </p>
             <p className="text-sm opacity-75">{selectedImage + 1} / {filteredImages.length}</p>
           </div>
