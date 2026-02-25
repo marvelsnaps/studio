@@ -15,6 +15,7 @@ import { Heart } from 'lucide-react';
 import center from '@/assest/images/center.jpeg'; 
 import left from '@/assest/images/left.jpeg';
 import right from '@/assest/images/right.jpeg';
+import heroImage from '@/assest/hero/hero.webp';
 
 const Home = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
@@ -191,11 +192,11 @@ Additional Message: ${formData.message}`;
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[70vh] md:h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url("/lovable-uploads/1062a8ed-c8c5-471b-86e8-f96695647fb1.png")'
-          }}
+        <img
+          src={heroImage}
+          alt="Hero Background"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/20" />
       </section>
@@ -212,6 +213,7 @@ Additional Message: ${formData.message}`;
               <img 
                 src={left}
                 alt="Photography 1"
+                loading="lazy"
                 className="w-full h-64 md:h-[31rem] object-cover rounded-lg shadow-lg transform rotate-3"
               />
             </div>
@@ -219,6 +221,7 @@ Additional Message: ${formData.message}`;
               <img 
                 src={center}
                 alt="Photography 2"
+                loading="lazy"
                 className="w-full h-64 md:h-[31rem] object-cover rounded-lg shadow-xl"
               />
             </div>
@@ -226,6 +229,7 @@ Additional Message: ${formData.message}`;
               <img 
                 src={right}
                 alt="Photography 3"
+                loading="lazy"
                 className="w-full h-64 md:h-[31rem] object-cover rounded-lg shadow-lg transform -rotate-3"
               />
             </div>

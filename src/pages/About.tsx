@@ -60,6 +60,7 @@ const About = () => {
           autoPlay 
           muted={isMuted} 
           loop 
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src={studio} type="video/webm" />
@@ -122,6 +123,7 @@ const About = () => {
               <img 
                 src="/lovable-uploads/1062a8ed-c8c5-471b-86e8-f96695647fb1.png" 
                 alt="Our Story"
+                loading="lazy"
                 className="w-full max-w-md mx-auto rounded-lg shadow-2xl hover-lift"
               />
             </div>
@@ -173,6 +175,7 @@ const About = () => {
                   <img 
                     src={member.image} 
                     alt={member.name}
+                    loading="lazy"
                     className="w-full max-w-md mx-auto rounded-lg shadow-2xl hover-lift"
                   />
                 </div>
