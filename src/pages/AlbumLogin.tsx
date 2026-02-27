@@ -5,21 +5,14 @@ import { Input } from '@/components/ui/input';
 import { Lock, User, Eye, EyeOff, BookOpen } from 'lucide-react';
 
 const AlbumLogin: React.FC = () => {
-  const { login, error } = useAlbumAuth();
+  const { login, error, loading } = useAlbumAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    // Small delay for smooth UX
-    await new Promise((resolve) => setTimeout(resolve, 400));
-
-    login(username, password);
-    setIsLoading(false);
+    await login(username, password);
   };
 
   return (
@@ -88,10 +81,10 @@ const AlbumLogin: React.FC = () => {
             {/* Submit */}
             <Button
               type="submit"
-              disabled={isLoading || !username || !password}
+              disabled={loading || !username || !password}
               className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 text-base"
             >
-              {isLoading ? (
+              {loading ? (
                 <span className="flex items-center gap-2">
                   <span className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
                   Verifying...

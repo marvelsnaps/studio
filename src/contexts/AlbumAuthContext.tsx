@@ -1,35 +1,59 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
+import { db } from '@/lib/firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 interface AlbumAuthContextType {
   isAuthenticated: boolean;
-  login: (username: string, password: string) => boolean;
+  login: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
   error: string | null;
+  loading: boolean;
 }
 
 const AlbumAuthContext = createContext<AlbumAuthContextType | undefined>(undefined);
-
-// Album credentials — change these to set custom login details
-const ALBUM_CREDENTIALS = {
-  username: 'gokul nandhini',
-  password: 'GN2025',
-};
 
 export const AlbumAuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return sessionStorage.getItem('album_auth') === 'true';
   });
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const login = useCallback((username: string, password: string): boolean => {
-    if (username.toLowerCase() === ALBUM_CREDENTIALS.username.toLowerCase() && password === ALBUM_CREDENTIALS.password) {
-      setIsAuthenticated(true);
-      setError(null);
-      sessionStorage.setItem('album_auth', 'true');
-      return true;
+  const login = useCallback(async (username: string, password: string): Promise<boolean> => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Query Firestore: collection "album_users", match username (case-insensitive)
+      const usersRef = collection(db, 'album_users');
+      const q = query(usersRef, where('username_lowercase', '==', username.toLowerCase()));
+      const snapshot = await getDocs(q);
+
+      if (snapshot.empty) {
+        setError('Invalid username or password');
+        setLoading(false);
+        return false;
+      }
+
+      // Check password from the matched document
+      const userDoc = snapshot.docs[0].data();
+      if (userDoc.password === password) {
+        setIsAuthenticated(true);
+        setError(null);
+        sessionStorage.setItem('album_auth', 'true');
+        setLoading(false);
+        return true;
+      } else {
+        setError('Invalid username or password');
+        setLoading(false);
+        return false;
+      }
+    } catch (err) {
+      console.error('Firebase login error:', err);
+      setError('Something went wrong. Please try again.');
+      setLoading(false);
+      return false;
     }
-    setError('Invalid username or password');
-    return false;
   }, []);
 
   const logout = useCallback(() => {
@@ -38,7 +62,7 @@ export const AlbumAuthProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   }, []);
 
   return (
-    <AlbumAuthContext.Provider value={{ isAuthenticated, login, logout, error }}>
+    <AlbumAuthContext.Provider value={{ isAuthenticated, login, logout, error, loading }}>
       {children}
     </AlbumAuthContext.Provider>
   );
