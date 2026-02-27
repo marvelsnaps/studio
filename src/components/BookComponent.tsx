@@ -164,45 +164,25 @@ const BookComponent: React.FC<BookComponentProps> = ({ pages, title = 'Photo Alb
         </HTMLFlipBook>
       </div>
 
-      <div className={`flex items-center justify-center gap-3 sm:gap-6 mb-6 sm:mb-8 ${isMobile ? 'w-full flex-wrap' : ''}`}>
-        <Button
-          onClick={handlePrevPage}
-          variant="outline"
-          size={isMobile ? 'sm' : 'lg'}
-          className={`rounded-full bg-white/10 hover:bg-white/20 text-white border-white/30 ${isMobile ? 'p-2' : 'p-3'}`}
-          aria-label="Previous page"
-        >
-          <ChevronLeft className={isMobile ? 'w-5 h-5' : 'w-6 h-6'} />
-        </Button>
-
-        <Button
-          onClick={handleNextPage}
-          variant="outline"
-          size={isMobile ? 'sm' : 'lg'}
-          className={`rounded-full bg-white/10 hover:bg-white/20 text-white border-white/30 ${isMobile ? 'p-2' : 'p-3'}`}
-          aria-label="Next page"
-        >
-          <ChevronRight className={isMobile ? 'w-5 h-5' : 'w-6 h-6'} />
-        </Button>
-      </div>
-
-      <div className="flex items-center justify-center gap-4 mb-6">
-        <Button
-          onClick={downloadPdf}
-          size={isMobile ? 'sm' : 'default'}
-          className="bg-primary/90 hover:bg-primary text-primary-foreground font-semibold rounded-full px-6 py-2.5 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 hover:scale-105 gap-2"
-        >
-          <Download className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} />
-          Download PDF
-        </Button>
-        <Button
-          onClick={toggleFullscreen}
-          size={isMobile ? 'sm' : 'default'}
-          className="bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full px-6 py-2.5 border border-white/20 hover:border-white/40 backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-105 gap-2"
-        >
-          {isFullscreen ? <Minimize className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} /> : <Maximize className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} />}
-          {isFullscreen ? 'Exit Fullscreen' : 'Full Screen'}
-        </Button>
+      <div className="flex flex-col items-center gap-4 mb-6">
+        <div className="flex items-center justify-center gap-4">
+          <Button
+            onClick={downloadPdf}
+            size={isMobile ? 'sm' : 'default'}
+            className="bg-primary/90 hover:bg-primary text-primary-foreground font-semibold rounded-full px-6 py-2.5 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 hover:scale-105 gap-2"
+          >
+            <Download className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} />
+            Download PDF
+          </Button>
+          <Button
+            onClick={toggleFullscreen}
+            size={isMobile ? 'sm' : 'default'}
+            className="bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full px-6 py-2.5 border border-white/20 hover:border-white/40 backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-105 gap-2"
+          >
+            {isFullscreen ? <Minimize className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} /> : <Maximize className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} />}
+            {isFullscreen ? 'Exit Fullscreen' : 'Full Screen'}
+          </Button>
+        </div>
         {isMobile && (
           <Button
             onClick={rotateScreen}
