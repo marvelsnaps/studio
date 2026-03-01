@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
-import { ChevronLeft, ChevronRight, Download, Maximize, Minimize, RotateCw } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Download, Maximize, Minimize, RotateCw, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useAlbumAuth } from '@/contexts/AlbumAuthContext';
 
 interface BookComponentProps {
   pages: string[];
@@ -12,6 +13,7 @@ interface BookComponentProps {
 
 const BookComponent: React.FC<BookComponentProps> = ({ pages, title = 'Photo Album', imageWidth = 800, imageHeight = 600 }) => {
   const flipBookRef = useRef<any>(null);
+  const { logout } = useAlbumAuth();
   const [isMobile, setIsMobile] = useState(false);
   
   // Detect mobile on mount and resize
@@ -181,8 +183,14 @@ const BookComponent: React.FC<BookComponentProps> = ({ pages, title = 'Photo Alb
           >
             {isFullscreen ? <Minimize className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} /> : <Maximize className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} />}
             {isFullscreen ? 'Exit Fullscreen' : 'Full Screen'}
-          </Button>
-        </div>
+          </Button>        <Button
+          onClick={logout}
+          size={isMobile ? 'sm' : 'default'}
+          className="bg-red-500/80 hover:bg-red-500 text-white font-semibold rounded-full px-6 py-2.5 shadow-lg transition-all duration-300 hover:scale-105 gap-2"
+        >
+          <LogOut className={isMobile ? 'w-4 h-4' : 'w-5 h-5'} />
+          Logout
+        </Button>        </div>
         {isMobile && (
           <Button
             onClick={rotateScreen}

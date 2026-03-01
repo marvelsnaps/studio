@@ -4,13 +4,13 @@ import AlbumLogin from '@/pages/AlbumLogin';
 import Album from '@/pages/Album';
 
 const ProtectedAlbum: React.FC = () => {
-  const { isAuthenticated } = useAlbumAuth();
+  const { isAuthenticated, albumName } = useAlbumAuth();
 
   if (!isAuthenticated) {
     return <AlbumLogin />;
   }
 
-  return <Album />;
+  return <Album albumFolder={albumName} />;
 };
 
 export default ProtectedAlbum;

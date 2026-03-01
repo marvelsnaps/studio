@@ -3,8 +3,19 @@ import { useParams } from 'react-router-dom';
 import BookComponent from '@/components/BookComponent';
 import { Loader } from 'lucide-react';
 
-const Album: React.FC = () => {
-  const { albumName = 'album1' } = useParams<{ albumName?: string }>();
+// Vite requires static glob patterns — define all album globs here
+const albumGlobs: Record<string, Record<string, () => Promise<unknown>>> = {
+  album1: import.meta.glob('/src/albums/album1/*', { query: '?url', import: 'default' }),
+  album2: import.meta.glob('/src/albums/album2/*', { query: '?url', import: 'default' }),
+};
+
+interface AlbumProps {
+  albumFolder?: string;
+}
+
+const Album: React.FC<AlbumProps> = ({ albumFolder }) => {
+  const { albumName: paramAlbum } = useParams<{ albumName?: string }>();
+  const activeAlbum = albumFolder || paramAlbum || 'album1';
   const [images, setImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -16,14 +27,16 @@ const Album: React.FC = () => {
         setLoading(true);
         setError(null);
 
-        // Dynamically import all images from the album folder
-        // This uses Vite's glob import feature
-        const imageModules = import.meta.glob('/src/albums/album1/*', {
-          query: '?url',
-          import: 'default',
-        });
+        // Get the correct glob for the active album
+        const imageModules = albumGlobs[activeAlbum];
 
-        const imagePaths: string[] = [];
+        if (!imageModules) {
+          setError(`Album "${activeAlbum}" not found`);
+          setLoading(false);
+          return;
+        }
+
+        const imagePaths: { path: string; url: string }[] = [];
 
         // Supported image extensions
         const supportedExtensions = /\.(jpg|jpeg|png|webp|gif)$/i;
@@ -33,19 +46,28 @@ const Album: React.FC = () => {
             try {
               const url = await (importFn as () => Promise<string | { default: string }>)();
               const imageUrl = typeof url === 'string' ? url : url.default;
-              imagePaths.push(imageUrl);
+              imagePaths.push({ path, url: imageUrl });
             } catch (err) {
               console.warn(`Failed to load image: ${path}`, err);
             }
           }
         }
 
-        // Sort images alphabetically for consistent ordering
-        imagePaths.sort();
-        setImages(imagePaths);
+        // Sort by extracting numbers from the filename for natural numeric order
+        imagePaths.sort((a, b) => {
+          const nameA = a.path.split('/').pop() || '';
+          const nameB = b.path.split('/').pop() || '';
+          // Extract leading number from filename
+          const numA = parseInt((nameA.match(/(\d+)/) || ['0'])[0], 10);
+          const numB = parseInt((nameB.match(/(\d+)/) || ['0'])[0], 10);
+          if (numA !== numB) return numA - numB;
+          return nameA.localeCompare(nameB);
+        });
+
+        setImages(imagePaths.map((item) => item.url));
 
         if (imagePaths.length === 0) {
-          console.log('No images found in album. To add images, place them in src/albums/album1/ folder');
+          console.log(`No images found in ${activeAlbum}. Add images to src/albums/${activeAlbum}/`);
         }
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : 'Failed to load album images';
@@ -57,7 +79,7 @@ const Album: React.FC = () => {
     };
 
     loadImages();
-  }, [albumName]);
+  }, [activeAlbum]);
 
   // Get image dimensions from first image
   useEffect(() => {
@@ -103,7 +125,7 @@ const Album: React.FC = () => {
     <div className="w-full">
       <BookComponent 
         pages={images} 
-        title={`${albumName.charAt(0).toUpperCase() + albumName.slice(1)} - Photo Album`}
+        title={`${activeAlbum.charAt(0).toUpperCase() + activeAlbum.slice(1)} - Photo Album`}
         imageWidth={imageDimensions.width}
         imageHeight={imageDimensions.height}
       />

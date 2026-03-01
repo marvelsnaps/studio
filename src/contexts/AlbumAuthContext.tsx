@@ -4,6 +4,7 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 
 interface AlbumAuthContextType {
   isAuthenticated: boolean;
+  albumName: string;
   login: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
   error: string | null;
@@ -15,6 +16,9 @@ const AlbumAuthContext = createContext<AlbumAuthContextType | undefined>(undefin
 export const AlbumAuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return sessionStorage.getItem('album_auth') === 'true';
+  });
+  const [albumName, setAlbumName] = useState(() => {
+    return sessionStorage.getItem('album_name') || 'album1';
   });
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -38,9 +42,12 @@ export const AlbumAuthProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       // Check password from the matched document
       const userDoc = snapshot.docs[0].data();
       if (userDoc.password === password) {
+        const userAlbum = userDoc.album || 'album1';
         setIsAuthenticated(true);
+        setAlbumName(userAlbum);
         setError(null);
         sessionStorage.setItem('album_auth', 'true');
+        sessionStorage.setItem('album_name', userAlbum);
         setLoading(false);
         return true;
       } else {
@@ -58,11 +65,13 @@ export const AlbumAuthProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
   const logout = useCallback(() => {
     setIsAuthenticated(false);
+    setAlbumName('album1');
     sessionStorage.removeItem('album_auth');
+    sessionStorage.removeItem('album_name');
   }, []);
 
   return (
-    <AlbumAuthContext.Provider value={{ isAuthenticated, login, logout, error, loading }}>
+    <AlbumAuthContext.Provider value={{ isAuthenticated, albumName, login, logout, error, loading }}>
       {children}
     </AlbumAuthContext.Provider>
   );
