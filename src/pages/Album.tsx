@@ -19,7 +19,7 @@ const Album: React.FC<AlbumProps> = ({ albumFolder }) => {
   const [images, setImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [imageDimensions, setImageDimensions] = useState({ width: 800, height: 600 });
+  const [imageDimensions, setImageDimensions] = useState<{ width: number; height: number } | null>(null);
 
   useEffect(() => {
     const loadImages = async () => {
@@ -86,14 +86,15 @@ const Album: React.FC<AlbumProps> = ({ albumFolder }) => {
     if (images.length > 0) {
       const img = new Image();
       img.onload = () => {
+        console.log('Detected image dimensions:', img.naturalWidth, 'x', img.naturalHeight);
         setImageDimensions({
           width: img.naturalWidth || img.width,
           height: img.naturalHeight || img.height,
         });
       };
       img.onerror = () => {
-        // Keep default dimensions if load fails
-        console.warn('Could not load image dimensions');
+        console.warn('Could not load image dimensions, using fallback');
+        setImageDimensions({ width: 800, height: 600 });
       };
       img.src = images[0];
     }
@@ -116,6 +117,18 @@ const Album: React.FC<AlbumProps> = ({ albumFolder }) => {
         <div className="text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Error</h2>
           <p className="text-red-400 text-lg">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Don't render book until we know the actual image dimensions
+  if (!imageDimensions) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 to-gray-800">
+        <div className="text-center">
+          <Loader className="w-12 h-12 text-white animate-spin mx-auto mb-4" />
+          <p className="text-white text-lg">Preparing album...</p>
         </div>
       </div>
     );

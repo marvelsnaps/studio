@@ -30,31 +30,50 @@ const BookComponent: React.FC<BookComponentProps> = ({ pages, title = 'Photo Alb
   // Calculate dimensions based on image aspect ratio
   // For responsive design while maintaining aspect ratio
   const aspectRatio = imageWidth / imageHeight;
+  const isPortrait = aspectRatio < 1;
   
   let bookWidth: number;
   let bookHeight: number;
   
   if (isMobile) {
-    // Mobile: Use most of the screen width
-    const maxScreenWidth = typeof window !== 'undefined' ? window.innerWidth * 0.9 : 400;
-    bookWidth = Math.min(imageWidth * 0.5, maxScreenWidth);
-    bookHeight = bookWidth / aspectRatio;
-    
-    // Limit height for mobile
-    if (bookHeight > window.innerHeight * 0.6) {
-      bookHeight = window.innerHeight * 0.55;
+    if (isPortrait) {
+      // Portrait on mobile: size by height first
+      bookHeight = Math.min(window.innerHeight * 0.55, imageHeight * 0.4);
       bookWidth = bookHeight * aspectRatio;
+      // Ensure it doesn't exceed screen width
+      if (bookWidth > window.innerWidth * 0.45) {
+        bookWidth = window.innerWidth * 0.45;
+        bookHeight = bookWidth / aspectRatio;
+      }
+    } else {
+      // Landscape on mobile: size by width
+      const maxScreenWidth = typeof window !== 'undefined' ? window.innerWidth * 0.9 : 400;
+      bookWidth = Math.min(imageWidth * 0.5, maxScreenWidth);
+      bookHeight = bookWidth / aspectRatio;
+      if (bookHeight > window.innerHeight * 0.6) {
+        bookHeight = window.innerHeight * 0.55;
+        bookWidth = bookHeight * aspectRatio;
+      }
     }
   } else {
-    // Desktop: Use larger dimensions
-    const maxScreenWidth = typeof window !== 'undefined' ? window.innerWidth * 0.95 : 1200;
-    bookWidth = Math.min(imageWidth * 0.9, maxScreenWidth * 0.9);
-    bookHeight = bookWidth / aspectRatio;
-    
-    // Limit height for desktop
-    if (bookHeight > window.innerHeight * 0.85) {
-      bookHeight = window.innerHeight * 0.75;
+    if (isPortrait) {
+      // Portrait on desktop: size by height first, then derive width
+      bookHeight = Math.min(window.innerHeight * 0.75, imageHeight * 0.7);
       bookWidth = bookHeight * aspectRatio;
+      // Ensure double-page spread doesn't exceed screen width
+      if (bookWidth * 2 > window.innerWidth * 0.9) {
+        bookWidth = (window.innerWidth * 0.9) / 2;
+        bookHeight = bookWidth / aspectRatio;
+      }
+    } else {
+      // Landscape on desktop: size by width
+      const maxScreenWidth = typeof window !== 'undefined' ? window.innerWidth * 0.95 : 1200;
+      bookWidth = Math.min(imageWidth * 0.9, maxScreenWidth * 0.9);
+      bookHeight = bookWidth / aspectRatio;
+      if (bookHeight > window.innerHeight * 0.85) {
+        bookHeight = window.innerHeight * 0.75;
+        bookWidth = bookHeight * aspectRatio;
+      }
     }
   }
 
@@ -132,6 +151,7 @@ const BookComponent: React.FC<BookComponentProps> = ({ pages, title = 'Photo Alb
       
       <div id="album-book" className="relative w-full flex justify-center mb-6 sm:mb-8">
         <HTMLFlipBook
+          key={`${Math.round(bookWidth)}-${Math.round(bookHeight)}`}
           ref={flipBookRef}
           width={Math.round(bookWidth)}
           height={Math.round(bookHeight)}
@@ -158,7 +178,7 @@ const BookComponent: React.FC<BookComponentProps> = ({ pages, title = 'Photo Alb
               <img
                 src={imageUrl}
                 alt={`Page ${index + 1}`}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
